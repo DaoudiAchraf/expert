@@ -1,0 +1,29 @@
+.sort{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 10px;
+    .title{
+        display: flex;
+        align-items: center;
+        color:black;
+        font-family: AvenirNext;
+        font-size: x-large;
+        h1{
+            margin:0px;
+            color: #47495A;
+        }
+        .nb-expert{
+            color : #4EADFF;
+            font-size: 50px;
+            margin-right: 5px;
+        }
+
+    }
+    .sortby{
+        width: 200px;
+        height: 100%;
+        border: 1px black solid;
+    }
+}

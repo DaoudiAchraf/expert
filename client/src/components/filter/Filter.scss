@@ -1,0 +1,22 @@
+.filter{
+    width: 376px;
+    height: 1000px;
+    display: flex;
+    flex-direction: column;
+    p{
+        font-family: HelveticaNeue;
+        margin-left: 30px;
+        margin-bottom: 24px;
+        font-size: 43px;
+        color:#47495A;
+    }
+    .mb-18{
+        margin-bottom: 18px;
+    }
+    .upper-case{
+        text-transform: uppercase;
+    }
+    .select,h4{
+        margin-left: 30px;
+    }
+}

@@ -1,0 +1,28 @@
+.expert-page{
+    background-color: #F6F9FC;
+    .main{
+        display: flex;
+        margin-top: 30px;
+        .card{
+            margin-left: 30px;
+            width: 900px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            .experts{
+                width: 100%;
+                height: auto;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                margin-bottom: 40px;
+            }
+            .pagination{
+                align-self: flex-start;
+                margin-bottom: 20px;
+            }
+        }
+    }
+}
+
