@@ -50,17 +50,4 @@ router.post('/register-expert', multer({ storage: storage }).single("image"), (r
 });
 router.post('/authenticate', ctrlUser.authenticate);
 router.get('/user', jwtHelper.verifyJwtToken, ctrlUser.userProfile);
-// router.put('/update/:id',jwtHelper.verifyJwtToken,jwtHelper.cheackRole(['admin']),
-// multer({storage:storage}).single("image"),ctrlUser.update);
-// router.put('/updateProfile',jwtHelper.verifyJwtToken,jwtHelper.cheackRole(['superadmin','admin','fournisseur','client']),
-// multer({storage:storage}).single("image"),ctrlUser.updateProfile);
-// router.delete('/delete/:id',jwtHelper.verifyJwtToken,jwtHelper.cheackRole(['superadmin','admin','fournisseur']),ctrlUser.delete);
-// router.get('/list',jwtHelper.verifyJwtToken,jwtHelper.cheackRole(['superadmin','admin','fournisseur']),ctrlUser.list);
-// router.get('/listfourniatt',jwtHelper.verifyJwtToken,jwtHelper.cheackRole(['superadmin','admin','fournisseur']),ctrlUser.listFourniAtt);
-// router.get('/listadmin',jwtHelper.verifyJwtToken,jwtHelper.cheackRole(['superadmin','admin','fournisseur']),ctrlUser.listadmin);
-// router.get('/listclient',jwtHelper.verifyJwtToken,jwtHelper.cheackRole(['superadmin','admin']),ctrlUser.listclient);
-// // router.get('/list1/:id',ctrlUser.list1);
-// router.get('/userProfile',jwtHelper.verifyJwtToken,jwtHelper.verifyJwtToken,jwtHelper.cheackRole(['superadmin','admin','fournisseur','client']), ctrlUser.userProfile);
-// // router.get('/listAdmins/:society',jwtHelper.verifyJwtToken,jwtHelper.cheackRole(['superadmin','admin','fournisseur','client']),ctrlUser.listAdmins);
-// router.post('/resetpass',jwtHelper.verifyJwtToken,ctrlUser.resetpassword);
 module.exports = router;

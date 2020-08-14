@@ -16,7 +16,7 @@ const SignupForm = props => {
   return (
     <Form className="signup-form" onSubmit={handleSubmit}>
       <Form.Item>
-        {getFieldDecorator("name", {
+        {getFieldDecorator("login", {
           rules: [{ required: true, message: "Please input your name!" }]
         })(
           <Input

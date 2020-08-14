@@ -51,7 +51,17 @@
                 .expert-work{
                     text-decoration: underline;
                 }
-                
+            }
+            .rating{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                p {
+                    margin : 0;
+                    margin-left: 7px;
+                    margin-top: 3px;
+                    color: #ABB5C1;
+                }
             }
         }
     }

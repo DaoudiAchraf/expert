@@ -19,8 +19,10 @@ const ExpertCard = () => {
                         <p>Localisation</p>
                         <h4>Fouchena Cité Amal</h4>
                     </div>
-
-                    <Rate allowHalf defaultValue={4.5} />
+                    <div className="rating">
+                        <Rate disabled allowHalf defaultValue={4.5} />
+                        <p>4.5 out of 5</p>
+                    </div>
                 </div>
 
             </div>

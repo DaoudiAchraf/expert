@@ -16,7 +16,7 @@ module.exports.register = (req, role, res, next) => {
   user.phone = req.body.phone;
   user.mail = req.body.mail;
   user.role = role;
-  user.adress = req.body.adress;
+  // user.adress = req.body.adress;
   if (req.file) {
     user.image = url + '/images/' + req.file.filename;
   } else user.image = url + '/images/defaultImage.png';
