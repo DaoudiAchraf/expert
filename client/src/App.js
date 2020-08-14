@@ -18,11 +18,12 @@ const App = props => {
       />
       <Switch location={props.history.location}>
         <Route exact path={"/"} component={HomePage} />
-        <AuthRoute
+        <Route exact path={"/expert"} component={ExpertPage} />
+        {/* <AuthRoute
           authenticated={props.isLoggedIn}
           path="/expert"
           component={ExpertPage}
-        />
+        /> */}
         <GuestRoute
           authenticated={props.isLoggedIn}
           path="/signup"
