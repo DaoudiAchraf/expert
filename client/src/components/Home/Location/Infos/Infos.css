@@ -1,0 +1,30 @@
+.location
+{
+    padding: 50px 100px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    flex: 1;
+    height: 100%;
+  
+}
+
+i { margin-right: 10px; font-size: 30px; }
+
+h1 {font-weight: bold; margin-bottom: 40px;}
+
+.bloc
+{   display: flex;
+    padding: 10px 0;
+}
+
+.item{ flex: 1;padding: 0px 47px;}
+
+#social-media{ padding-top: 20px; }
+
+#social-media i
+{
+    margin-left: 9px;
+}
+
+.p1{ font-size: 20px; }

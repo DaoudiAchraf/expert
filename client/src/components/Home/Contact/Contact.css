@@ -1,0 +1,44 @@
+
+
+.contact-container
+{
+    background: #F2F3F7;
+    display: flex;
+    flex-direction: row-reverse;
+    /* background: url("../../../images/berlingo.jpg")no-repeat ; */
+    flex-wrap: wrap;
+    padding-bottom: 100px;
+
+}
+
+
+.contact-box
+{
+    padding-top: 80px;
+    padding-left: 20px;
+
+    padding :50px 20px;
+
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+
+
+.card
+{
+    margin-top: 40px;
+    width: 80%;
+}
+
+.berlingo
+{
+ 
+    height: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 4px; 
+    margin-bottom: 20px;
+}

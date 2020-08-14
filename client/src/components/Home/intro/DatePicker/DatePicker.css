@@ -1,0 +1,47 @@
+
+
+.background
+{
+    background-color: white;
+    
+    padding: 4px;
+    padding-left: 4px;
+    color: gray;
+
+    border-radius: 15px;
+    border-radius: 3%;
+    
+    margin-bottom: 10px;
+   
+    
+}
+
+.flexContainer3
+{
+    display: flex;
+    justify-content: space-between;
+    /* border: 1px solid red; */
+
+    flex-wrap: wrap;
+    width: 80%;
+    flex-direction: row;
+}
+
+.MuiInputBase-input ,MuiInput-input
+{
+    color: #7C7C7C !important;
+    font-family: Muli;
+    font-style: normal;
+}
+
+.cadreBoutton
+{
+    padding-left:13px;
+    /* background-color: red; */
+    
+}
+
+.boutton
+{
+    height: 41px;
+}
