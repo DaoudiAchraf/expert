@@ -1,0 +1,37 @@
+.card{ padding: 30px; }
+
+.my-card
+{
+    display: flex; flex-direction: column; flex-wrap: wrap;
+}
+
+@media all and (max-width:700px)
+{
+
+.card{
+    padding: 5px 10px;
+}
+  
+}
+
+.card-actions
+{
+    display :flex;
+    justify-content: row;
+    flex-wrap: wrap;
+}
+
+.input
+{
+    background: #F1F3F4;
+    border-radius: 3px ;
+    border: 0px;
+    padding: 10px;
+    margin-right: 20px;
+
+}
+
+.input::placeholder
+{
+   text-align: center;
+}

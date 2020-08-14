@@ -1,0 +1,24 @@
+.slick-prev:before, .slick-next:before 
+{
+    color: #4EADFF !important;
+    opacity: 1;
+    font-size: 30px;
+}
+
+.slick-slider{ width: 75%; }
+
+.imgContainer{ text-align: center;/* border: red solid 1px; */}
+
+.imgContainer h4{ font-size: 1.5vw; }
+
+.img
+{
+     width: 230px; 
+     height: auto;
+     display: block;
+     margin-left: auto;
+     margin-right: auto;
+     border-radius: 4px; 
+     margin-bottom: 20px;
+}
+
