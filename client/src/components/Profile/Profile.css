@@ -1,0 +1,19 @@
+
+
+
+.profile-infos
+{
+    /* display: flex;
+    justify-content: space-between;
+    */
+}
+
+.upper-infos
+{
+ flex: 1;   
+}
+
+.lower-infos
+{
+    flex: 1;
+}

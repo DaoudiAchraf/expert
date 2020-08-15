@@ -11,9 +11,9 @@ const intro = () => {
        
             <div className="paragraph"> <p className="p">professionel assistance in the search of vehicules</p>
             <p className="p">by individual parametres and diagnostics</p></div>
-           
             </div>
-            <DateAndTimePickers></DateAndTimePickers>
+            
+            <DateAndTimePickers/>
         </div>
     )
 }

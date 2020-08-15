@@ -3,22 +3,28 @@ import { connect } from "react-redux";
 import { Route, Redirect, Switch, withRouter } from "react-router-dom";
 import HomePage from "./pages/home-page/Home";
 import Navbar from "./components/layout/NavBar/NavBar";
+// import Navbar from "./components/navbar/Navbar";
 import SigninPage from "./pages/signin-page/SigninPage";
 import ExpertPage from "./pages/expert-page/ExpertPage";
 import SignUpPage from "./pages/signup-page/SignUpPage";
 import { logout } from "./actions/auth-actions/actions";
+import ProfilePage from "./pages/profile-page/Profile-page";
 
 const App = props => {
   return (
-    <div>
+    // className={"app"} style={{ backgroundColor: '#F6F9FC' }}
+    <div className={"app"} style={{ backgroundColor: '#F6F9FC' }} >
       <Navbar
         user={props.user}
         isLoggedIn={props.isLoggedIn}
         logout={props.logout}
-      />
+     />
+
+     
       <Switch location={props.history.location}>
         <Route exact path={"/"} component={HomePage} />
         <Route exact path={"/expert"} component={ExpertPage} />
+        <Route exact path={"/profile"} component={ProfilePage} />
         {/* <AuthRoute
           authenticated={props.isLoggedIn}
           path="/expert"

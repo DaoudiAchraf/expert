@@ -1,0 +1,19 @@
+
+
+.bar-container
+{
+
+    max-width: 660px;
+    background-color: #4EADFF;
+    display: flex;
+    padding: 3px;
+    
+}
+
+.bar-container h5
+{
+    margin: 0 30px;
+    font-size: 16px;
+    color: white;
+    font-weight: 450;
+}

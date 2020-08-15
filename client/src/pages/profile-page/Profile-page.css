@@ -1,0 +1,26 @@
+.profile h3
+{
+    color:#6B7C93;
+    background-color: #F6F9FC;
+    width: 126px;
+    height: 17px;
+    font-size: 14px;
+    line-height: 16px;
+}
+
+.profile
+{
+    padding-left: 219px;
+   
+    height: 620px;
+    border:rebeccapurple 1px solid;
+    margin-top: 64px;
+
+
+}
+
+.overview
+{
+    padding-top: 64px;
+    
+}
