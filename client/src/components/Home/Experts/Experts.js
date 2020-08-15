@@ -8,12 +8,11 @@ const Experts = () => {
         <div className="expertDiv">
             <h3 className="">Nos Meilleurs Experts </h3>
             <div className="sliderDiv">
-                        
-                        <Glider/>
-                    </div>
+                <Glider />
+            </div>
 
         </div>
-     
+
     )
 }
 

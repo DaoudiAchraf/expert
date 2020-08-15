@@ -7,6 +7,7 @@ import SigninPage from "./pages/signin-page/SigninPage";
 import ExpertPage from "./pages/expert-page/ExpertPage";
 import SignUpPage from "./pages/signup-page/SignUpPage";
 import { logout } from "./actions/auth-actions/actions";
+import './App.scss';
 
 const App = props => {
   return (
@@ -18,12 +19,11 @@ const App = props => {
       />
       <Switch location={props.history.location}>
         <Route exact path={"/"} component={HomePage} />
-        <Route exact path={"/expert"} component={ExpertPage} />
-        {/* <AuthRoute
+        <AuthRoute
           authenticated={props.isLoggedIn}
           path="/expert"
           component={ExpertPage}
-        /> */}
+        />
         <GuestRoute
           authenticated={props.isLoggedIn}
           path="/signup"
