@@ -22,8 +22,27 @@
 
     }
     .sortby{
-        width: 200px;
-        height: 100%;
-        border: 1px black solid;
+        button{
+            border: 2px #DFDFDF solid;
+            height: 46px;
+            width: 152px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            p{
+                margin:0px;
+                color : #DFDFDF;
+            }
+            .btn-flex{
+                display: flex;
+                align-items: flex-start;
+                flex-direction: column;
+                margin-bottom: 4px;
+                .anticon{
+                    width: 10px;
+                    height: 10px;
+                }
+            }
+        }
     }
 }
