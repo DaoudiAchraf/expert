@@ -27,7 +27,7 @@
     flex-direction: row;
 }
 
-.MuiInputBase-input ,MuiInput-input
+.MuiInputBase-input
 {
     color: #7C7C7C !important;
     font-family: Muli;

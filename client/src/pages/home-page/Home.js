@@ -9,14 +9,12 @@ import Footer from '../../components/layout/Footer/Footer';
 
 const Home = () => {
     return (
-
-    <React.Fragment>
-            <Intro/>
-           <Experts/>
-           <Contact/>
-           <Location/>
-           <Footer/>
-    </React.Fragment>
+        <div>
+            <Intro />
+            <Experts />
+            <Contact />
+            <Location />
+        </div>
 
     )
 }

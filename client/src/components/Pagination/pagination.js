@@ -4,7 +4,7 @@ import { Pagination } from 'antd';
 
 
 const Paginations = () => (
-    <Pagination defaultCurrent={1} total={1000} defaultPageSize={10} />
+    <Pagination defaultCurrent={6} total={500} />
 );
 
 

@@ -1,0 +1,44 @@
+.search-experts{
+    .main{
+        display: flex;
+        .sort{
+            z-index: 2;
+        }
+        .experts-list{
+            width: 50vw;
+            margin-left: 30px;
+            margin-right: 30px;
+            .experts{
+                overflow: auto;
+                height: 875px;
+            }
+            .navigation{
+                margin:0px;
+            }
+        }
+        .map{
+            width: 50vw;
+            height: 1000px;
+        }
+    }
+}
+
+#style-2::-webkit-scrollbar-track
+{
+	box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	border-radius: 10px;
+	background-color: #F5F5F5;
+}
+
+#style-2::-webkit-scrollbar
+{
+	width: 12px;
+	background-color: #F5F5F5;
+}
+
+#style-2::-webkit-scrollbar-thumb
+{
+	border-radius: 10px;
+	box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+	background-color: #868686;
+}

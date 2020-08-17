@@ -15,7 +15,7 @@ const ExpertPage = () => {
             <div className="main">
                 <Filter />
                 <div className="card">
-                    <SortBy />
+                    <SortBy show={false} />
                     <div className="experts">
                         <ExpertCard />
                         <ExpertCard />

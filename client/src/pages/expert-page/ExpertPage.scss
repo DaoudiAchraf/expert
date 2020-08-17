@@ -1,5 +1,6 @@
 .expert-page{
     background-color: #F6F9FC;
+    // font-size: 12px !important;
     .main{
         display: flex;
         margin-top: 30px;
@@ -9,6 +10,8 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+            background-color: transparent;
+            border:none;
             .experts{
                 width: 100%;
                 height: auto;
@@ -24,5 +27,6 @@
             }
         }
     }
+    
 }
 

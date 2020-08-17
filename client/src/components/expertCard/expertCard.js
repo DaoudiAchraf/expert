@@ -8,7 +8,7 @@ const ExpertCard = () => {
     return (
         <div className="expert">
             <div className="expert-infos">
-                <h2 className="gray-color ml mt">2</h2>
+                <h3 className="gray-color ml mt">2</h3>
                 <div className="expert-image">
                     <img src={img} className="img"></img>
                 </div>
