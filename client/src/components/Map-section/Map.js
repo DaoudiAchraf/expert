@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { Map, Marker, TileLayer } from "react-leaflet";
 import RoutingMachine from './routing';
 import ReactLeafletSearch from "react-leaflet-search";
-import "./MapJibFidk.scss";
+import "./Map.scss";
 import axiosInstance from "../../config/axios-instance";
 import {
     Button,
@@ -13,7 +13,7 @@ import {
 
 
 
-const MapJibFidk = (props) => {
+const ExpertMap = (props) => {
     useEffect(() => {
     }, []);
 
@@ -93,4 +93,4 @@ const MapJibFidk = (props) => {
         </Container>
     );
 };
-export default MapJibFidk;
+export default ExpertMap;

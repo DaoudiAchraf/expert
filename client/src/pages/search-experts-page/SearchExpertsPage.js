@@ -4,7 +4,7 @@ import Search from '../../components/search/Search';
 import Navigation from '../../components/navigation/Navigation';
 import SortBy from '../../components/sortBy/sortBy';
 import ExpertCard from '../../components/expertCard/expertCard';
-import MapJibFidk from '../../components/Map-section/MapJibFidk';
+import ExpertMap from '../../components/Map-section/Map';
 
 import { Select, Input } from 'antd';
 
@@ -32,9 +32,8 @@ const SearchExpertsPage = () => {
                     </div>
                 </div>
                 <div className="map">
-                    <MapJibFidk />
+                    <ExpertMap />
                 </div>
-
             </div>
         </div>
     );
