@@ -20,7 +20,7 @@ export default class Mapi extends Component {
         <Marker position={position}>
           <Popup>
             Placeholder
-              </Popup>
+            </Popup>
         </Marker>
       </Map>
     )

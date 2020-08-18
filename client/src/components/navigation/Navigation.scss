@@ -5,9 +5,33 @@
     height: 46px;
     margin-left: 30px;
     margin-top: 37px;
+    .gray-color{
+        color : #6B7C93;
+    }
     p{
        margin: 0;
-       margin-right: 20px;
+       font-weight: bold;
     } 
+    .mr{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        .shape{
+            background-color: #F6F9FC;
+            border:1px #DFDFDF solid;
+            border-radius: 3px;
+            display: flex;
+            align-items: center;
+            margin-left: 8px;
+            .Wedjet{
+                margin-top: 4px;
+                margin-bottom: 4px;
+                margin-right: 10px;
+            }
+            .list{
+                margin-left: 10px;
+            }
+        }
+    }
     
 }
