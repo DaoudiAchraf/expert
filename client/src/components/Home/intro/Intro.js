@@ -1,20 +1,30 @@
 import React from 'react';
 import './Intro.css';
-import DateAndTimePickers  from './DatePicker/DatePicker';
+import LocationDatePicker  from './Location_Date_Picker/LocationDatePicker';
+
 
 const intro = () => {
     return (
-        <div className="flexContainer" >
-            <div className="introText">
-            <h1 className="h1">Vous cherchez un expert</h1>
-            <h1 className="h1"> pour votre voiture ?</h1>
-       
-            <div className="paragraph"> <p className="p">professionel assistance in the search of vehicules</p>
-            <p className="p">by individual parametres and diagnostics</p></div>
-            </div>
-            
-            <DateAndTimePickers/>
+
+
+        <div className="intro-container" >
+                    
+                <div className="intro">
+                    <div className="introText">
+
+                    <h1>Vous cherchez un expert <br/> pour votre voiture ?</h1>
+                    <div className="paragraph">
+                        <p>professionel assistance in the search of vehicules
+                        <br/>by individual parametres and diagnostics</p>
+                    </div>
+
+                    </div>
+                    
+                <LocationDatePicker/>
+
+                </div>
         </div>
+
     )
 }
 

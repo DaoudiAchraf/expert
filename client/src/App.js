@@ -1,5 +1,5 @@
 import React from "react";
-import { connect } from "react-redux";
+import { connect, Provider } from "react-redux";
 import { Route, Redirect, Switch, withRouter } from "react-router-dom";
 import HomePage from "./pages/home-page/Home";
 import Navbar from "./components/layout/NavBar/NavBar";
@@ -9,10 +9,13 @@ import ExpertPage from "./pages/expert-page/ExpertPage";
 import SignUpPage from "./pages/signup-page/SignUpPage";
 import { logout } from "./actions/auth-actions/actions";
 import ProfilePage from "./pages/profile-page/Profile-page";
+import Footer from "./components/layout/Footer/Footer";
+import store from "./stores/store-dev";
 
 const App = props => {
   return (
     // className={"app"} style={{ backgroundColor: '#F6F9FC' }}
+    <Provider store={store}>
     <div className={"app"} style={{ backgroundColor: '#F6F9FC' }} >
       <Navbar
         user={props.user}
@@ -41,7 +44,10 @@ const App = props => {
           component={SigninPage}
         />
       </Switch>
+
+      <Footer/>
     </div>
+    </Provider>
   );
 };
 function AuthRoute({ component: Component, authenticated, ...rest }) {

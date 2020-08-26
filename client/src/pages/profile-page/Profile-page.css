@@ -10,17 +10,104 @@
 
 .profile
 {
-    padding-left: 219px;
-   
-    height: 620px;
-    border:rebeccapurple 1px solid;
-    margin-top: 64px;
 
+    padding-left: 219px;
+
+    height: 620px;
+
+    margin-top: 64px;
+    display: flex;
+
+    height: 100%;
 
 }
 
 .overview
 {
-    padding-top: 64px;
-    
+    padding-top: 20px;
+  
+}
+
+.overview h3
+{
+    margin-bottom: 64px;
+}
+
+.reservation
+{
+    padding-top: 101px;
+    padding-left: 25px;
+}
+
+.reservation_header
+{
+    background-color: #4EADFF;
+    padding: 10px 20px;
+}
+
+.reservation_content
+{
+    background-color: white;
+    padding: 20px;
+}
+
+.reservation_content h5
+{
+    font-style: normal;
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 15px;
+    text-transform: uppercase;
+    color: #47495A;
+    margin: 7px auto;
+}
+
+.reservation_header h2
+{
+    color: white;
+    font-size: 24px;
+  
+    text-transform: uppercase;
+    font-weight: normal;
+}
+
+.reservation_header p
+{
+    font-size: 15px;
+    line-height: 18px;
+    margin-bottom: 10px;
+    height: 18px;
+    color: white;
+}
+
+.ant-input{ height: 40px !important;}
+
+.time-input{ display: flex; }
+
+.ant-calendar-picker-input { width: 316.19px !important;}
+
+.checkbox-group{ margin: 14px auto;}
+
+.checkbox{ margin-bottom: 10px !important;}
+
+.ant-checkbox+span
+{
+    font-size: 15px;
+    line-height: 20px;
+   
+    color: #47495A;
+
+}
+
+
+.reservation .btn
+{
+    border-radius: 50px;
+    width: 100% !important;
+    border: 2px solid #15959A;
+}
+
+@media all and (max-width:937px)
+{
+    .ant-calendar-picker-input { width: 100% !important;}
 }

@@ -8,6 +8,7 @@
     height: 100%;
     padding: 20px 10px;
     /* border:  3px solid blue; */
+    background-color: white;
 
 }
 
@@ -22,4 +23,4 @@
 }
 
 
-.flex-item{ flex: 1}
+.flex-item{ flex: 1;background-color: white;}
