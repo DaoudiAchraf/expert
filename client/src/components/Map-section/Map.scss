@@ -1,0 +1,52 @@
+
+.posts-page {
+    justify-content: center;
+   .btn{
+       align-items: center;
+   }
+  .leaflet-container {
+        width: 100%;
+        height: 100%;
+  }
+    .test{
+        display : inline-block;
+        .leaflet-popup-content-wrapper{
+            width: 237px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            .popup-expert-infos{
+            background-color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            img{
+                width: 79px;
+                height: 94px;
+                margin-top: 18px;
+                margin : 18px auto;
+            }
+            h3{
+                margin-bottom: 9px;
+            }
+            p{
+                margin: 0px;
+            }
+            
+        }
+        .btn-actions{
+                width: 237px;
+                button{
+                    width: 50%;
+                    border:none;
+                    background-color: #4EADFF;
+                    align-self: flex-start;
+                }
+            }
+        
+        }
+    }
+
+}

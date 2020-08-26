@@ -14,8 +14,8 @@ const ExpertPage = () => {
             <Navigation />
             <div className="main">
                 <Filter />
-                <div className="card">
-                    <SortBy />
+                <div className="cardd">
+                    <SortBy show={false} />
                     <div className="experts">
                         <ExpertCard />
                         <ExpertCard />

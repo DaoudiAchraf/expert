@@ -8,16 +8,16 @@ const Filter = () => {
         <div className="filter">
             <p>Filter Results</p>
             <div className="mb-18 upper-case">
-                <h4>Localisation</h4>
+                <h6>Localisation</h6>
                 <Input style={{ width: 300, height: 37.6 }} placeholder="E.g Fouchana" className="select" />
             </div>
             <div className="mb-18 upper-case">
-                <h4>type expert</h4>
+                <h6>type expert</h6>
                 <Select size='large' defaultValue="Tolier" style={{ width: 300 }} className="select">
                 </Select>
             </div>
             <div className="mb-18 upper-case">
-                <h4>marque voiture</h4>
+                <h6>marque voiture</h6>
                 <Select size='large' defaultValue="Obstercician/Gynecol" style={{ width: 300 }} className="select">
                 </Select>
             </div>

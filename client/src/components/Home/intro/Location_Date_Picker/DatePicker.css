@@ -27,13 +27,7 @@
     flex-direction: row;
 }
 
-
-.flexContainer3 .ant-input 
-{
-    width: 30%;
-}
-
-.MuiInputBase-input ,MuiInput-input
+.MuiInputBase-input
 {
     color: #7C7C7C !important;
     font-family: Muli;

@@ -1,10 +1,10 @@
 import React from 'react';
 import "./sortBy.scss";
-import { Menu, Dropdown, Button, message, Tooltip } from 'antd';
-import { DownOutlined, UserOutlined, CaretUpOutlined, CaretDownOutlined } from '@ant-design/icons';
+import { Menu, Dropdown, Button, message } from 'antd';
+import { UserOutlined, CaretUpOutlined, CaretDownOutlined } from '@ant-design/icons';
 
 
-const sortBy = () => {
+const sortBy = props => {
     function handleMenuClick(e) {
         message.success('Click on menu item.');
         console.log('click', e);
@@ -29,6 +29,26 @@ const sortBy = () => {
                 <h1>Expert</h1>
             </div>
             <div className="sortby">
+                {
+                    props.show ?
+                        <div className="specialite">
+                            <h6>Specialité :</h6>
+                            <Dropdown className="tous" overlay={menu}>
+                                <Button>
+                                    <h6>Tous</h6>
+                                    <div className="btn-flex">
+                                        <CaretUpOutlined />
+                                        <CaretDownOutlined />
+                                    </div>
+
+                                </Button>
+                            </Dropdown>
+                        </div>
+                        :
+                        null
+                }
+
+
                 <Dropdown overlay={menu}>
                     <Button>
                         <p>SortBy</p>
