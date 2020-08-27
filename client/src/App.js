@@ -15,7 +15,6 @@ import store from "./stores/store-dev";
 
 const App = props => {
   return (
-    // className={"app"} style={{ backgroundColor: '#F6F9FC' }}
     <Provider store={store}>
     <div className={"app"} style={{ backgroundColor: '#F6F9FC' }} >
       <Navbar
