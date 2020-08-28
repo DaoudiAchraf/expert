@@ -17,7 +17,7 @@ const ProfilePage = () => {
 
     const dateFormatList = ['DD/MM/YYYY', 'DD/MM/YY'];
     return (
-        <div>
+        <div className="profile-page">
             
             <div className="profile">
                 <div className="overview">

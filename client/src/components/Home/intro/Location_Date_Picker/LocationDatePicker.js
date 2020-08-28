@@ -30,11 +30,10 @@ export default function LocationDatePicker() {
   return (
     <form  noValidate className="flexContainer3">
 
-      
 
-      {/* <Input className="input-location" placeholder="Basic usage" /> */}
+        <Location />
 
-      <Location className="input-location"/>
+  
       <div className="background">
       <TextField InputProps={{ classes }}
         id="datetime-local"

@@ -80,17 +80,17 @@
     color: white;
 }
 
-.ant-input{ height: 40px !important;}
+.profile-page .ant-input{ height: 40px !important;}
 
-.time-input{ display: flex; }
+.profile-page .time-input{ display: flex; }
 
-.ant-calendar-picker-input { width: 316.19px !important;}
+.profile-page .ant-calendar-picker-input { width: 316.19px !important;}
 
-.checkbox-group{ margin: 14px auto;}
+.profile-page .checkbox-group{ margin: 14px auto;}
 
-.checkbox{ margin-bottom: 10px !important;}
+.profile-page .checkbox{ margin-bottom: 10px !important;}
 
-.ant-checkbox+span
+.profile-page .ant-checkbox+span
 {
     font-size: 15px;
     line-height: 20px;
@@ -109,5 +109,8 @@
 
 @media all and (max-width:937px)
 {
-    .ant-calendar-picker-input { width: 100% !important;}
+    .profile-page .ant-calendar-picker-input 
+    {
+         width: 100% !important;
+    }
 }
