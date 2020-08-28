@@ -1,16 +1,21 @@
 @import "../../stylesheets/mixins";
-.signup-page {
-  margin-top: auto;
-  margin-bottom: auto;
-  .title {
-    display: block;
-    margin: 0;
-    margin-bottom: 100px;
-    text-align: center;
-  }
-  .content {
-    @include flexbox();
-    @include justify-content(center);
-    @include align-items(center);
+.ant-carousel{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .signup-page {
+    margin-top: auto;
+    margin-bottom: auto;
+    .title {
+      display: block;
+      margin: 0;
+      margin-bottom: 50px;
+      text-align: center;
+    }
+    .content {
+      @include flexbox();
+      @include justify-content(center);
+      @include align-items(center);
+    }
   }
 }

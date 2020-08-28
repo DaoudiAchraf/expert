@@ -1,18 +1,56 @@
-import React from "react";
+import React, { useState, useRef } from "react";
 import { connect } from "react-redux";
 import WrappedSignupForm from "../../components/signup-form/SignupForm";
-import { Typography } from "antd";
+import { Typography, Modal, Steps, Carousel } from "antd";
 import { signup } from "../../actions/auth-actions/actions";
 import "./signup-page.scss";
 
 const SignUpPage = props => {
+  const [nextstep, setNextstep] = useState(0);
+  const refInput = useRef();
+  const { Step } = Steps;
+  console.log(props.showmodel);
+  const handleCancel = () => {
+    props.setShowmodel(false);
+  }
+  const handle = (e) => {
+    e.preventDefault();
+    console.log("clicked")
+    setNextstep(nextstep + 1);
+    console.log(refInput.current);
+    refInput.current.next();
+  }
+
+  function onChange(a, b, c) {
+    console.log(a, b, c);
+  }
   return (
-    <div className="signup-page">
-      <Typography.Title className="title">Sign up page</Typography.Title>
-      <div className="content">
-        <WrappedSignupForm signup={props.signup} />
-      </div>
-    </div>
+
+    <Modal centered onCancel={handleCancel} visible={props.showmodel} footer={null}>
+      <Carousel ref={refInput} afterChange={onChange} >
+        <div className="signup-page">
+          <Typography.Title className="title">Sign up</Typography.Title>
+          <div className="content">
+            <WrappedSignupForm signup={props.signup} />
+          </div>
+          <button onClick={handle}> step 2</button>
+        </div>
+        <div className="signup-page">
+          <Typography.Title className="title">Sign up</Typography.Title>
+          <div className="content">
+            <WrappedSignupForm signup={props.signup} />
+          </div>
+          <button onClick={handle}> step 2</button>
+
+        </div>
+      </Carousel>
+      <Steps current={nextstep}>
+        <Step />
+        <Step />
+        <Step />
+      </Steps>
+    </Modal>
+
   );
 };
 

@@ -1,31 +1,38 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './NavBar.css';
+import SignUpPage from "../../../pages/signup-page/SignUpPage";
+
 
 const NavBar = () => {
-    return (
+  const [showmodel, setShowmodel] = useState(false);
+  const handlclick = () => {
+    setShowmodel(true);
+  }
+  return (
 
-      <div className="nav-container">
-        <nav>
- 
-          <ul >
-            <li>A propos</li>
+    <div className="nav-container">
+      <nav>
 
-            <li>Nos Services</li>
+        <ul >
+          <li>A propos</li>
 
-            <li>Team</li>
+          <li>Nos Services</li>
 
-            <li>Reviews</li> 
+          <li>Team</li>
 
-            <li>Contact</li>
+          <li>Reviews</li>
 
-            <button className="btn btn-primary">Demander assistance</button>
-          </ul>
+          <li>Contact</li>
 
-       
+          <button onClick={handlclick} className="btn btn-primary">Demander assistance</button>
+        </ul>
+
+
       </nav>
-      </div>
-  
-    )
+      <SignUpPage setShowmodel={setShowmodel} showmodel={showmodel} />
+    </div>
+
+  )
 }
 
 export default NavBar;
