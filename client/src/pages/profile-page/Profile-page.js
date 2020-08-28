@@ -12,20 +12,16 @@ function onChange(e) {
     console.log(`checked = ${e.target.checked}`);
 }
 
-
 const ProfilePage = () => {
 
     const dateFormatList = ['DD/MM/YYYY', 'DD/MM/YY'];
     return (
-        <div>
-
+        <div className="profile-page">
             <div className="profile">
                 <div className="overview">
                     <h3>Home/Map Search</h3>
                     <Profile />
                 </div>
-
-
                 <div className="reservation">
                     <div className="reservation_header">
                         <h2>Réservez votre visite</h2>

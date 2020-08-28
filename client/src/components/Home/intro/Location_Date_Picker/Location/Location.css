@@ -1,6 +1,4 @@
-
-
-.background
+.input-location 
 {
     background-color: white;
     
@@ -13,31 +11,15 @@
     
     margin-bottom: 10px;
    
-    
 }
 
-.flexContainer3
-{
-    display: flex;
-    justify-content: space-between;
-    /* border: 1px solid red; */
-
-    flex-wrap: wrap;
-    width: 95%;
-    flex-direction: row;
+.input-location .ant-input{
+    border : 0px !important
 }
-
+/* 
 .MuiInputBase-input
 {
     color: #7C7C7C !important;
     font-family: Muli;
     font-style: normal;
-}
-
-.bttn
-{
-    height: 41px;
-}
-
-
-
+} */

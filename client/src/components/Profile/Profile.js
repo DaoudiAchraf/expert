@@ -1,9 +1,15 @@
-import React from 'react';
+import React,{useEffect} from 'react';
 import './Profile.css';
 import SelectBar from './SelectBar/SelectBar';
 import img from '../../images/profile_img.jpg';
+import { connect } from 'react-redux';
+import {getCurrentProfile} from '../../actions/profile-actions/actions';
 
-const Profile = () => {
+const Profile = ({getCurrentProfile,profile}) => {
+    useEffect(() => {
+        getCurrentProfile();
+    }, []);
+
     return (
         <div className="profile-infos">
 
@@ -64,4 +70,7 @@ const Profile = () => {
     )
 }
 
-export default Profile;
+const mapStateToProps = state =>({
+    profile: state.profile
+});
+export default connect(mapStateToProps,{getCurrentProfile}) (Profile);
