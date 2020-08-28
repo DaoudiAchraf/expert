@@ -23,7 +23,7 @@
     /* border: 1px solid red; */
 
     flex-wrap: wrap;
-    width: 80%;
+    width: 95%;
     flex-direction: row;
 }
 
@@ -34,14 +34,7 @@
     font-style: normal;
 }
 
-.cadreBoutton
-{
-    padding-left:13px;
-    /* background-color: red; */
-    
-}
-
-.boutton
+.bttn
 {
     height: 41px;
 }

@@ -1,6 +1,9 @@
 import React from 'react';
 import { makeStyles, withTheme } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
+import { Input } from 'antd';
+import Location from './Location/Location';
+
 import './DatePicker.css';
 
   const useStyles = makeStyles({
@@ -17,13 +20,21 @@ import './DatePicker.css';
     }
   });
 
-export default function DateAndTimePickers() {
+export default function LocationDatePicker() {
+
+
 
   const classes = useStyles();
   
   console.log(new Date().toISOString());
   return (
     <form  noValidate className="flexContainer3">
+
+      
+
+      {/* <Input className="input-location" placeholder="Basic usage" /> */}
+
+      <Location className="input-location"/>
       <div className="background">
       <TextField InputProps={{ classes }}
         id="datetime-local"
@@ -45,18 +56,10 @@ export default function DateAndTimePickers() {
       />
       </div>
 
-      <div className="background">
-      <TextField InputProps={{ classes }}
-        id="datetime-local"
-        
-        type="datetime-local"
-        defaultValue="2017-05-24T10:30"
 
-      />
-      </div>
-      <div className="cadreBoutton">
-      <button className="btn btn-primary boutton ">Demander assistance</button>
-      </div>
+      
+      <button className="btn btn-primary bttn ">Demander assistance</button>
+     
     </form>
   );
 }

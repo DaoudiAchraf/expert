@@ -1,0 +1,94 @@
+
+
+.Review-container
+{
+padding : 20px    
+}
+
+.profile_review
+{
+    max-width: 640px;
+    margin-left: 219px;
+    margin-top: 31px ;
+    margin-bottom: 50px;
+    padding: 20px;
+    background-color: white;
+}
+
+
+.review_rw{ display: flex; }
+
+.review_header
+{
+    display: flex;
+    justify-content: space-between;
+}
+
+.review_header h3 { color: #47495A; }
+
+.review_rw p
+{
+    font-size: 15px;
+    line-height: 18px;
+    color: #15959A;
+    height: 18px;
+    margin-top: 5px;
+}
+
+.rev_btn
+{
+    width: 150px;
+    height: 35px;
+    background: #F9FAFB;
+    border: 1px solid #C4CDD5;
+    box-sizing: border-box;
+    border-radius: 3px;
+ 
+    font-size: 15px;
+    line-height: 20px;
+    color: #212B36;
+
+    margin-left: 16px;
+}
+
+
+.rated-field h5
+{
+    font-size: 16px;
+    line-height: 20px;
+    color: #212B36;
+    height: 20px;
+
+}
+
+.fields
+{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-top: 28px;
+}
+
+.user-infos
+{
+    display: flex;
+}
+
+.user-infos img
+{
+    width: 50px;
+    height: 50px;
+    border-radius: 100px;
+    margin-right: 15px;
+}
+
+
+.review{ margin-top: 30px ; }
+
+.review h6 {margin: 8px auto;}
+
+.review p { margin-top: 20px; margin-bottom: 33px; max-width: 40em; }
+
+.review button {width: 100%; margin: 0 auto; text-transform: uppercase;}
+
+.MuiRating-root { color: #F49342 !important;}

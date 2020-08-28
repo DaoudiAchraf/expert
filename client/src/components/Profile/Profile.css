@@ -3,9 +3,78 @@
 
 .profile-infos
 {
+   background-color: white;
+   max-width: 660px;
+   height: 565px;
+}
+
+
+.profile_overview
+{
+    padding: 54px 20px;
     /* display: flex;
-    justify-content: space-between;
-    */
+    flex-direction: column; */
+}
+
+.upper-infos 
+{
+
+    display: flex;
+}
+
+.skill_type
+{
+    text-transform: uppercase;
+    background-color: #F7F7F7;
+    padding: 2px 8px;
+    font-weight: 450;
+    color: #47495A;
+}
+
+.expert_name 
+{
+    font-size: 25px;
+    color: #47495A;
+    font-size: 20px;
+    line-height: 23px;
+    height: 24px;
+}
+
+.address
+{
+    font-style: normal;
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 15px;
+    text-transform: uppercase;
+
+    color: #47495A;
+}
+
+
+.expert_address
+{
+
+    font-size: 15px;
+    line-height: 18px;
+
+    color: #47495A;
+}
+
+.upper-infos img
+{
+    width: 219px;
+    height: 184px;
+    margin-right: 16px;
+}
+
+
+.expert_career
+{
+    font-size: 20px;
+    line-height: 23px;
+    
+    color: #47495A;
 }
 
 .upper-infos
@@ -15,5 +84,15 @@
 
 .lower-infos
 {
-    flex: 1;
+    max-width: 600px;
+
+}
+
+
+.inner_career p
+{
+    font-size: 15px;
+    line-height: 24px;
+
+    color: #47495A;
 }

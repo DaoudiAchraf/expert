@@ -3,6 +3,8 @@ import { applyMiddleware } from "redux";
 import { createLogger } from "redux-logger";
 import reduxThunk from "redux-thunk";
 import rootReducer from "../reducers/index";
+import { composeWithDevTools } from 'redux-devtools-extension';
+
 
 const logger = createLogger({
   collapsed: true,
@@ -15,6 +17,6 @@ const logger = createLogger({
     error: () => "#FF534D"
   }
 });
-const store = createStore(rootReducer, applyMiddleware(reduxThunk, logger));
+const store = createStore(rootReducer,composeWithDevTools( applyMiddleware(reduxThunk, logger) ));
 
 export default store;

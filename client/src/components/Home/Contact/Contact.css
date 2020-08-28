@@ -4,32 +4,47 @@
 {
     background: #F2F3F7;
     display: flex;
-    flex-direction: row-reverse;
-    /* background: url("../../../images/berlingo.jpg")no-repeat ; */
+    /* flex-direction: row-reverse; */
+    align-items: center;
+
     flex-wrap: wrap;
     padding-bottom: 100px;
-
+ 
 }
 
+.contact-container img
+{
+    margin-top: 54px;
+    align-self: flex-start;
+    
+    /* margin-right: 90px;
+ */
+}
 
 .contact-box
 {
     padding-top: 80px;
     padding-left: 20px;
-
-    padding :50px 20px;
-
+    width: 527.66px;
+    padding :50px 0px;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
+    margin: 0 auto;
 }
 
-
+.contact-box h3
+{
+    font-weight: 700;
+    font-size: 25px;
+    line-height: 35px;
+    width: 527.66px;
+}
 
 .card
 {
     margin-top: 40px;
-    width: 80%;
+    width: 100%;
 }
 
 .berlingo

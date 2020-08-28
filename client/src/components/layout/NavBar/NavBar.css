@@ -1,19 +1,11 @@
 
-
 nav 
 {
    width: 60% !important;
    background-color: transparent;
-  
+   padding: 20px 0;
 }
 
-.box
-{
-    display: flex;
-    justify-content: center;
-    padding: 10px;
-    border: black 1px solid;
-}
 
 .btn-primary
 {
@@ -22,13 +14,28 @@ nav
     margin-left: 10px;
 }
 
-.navbar-light .navbar-nav .nav-link
+.nav-container
 {
-    color: black;
+     display: flex;
+     justify-content: center;
+     
 }
 
 
-.nav-item
+ .nav-container ul
 {
-    margin-right: 13px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
 }
+
+.nav-container li
+{
+    display: inline;
+    font-size: 16px;
+    line-height: 19px;
+
+}
+
+

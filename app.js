@@ -8,7 +8,11 @@ const cors = require('cors');
 const passport = require('passport');
 const path = require('path');
 
+// -------------------Routes -------------------
 const rtsIndex = require('./routes/index.router');
+
+const ProfileRouter = require('./routes/Profile');
+
 
 var app = express();
 
@@ -29,8 +33,13 @@ app.use((req, res, next) => {
   );
   next();
 });
+
+
 app.use(passport.initialize());
 app.use('/api', rtsIndex);
+app.use('/api/profile', ProfileRouter);
+
+
 
 
 // error handler
@@ -43,5 +52,4 @@ app.use((err, req, res, next) => {
 
 });
 app.listen(process.env.PORT || 5000, () => console.log(`Server started at port : ${process.env.PORT}`));
-//start server
 // module.exports = app;
