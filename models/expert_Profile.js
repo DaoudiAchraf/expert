@@ -1,13 +1,20 @@
 const mongoose = require('mongoose');
 
 const ExpertSchema = new mongoose.Schema({
-    user: {
-        type:mongoose.Schema.Types.ObjectId,
-        ref : 'User'
+    // user: {
+    //     type:mongoose.Schema.Types.ObjectId,
+    //     ref : 'User'
+    // },
+    
+    // location:{type:String},
+    location:{
+        name: {type:String},
+        longitude: {type:Number},
+        latitude: {type:Number},
     },
-    location:{ type:String},
+   
     status:{type: String},
-    Certifications : {
+    certifications : {
         type: [String]
     },
     bio: { type:String}
