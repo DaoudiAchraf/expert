@@ -25,7 +25,7 @@ function signinRequest(body) {
 function signupRequest(body) {
   return axiosInstance({
     method: "post",
-    url: "auth/signup",
+    url: "/register-client",
     data: body
   });
 }

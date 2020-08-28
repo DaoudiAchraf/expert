@@ -37,6 +37,7 @@ store.subscribe(() => {
 const WrappedApp = props => {
   useEffect(() => {
     if (token) {
+      console.log("zerzdfdfdf")
       // We need to check if the token are valid or not by getting the auth user
       props.store.dispatch(getAuthUser());
     }

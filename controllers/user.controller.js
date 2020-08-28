@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const passport = require('passport');
 const bcrypt = require('bcryptjs');
+const gravatar = require('gravatar');
 const _ = require('lodash');
 var ObjectId = require('mongoose').Types.ObjectId;
 
@@ -15,14 +16,37 @@ module.exports.register = (req, role, res, next) => {
   user.password = req.body.password;
   user.phone = req.body.phone;
   user.mail = req.body.mail;
+  user.avatar = gravatar.url(req.body.mail, {
+    s: '200',
+    r: 'pg',
+    d: 'mm'
+  });
   user.role = role;
   // user.adress = req.body.adress;
-  if (req.file) {
-    user.image = url + '/images/' + req.file.filename;
-  } else user.image = url + '/images/defaultImage.png';
+  // if (req.file) {
+  //   user.image = url + '/images/' + req.file.filename;
+  // } else user.image = url + '/images/defaultImage.png';
   user.save((err, doc) => {
     if (!err)
-      res.send(doc);
+      passport.authenticate('local', (er, user, info) => {
+        console.log(user, info);
+        // error from passport middleware
+        if (er) return res.status(400).json(er);
+        // registered user
+        else if (user) {
+          // if(user.role == "client" && user.etat == "en attente"){
+          //   return res.status(400).json({"message":"you need to wait"});
+          // }else if(user.role == "client") return res.status(400).json({"message":"wrong platform"});
+          console.log("sucess")
+          return res.status(200).json({
+            "access_token": user.generateJwt(),
+            "user": user
+          });
+        }
+        // unknown user or wrong password
+        else return res.status(500).json(info);
+      })(req, res);
+    // res.send(doc);
     else {
       if (err.code == 11000)
         res.status(422).send(['Duplicate email adrress or login.']);
@@ -48,6 +72,7 @@ module.exports.resetpassword = async (req, res, next) => {
 module.exports.authenticate = (req, res, next) => {
   // call for passport authentication
   passport.authenticate('local', (err, user, info) => {
+    console.log(user, info);
     // error from passport middleware
     if (err) return res.status(400).json(err);
     // registered user
@@ -59,11 +84,10 @@ module.exports.authenticate = (req, res, next) => {
       return res.status(200).json({
         "access_token": user.generateJwt(),
         "user": user
-
       });
     }
     // unknown user or wrong password
-    else return res.status(404).json(info);
+    else return res.status(500).json(info);
   })(req, res);
 }
 

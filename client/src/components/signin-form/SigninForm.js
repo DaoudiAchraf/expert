@@ -1,11 +1,9 @@
 import React from "react";
 import { Form, Icon, Input, Button } from "antd";
-
 import "./signin-form.scss";
 
 const SigninForm = props => {
   const { getFieldDecorator } = props.form;
-
   const handleSubmit = e => {
     e.preventDefault();
     props.form.validateFields((err, data) => {
@@ -19,11 +17,11 @@ const SigninForm = props => {
   return (
     <Form className="signin-form" onSubmit={handleSubmit}>
       <Form.Item>
-        {getFieldDecorator("login", {
+        {getFieldDecorator("mail", {
           rules: [{ required: true, message: "Please input your email!" }]
         })(
           <Input
-            prefix={<Icon type="text" style={{ color: "rgba(0,0,0,.25)" }} />}
+            prefix={<Icon type="mail" style={{ color: "rgba(0,0,0,.25)" }} />}
             placeholder="Email"
           />
         )}

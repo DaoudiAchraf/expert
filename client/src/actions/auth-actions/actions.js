@@ -29,11 +29,11 @@ export function getAuthUser() {
     });
     try {
       const response = await AuthServices.getAuthUserRequest();
-      console.log("zeaz");
+      console.log(response.data)
       await dispatch({
         type: GET_AUTH_SUCCESS,
         payload: {
-          user: response.data,
+          user: response.data.user,
           isLoggedIn: true
         }
       });
@@ -49,9 +49,7 @@ export function signin(values) {
   return async dispatch => {
     dispatch({ type: SIGNIN_REQUEST });
     try {
-      console.log("fi west el action", values)
       const response = await AuthServices.signinRequest(values);
-      console.log('ba3d el login')
       dispatch({ type: SIGNIN_SUCCESS, payload: response.data });
       localStorage.setItem("token", response.data.access_token);
     } catch (e) {
@@ -65,6 +63,7 @@ export function signup(body) {
     dispatch({ type: SIGNUP_REQUEST });
     try {
       const response = await AuthServices.signupRequest(body);
+      console.log(response.data);
       dispatch({ type: SIGNUP_SUCCESS, payload: response.data });
       localStorage.setItem("token", response.data.access_token);
     } catch (e) {

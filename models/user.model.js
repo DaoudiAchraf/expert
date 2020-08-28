@@ -4,35 +4,39 @@ const jwt = require('jsonwebtoken');
 
 var userSchema = new mongoose.Schema({
   login: {
-      type: String,
-      required: 'login can\'t be empty',
-      unique: true,
-      match: [/^[a-zA-Z ]+[1-9]*.*$/, 'invalid login']
+    type: String,
+    required: 'login can\'t be empty',
+    unique: true,
+    match: [/^[a-zA-Z ]+[1-9]*.*$/, 'invalid login']
   },
   password: {
-      type: String,
-      required: 'password can\'t be empty',
-      minlength : [8,'Password must be atleast 8 character long']
+    type: String,
+    required: 'password can\'t be empty',
+    minlength: [8, 'Password must be atleast 8 character long']
   },
-  role:{
-    type : String,
-    enum :["admin","client","expert"]
+  role: {
+    type: String,
+    enum: ["admin", "client", "expert"]
   },
   phone: {
-      type: String,
-      required: 'phone can\'t be empty',
-      match: [/^[0-9]{8}$/, 'invalid phone number']
+    type: String,
+    required: 'phone can\'t be empty',
+    match: [/^[0-9]{8}$/, 'invalid phone number']
   },
   mail: {
-      type: String,
-      required: 'mail can\'t be empty',
-      unique: true,
-      match: [/^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/, 'Please fill a valid email address']
+    type: String,
+    required: 'mail can\'t be empty',
+    unique: true,
+    match: [/^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/, 'Please fill a valid email address']
   },
-  image: {type: String},
+  avatar: { type: String },
   etat: {
-      type: String
+    type: String
   },
+  date: {
+    type: Date,
+    default: Date.now
+  }
 });
 
 // Custom validation for email
@@ -45,11 +49,11 @@ userSchema.path('mail').validate((val) => {
 // Events
 userSchema.pre('save', function (next) {
   bcrypt.genSalt(10, (err, salt) => {
-      bcrypt.hash(this.password, salt, (err, hash) => {
-          this.password = hash;
-          this.saltSecret = salt;
-          next();
-      });
+    bcrypt.hash(this.password, salt, (err, hash) => {
+      this.password = hash;
+      this.saltSecret = salt;
+      next();
+    });
   });
 });
 
@@ -59,11 +63,11 @@ userSchema.methods.verifyPassword = function (password) {
 };
 
 userSchema.methods.generateJwt = function () {
-  return jwt.sign({ _id: this._id,role:this.role,email:this.mail},
-      process.env.JWT_SECRET,
-  {
+  return jwt.sign({ _id: this._id, role: this.role, email: this.mail },
+    process.env.JWT_SECRET,
+    {
       expiresIn: process.env.JWT_EXP
-  });
+    });
 }
 
 

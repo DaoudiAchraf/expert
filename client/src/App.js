@@ -13,6 +13,7 @@ import { logout } from "./actions/auth-actions/actions";
 import ProfilePage from "./pages/profile-page/Profile-page";
 
 const App = props => {
+  console.log("eertegy", props.user);
   return (
     // className={"app"} style={{ backgroundColor: '#F6F9FC' }}
     <div className={"app"} style={{ backgroundColor: '#F6F9FC' }} >
