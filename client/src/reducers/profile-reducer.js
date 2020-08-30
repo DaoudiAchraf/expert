@@ -1,7 +1,8 @@
 import {
     GET_PROFILE,
     PROFILE_LOADING,
-    CLEAR_CURRENT_PROFILE
+    CLEAR_CURRENT_PROFILE,
+    CREATE_PROFILE
   } from '../actions/profile-actions/types';
   
   const initialState = {
@@ -18,6 +19,12 @@ import {
           loading: true
         };
       case GET_PROFILE:
+        return {
+          ...state,
+          profile: action.payload,
+          loading: false
+        };
+      case CREATE_PROFILE:
         return {
           ...state,
           profile: action.payload,

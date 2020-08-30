@@ -8,6 +8,7 @@ const NavBar = () => {
   const handlclick = () => {
     setShowmodel(true);
   }
+  
   return (
 
     <div className="nav-container">

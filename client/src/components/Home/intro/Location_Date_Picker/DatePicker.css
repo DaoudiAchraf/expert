@@ -34,10 +34,23 @@
     font-style: normal;
 }
 
-.bttn
+.bttn{ height: 41px; }
+
+.input-location 
 {
-    height: 41px;
+    background-color: white;
+    
+    padding: 4px;
+    padding-left: 4px;
+    color: gray;
+
+    border-radius: 15px;
+    border-radius: 3%;
+    
+    margin-bottom: 10px;
+   
 }
 
-
-
+.input-location .ant-input{
+    border : 0px !important
+}

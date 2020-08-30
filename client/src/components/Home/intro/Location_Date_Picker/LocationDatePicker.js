@@ -30,8 +30,9 @@ export default function LocationDatePicker() {
   return (
     <form  noValidate className="flexContainer3">
 
-
+      <div className='input-location'>
         <Location />
+      </div>
 
   
       <div className="background">

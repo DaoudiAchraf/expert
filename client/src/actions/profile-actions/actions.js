@@ -4,41 +4,44 @@ import {
   GET_PROFILE,
   PROFILE_LOADING,
   CLEAR_CURRENT_PROFILE,
-  GET_ERRORS
+  GET_ERRORS,
+  CREATE_PROFILE,
+  PROFILE_CREATION_FAILED
 } from './types';
 
-// Get current profile
-export const getCurrentProfile = () => dispatch => {
-  dispatch(setProfileLoading());
-  axios
-    .get('http://localhost:5000/api/profile/get')
-    .then(res => 
-        
-      dispatch({
-        type: GET_PROFILE,
-        payload: res.data
-      })
-    )
-    .catch(err =>
-      dispatch({
-        type: GET_PROFILE,
-        payload: {}
-      })
-    );
+import ProfileServices from "./services";
+
+
+export const getProfiles = ()=>{
+console.log('eee');
+ 
+  return  dispatch =>
+  {  
+    
+        ProfileServices.getProfilesRequest().
+        then((res)=>{
+          console.log(res);
+          dispatch({ type: GET_PROFILE, payload: res.data });
+        })
+        .catch(err=>console.log(err));
+     
+
+  };
+   
 };
 
-// Create Profile
-export const createProfile = (profileData, history) => dispatch => {
-  axios
-    .post('/api/profile', profileData)
-    .then(res => history.push('/dashboard'))
-    .catch(err =>
-      dispatch({
-        type: GET_ERRORS,
-        payload: err.response.data
-      })
-    );
-};
+
+
+export function createProfile(values) {
+  return async dispatch => {
+    try {
+      const response = await ProfileServices.createProfileRequest(values);
+      dispatch({ type: CREATE_PROFILE, payload: values });
+    } catch (e) {
+      dispatch({ type: PROFILE_CREATION_FAILED });
+    }
+  };
+}
 
 // Profile loading
 export const setProfileLoading = () => {

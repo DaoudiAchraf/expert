@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import WrappedSignupForm from "../../components/signup-form/SignupForm";
 import { Typography, Modal, Steps, Carousel } from "antd";
 import { signup } from "../../actions/auth-actions/actions";
+import Profile_builder from "../../components/Profile-Builder/Profile-builder";
 import "./signup-page.scss";
 
 const SignUpPage = props => {
@@ -24,6 +25,9 @@ const SignUpPage = props => {
   function onChange(a, b, c) {
     console.log(a, b, c);
   }
+
+  const [data, setData] = useState(null);
+
   return (
 
     <Modal centered onCancel={handleCancel} visible={props.showmodel} footer={null}>
@@ -31,16 +35,20 @@ const SignUpPage = props => {
         <div className="signup-page">
           <Typography.Title className="title">Sign up</Typography.Title>
           <div className="content">
-            <WrappedSignupForm signup={props.signup} />
+            <WrappedSignupForm signup={props.signup} setData={setData} />
           </div>
           <button onClick={handle}> step 2</button>
         </div>
+        
         <div className="signup-page">
-          <Typography.Title className="title">Sign up</Typography.Title>
+        <Typography.Title className="title">Profile</Typography.Title>
+     
+            <Profile_builder data={data} setData={setData} />
+       
           <div className="content">
-            <WrappedSignupForm signup={props.signup} />
+             <button onClick={handle}> step 2</button>
           </div>
-          <button onClick={handle}> step 2</button>
+          
 
         </div>
       </Carousel>
