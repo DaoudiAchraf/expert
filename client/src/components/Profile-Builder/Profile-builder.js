@@ -32,14 +32,14 @@ const [formData,setFormData] = useState({
     e.preventDefault();
     props.form.validateFields((err, values) => {
       if (!err) {
-        // console.log('Received values of form: ', values);
-        // props.setData({
-        //   ...props.data,
-        //   values
-        // })
+        console.log('Received values of form: ', values);
+        props.setData({
+          ...props.data,
+          values
+        })
        
-        // console.log(props.data);
-       props.createProfile(values);
+        console.log(props.data);
+       // props.createProfile(values);
         //console.log(formData);
       }
     });
