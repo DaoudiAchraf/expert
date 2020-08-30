@@ -11,8 +11,6 @@ const path = require('path');
 // -------------------Routes -------------------
 const rtsIndex = require('./routes/index.router');
 
-const ProfileRouter = require('./routes/Profile');
-
 
 var app = express();
 
@@ -37,7 +35,7 @@ app.use((req, res, next) => {
 
 app.use(passport.initialize());
 app.use('/api', rtsIndex);
-app.use('/api/profile', ProfileRouter);
+
 
 
 

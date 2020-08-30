@@ -2,6 +2,7 @@ const express = require('express');
 const multer = require('multer');
 const router = express.Router();
 
+const profileController = require('../controllers/profile');
 
 const ctrlUser = require('../controllers/user.controller');
 
@@ -50,4 +51,11 @@ router.post('/register-expert', multer({ storage: storage }).single("image"), (r
 });
 router.post('/authenticate', ctrlUser.authenticate);
 router.get('/user', jwtHelper.verifyJwtToken, ctrlUser.userProfile);
+
+
+router.post('/profile/add',profileController.add_Profile);
+router.put('/profile/update/:id',profileController.update_Profile);
+router.delete('/profile/delete/:id',profileController.delete_Profile);
+router.get('/profile/get/:id',profileController.get_Profile);
+router.get('/profile/get',profileController.get_allProfiles);
 module.exports = router;

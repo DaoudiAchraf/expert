@@ -4,6 +4,7 @@ const Profile = require('../models/expert_Profile');
 module.exports.add_Profile = (req,res)=>{
 
     console.log('add prof');
+    console.log(req.body);
     new Profile(req.body).save()
     .then(res.json({msg:'profile added successfully'}));
     
