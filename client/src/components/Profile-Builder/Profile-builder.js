@@ -39,7 +39,8 @@ const [formData,setFormData] = useState({
         })
        
         console.log(props.data);
-       // props.createProfile(values);
+ 
+       //hedhi l action li najouti beha profile ---> props.createProfile(values);
         //console.log(formData);
       }
     });
