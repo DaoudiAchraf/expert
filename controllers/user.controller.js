@@ -22,30 +22,39 @@ module.exports.register = (req, role, res, next) => {
     d: 'mm'
   });
   user.role = role;
+  role === "expert" ? user.etat = 'en attend' : user.etat = 'apprauve'
   // user.adress = req.body.adress;
   // if (req.file) {
   //   user.image = url + '/images/' + req.file.filename;
   // } else user.image = url + '/images/defaultImage.png';
   user.save((err, doc) => {
-    if (!err)
-      passport.authenticate('local', (er, user, info) => {
-        console.log(user, info);
-        // error from passport middleware
-        if (er) return res.status(400).json(er);
-        // registered user
-        else if (user) {
-          // if(user.role == "client" && user.etat == "en attente"){
-          //   return res.status(400).json({"message":"you need to wait"});
-          // }else if(user.role == "client") return res.status(400).json({"message":"wrong platform"});
-          console.log("sucess")
-          return res.status(200).json({
-            "access_token": user.generateJwt(),
-            "user": user
-          });
-        }
-        // unknown user or wrong password
-        else return res.status(500).json(info);
-      })(req, res);
+    if (!err) {
+      if (role === "client") {
+        passport.authenticate('local', (er, user, info) => {
+          console.log(user, info);
+          // error from passport middleware
+          if (er) return res.status(400).json(er);
+          // registered user
+          else if (user) {
+            // if(user.role == "client" && user.etat == "en attente"){
+            //   return res.status(400).json({"message":"you need to wait"});
+            // }else if(user.role == "client") return res.status(400).json({"message":"wrong platform"});
+            console.log("sucess")
+            return res.status(200).json({
+              "access_token": user.generateJwt(),
+              "user": user
+            });
+          }
+          // unknown user or wrong password
+          else return res.status(500).json(info);
+        })(req, res);
+      } else {
+        return res.status(200).json({
+          'user': user
+        })
+      }
+    }
+
     // res.send(doc);
     else {
       if (err.code == 11000)

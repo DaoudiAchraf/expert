@@ -10,6 +10,7 @@ import {
   SIGNIN_SUCCESS,
   SIGNUP_REQUEST,
   SIGNUP_SUCCESS,
+  SIGNUP_EXPERT_SUCCESS,
   SIGNUP_ERROR,
   GET_AUTH_SUCCESS,
   GET_AUTH_FAILURE,
@@ -17,7 +18,8 @@ import {
   LOGOUT_REQUEST,
   CONNECT_THE_USER,
   LOGOUT_SUCCESS,
-  LOGOUT_FAILURE
+  LOGOUT_FAILURE,
+  GET_USER
 } from "./types";
 
 import AuthServices from "./service";
@@ -71,6 +73,17 @@ export function signup(body) {
     }
   };
 }
+export function signupExpert(body) {
+  return async dispatch => {
+    dispatch({ type: SIGNUP_REQUEST });
+    try {
+      const response = await AuthServices.signupExpertRequest(body);
+      dispatch({ type: SIGNUP_EXPERT_SUCCESS, payload: response.data });
+    } catch (e) {
+      dispatch({ type: SIGNUP_ERROR });
+    }
+  };
+}
 
 export function logout() {
   return async dispatch => {
@@ -95,4 +108,12 @@ export function connectTheUser(token) {
       }
     });
   };
+}
+
+export function getUser() {
+  return async dispatch => {
+    dispatch({
+      type: GET_USER
+    })
+  }
 }

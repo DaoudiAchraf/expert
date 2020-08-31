@@ -2,7 +2,8 @@ import React, { useState, useRef } from "react";
 import { connect } from "react-redux";
 import WrappedSignupForm from "../../components/signup-form/SignupForm";
 import { Typography, Modal, Steps, Carousel } from "antd";
-import { signup } from "../../actions/auth-actions/actions";
+import { signup, signupExpert } from "../../actions/auth-actions/actions";
+import { createProfile } from "../../actions/profile-actions/actions";
 import Profile_builder from "../../components/Profile-Builder/Profile-builder";
 import "./signup-page.scss";
 
@@ -31,24 +32,24 @@ const SignUpPage = props => {
   return (
 
     <Modal centered onCancel={handleCancel} visible={props.showmodel} footer={null}>
-      <Carousel ref={refInput} afterChange={onChange} >
+      <Carousel dots={false} ref={refInput} afterChange={onChange} >
         <div className="signup-page">
           <Typography.Title className="title">Sign up</Typography.Title>
           <div className="content">
-            <WrappedSignupForm signup={props.signup} setData={setData} />
+            <WrappedSignupForm refInput={refInput} handle={handle} signupExpert={props.signupExpert} signup={props.signup} setData={setData} />
           </div>
           <button onClick={handle}> step 2</button>
         </div>
-        
+
         <div className="signup-page">
-        <Typography.Title className="title">Profile</Typography.Title>
-     
-            <Profile_builder data={data} setData={setData} />
-       
+          <Typography.Title className="title">Profile</Typography.Title>
+
+          <Profile_builder createProfile={createProfile} data={data} setData={setData} />
+
           <div className="content">
-             <button onClick={handle}> step 2</button>
+            <button onClick={handle}> step 2</button>
           </div>
-          
+
 
         </div>
       </Carousel>
@@ -64,5 +65,5 @@ const SignUpPage = props => {
 
 export default connect(
   null,
-  { signup }
+  { signup, signupExpert, createProfile }
 )(SignUpPage);

@@ -17,10 +17,13 @@ const SignupForm = props => {
     e.preventDefault();
     props.form.validateFields((err, data) => {
       if (!err) {
-        props.setData(data);
+        // props.setData(data);
         //props.signup(data);
+        props.signupExpert(data);
+        props.refInput.current.next();
       }
     });
+
   };
 
   const validateToNextPassword = (rule, value, callback) => {

@@ -12,22 +12,19 @@ import {
 import ProfileServices from "./services";
 
 
-export const getProfiles = ()=>{
-console.log('eee');
- 
-  return  dispatch =>
-  {  
-    
-        ProfileServices.getProfilesRequest().
-        then((res)=>{
-          console.log(res);
-          dispatch({ type: GET_PROFILE, payload: res.data });
-        })
-        .catch(err=>console.log(err));
-     
+export const getProfiles = () => {
+  console.log('eee');
+  return dispatch => {
+    ProfileServices.getProfilesRequest().
+      then((res) => {
+        console.log(res);
+        dispatch({ type: GET_PROFILE, payload: res.data });
+      })
+      .catch(err => console.log(err));
+
 
   };
-   
+
 };
 
 
@@ -36,7 +33,7 @@ export function createProfile(values) {
   return async dispatch => {
     try {
       const response = await ProfileServices.createProfileRequest(values);
-      dispatch({ type: CREATE_PROFILE, payload: values });
+      dispatch({ type: CREATE_PROFILE, payload: response.data });
     } catch (e) {
       dispatch({ type: PROFILE_CREATION_FAILED });
     }

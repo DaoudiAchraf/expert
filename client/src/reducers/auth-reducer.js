@@ -4,6 +4,7 @@ import {
   SIGNIN_SUCCESS,
   SIGNUP_REQUEST,
   SIGNUP_SUCCESS,
+  SIGNUP_EXPERT_SUCCESS,
   SIGNUP_ERROR,
   LOGOUT_REQUEST,
   DISCONNECT_THE_USER,
@@ -12,7 +13,8 @@ import {
   GET_AUTH_SUCCESS,
   GET_AUTH_FAILURE,
   LOGOUT_FAILURE,
-  LOGOUT_SUCCESS
+  LOGOUT_SUCCESS,
+  GET_USER
 } from "../actions/auth-actions/types";
 
 const intialState = {
@@ -67,6 +69,12 @@ const authReducer = (state = intialState, action) => {
         isLoggedIn: true,
         token: action.payload.access_token
       };
+    case SIGNUP_EXPERT_SUCCESS:
+      return {
+        ...state,
+        user: action.payload.user,
+        isLoggedIn: false,
+      };
     case SIGNUP_ERROR:
       return state;
 
@@ -100,6 +108,11 @@ const authReducer = (state = intialState, action) => {
         isLoggedIn: true,
         token: action.payload.token // getting token from local storage
       };
+
+    case GET_USER:
+      return {
+        user: state.user
+      }
     default:
       return state;
   }

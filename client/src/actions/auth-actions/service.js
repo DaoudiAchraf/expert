@@ -29,6 +29,13 @@ function signupRequest(body) {
     data: body
   });
 }
+function signupExpertRequest(body) {
+  return axiosInstance({
+    method: "post",
+    url: "/register-expert",
+    data: body
+  });
+}
 
 function getAuthUserRequest() {
   return axiosInstance({
@@ -41,7 +48,8 @@ const AuthServices = {
   signinRequest,
   signupRequest,
   logoutRequest,
-  getAuthUserRequest
+  getAuthUserRequest,
+  signupExpertRequest
 };
 
 export default AuthServices;
