@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 import {
-  GET_PROFILE,
+  GET_PROFILES,
   PROFILE_LOADING,
   CLEAR_CURRENT_PROFILE,
   GET_ERRORS,
@@ -17,8 +17,8 @@ export const getProfiles = () => {
   return dispatch => {
     ProfileServices.getProfilesRequest().
       then((res) => {
-        console.log(res);
-        dispatch({ type: GET_PROFILE, payload: res.data });
+        console.log("profiles",res.data);
+        dispatch({ type: GET_PROFILES, payload: res.data });
       })
       .catch(err => console.log(err));
 

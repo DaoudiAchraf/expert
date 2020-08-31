@@ -5,8 +5,10 @@ import { Rate } from 'antd';
 import Rating from '@material-ui/lab/Rating';
 
 
-const ExpertCard = () => {
+const ExpertCard = props => {
     const [value, setValue] = useState(4.5);
+    const {user,speciality,location} = props.infos;
+
     return (
         <div className="expert">
             <div className="expert-infos">
@@ -15,11 +17,11 @@ const ExpertCard = () => {
                     <img alt="expert" src={img} className="img"></img>
                 </div>
                 <div className="expert-details">
-                    <h1 className="expert-name">Saida</h1>
+                    <h1 className="expert-name">{user.login}</h1>
                     <div className="expert-work-location">
-                        <a href="#" className="expert-work">Expert mecanique</a>
+                        <a href="#" className="expert-work">{speciality}</a>
                         <p>Localisation</p>
-                        <h4>Fouchena Cité Amal</h4>
+                        <h4>{location.name}</h4>
                     </div>
                     <div className="rating">
                         <Rating

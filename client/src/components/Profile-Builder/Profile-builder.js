@@ -8,15 +8,11 @@ import Location from '../../components/Home/intro/Location_Date_Picker/Location/
 
 const ProfileBuilderForm = props => {
   const user = useSelector(state => state.authReducer.user);
+        
   useEffect(() => {
     console.log(user);
   }, []);
-  const [formData, setFormData] = useState({
-    Speciality: '',
-    Certifications: '',
-    Biography: ''
 
-  });
   const [userData, setUserData] = useState();
 
   useEffect(() => {
@@ -43,6 +39,7 @@ const ProfileBuilderForm = props => {
       if (!err) {
         console.log('Received values of form: ', values);
         const { bio, speciality, certifications } = values;
+        console.log(bio,speciality,certifications);
         const obj = {
           user: user._id,
           bio,

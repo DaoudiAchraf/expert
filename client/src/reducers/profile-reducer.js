@@ -1,5 +1,5 @@
 import {
-  GET_PROFILE,
+  GET_PROFILES,
   PROFILE_LOADING,
   CLEAR_CURRENT_PROFILE,
   CREATE_PROFILE
@@ -7,6 +7,7 @@ import {
 
 const initialState = {
   profile: null,
+  profiles: []
 };
 
 const profileReducer = (state = initialState, action) => {
@@ -16,10 +17,10 @@ const profileReducer = (state = initialState, action) => {
         ...state,
         loading: true
       };
-    case GET_PROFILE:
+    case GET_PROFILES:
       return {
         ...state,
-        profile: action.payload,
+        profiles: action.payload,
         loading: false
       };
     case CREATE_PROFILE:

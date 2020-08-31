@@ -5,7 +5,7 @@ import img from '../../images/profile_img.jpg';
 import { connect } from 'react-redux';
 import {getProfiles} from '../../actions/profile-actions/actions';
 
-const Profile = ({getProfiles,profile}) => {
+const Profile = ({getProfiles}) => {
     useEffect(() => {
         getProfiles();
     }, []);

@@ -1,4 +1,5 @@
-import React from 'react';
+import React,{useEffect, useState} from 'react';
+import {useSelector} from 'react-redux';
 
 import Search from '../../components/search/Search';
 import Navigation from '../../components/navigation/Navigation';
@@ -11,24 +12,49 @@ import { Select, Input } from 'antd';
 
 import './SearchExpertsPage.scss';
 
+import { connect } from 'react-redux';
+import {getProfiles} from '../../actions/profile-actions/actions';
 
-const SearchExpertsPage = () => {
+
+const SearchExpertsPage = ({getProfiles}) => {
+
+        
+
+        //const [profilesData,setprofiles] = useState();
+
+        useEffect(() => {
+            getProfiles();
+           // console.log("ddd",user);
+        }, []);
+        const profiles = useSelector(state => state.profileReducer.profiles);
+      
+        console.log(profiles);
+        let profile= profiles;
+        console.log('prof',profile);
+        // console.log(user);
+
     return (
         <div className="search-experts">
             <Search />
+           
             <div className="main">
                 <div className="experts-list" >
                     <Navigation />
                     <SortBy show={true} />
                     <div className="experts" id="style-2">
+                    {
+                        profiles.map(profile =>
+                            <ExpertCard key={profile._id} infos={profile}/>
+                           )
+                    }
+                        
+                        {/* <ExpertCard />
                         <ExpertCard />
                         <ExpertCard />
                         <ExpertCard />
                         <ExpertCard />
                         <ExpertCard />
-                        <ExpertCard />
-                        <ExpertCard />
-                        <ExpertCard />
+                        <ExpertCard /> */}
                     </div>
                 </div>
                 <div className="map">
@@ -40,4 +66,4 @@ const SearchExpertsPage = () => {
 };
 
 
-export default SearchExpertsPage;
+export default connect(null,{getProfiles})(SearchExpertsPage);
