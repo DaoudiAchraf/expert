@@ -24,7 +24,7 @@ const Complete = () => {
   // };
 
 
-  
+
   const [result, setResult] = useState([]);
 
 
@@ -32,19 +32,19 @@ const Complete = () => {
     let suggestions = [''];
 
     if (value) {
-      
-    
-      axios.get('https://api.mapbox.com/geocoding/v5/mapbox.places/'+value+'.json?proximity=-74.70850,40.78375&access_token=pk.eyJ1IjoicGxhY2Vob2xkZXIiLCJhIjoiY2tlMmhuYjdkMDllbTMwb2I3bWV0NXZyNSJ9.CNUFoIoUh55puHllHgD_Gg')
-      .then(res =>{
-          console.log(res.data.features);
 
-          suggestions=res.data.features.map(element => element.place_name);
-          console.log("-->",suggestions);
-          console.log('rrrr',result);
+
+      axios.get('https://api.mapbox.com/geocoding/v5/mapbox.places/' + value + '.json?proximity=-74.70850,40.78375&access_token=pk.eyJ1IjoicGxhY2Vob2xkZXIiLCJhIjoiY2tlMmhuYjdkMDllbTMwb2I3bWV0NXZyNSJ9.CNUFoIoUh55puHllHgD_Gg')
+        .then(res => {
+          console.log(res);
+
+          suggestions = res.data.features.map(element => element.place_name);
+          console.log("-->", suggestions);
+          console.log('rrrr', result);
           setResult(suggestions);
-          
-      })
-  
+
+        })
+
     }
 
 
@@ -69,7 +69,7 @@ const Complete = () => {
   );
 };
 
-export default Complete; 
+export default Complete;
 
 
 

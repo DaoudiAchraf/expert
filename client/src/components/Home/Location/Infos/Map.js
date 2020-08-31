@@ -5,8 +5,8 @@ import './Infos.css';
 
 export default class Mapi extends Component {
   state = {
-    lat: 36.807146,
-    lng: 10.145529,
+    lat: 36.5995808661874,
+    lng: 10.4991323500872,
     zoom: 13,
   }
   render() {

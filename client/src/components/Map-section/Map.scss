@@ -13,6 +13,7 @@
         .leaflet-popup-content-wrapper{
             width: 237px;
             display: flex;
+            padding: 0;
             align-items: center;
             justify-content: center;
             .popup-expert-infos{
@@ -25,28 +26,41 @@
             img{
                 width: 79px;
                 height: 94px;
-                margin-top: 18px;
-                margin : 18px auto;
+                margin : 0 auto;
             }
             h3{
                 margin-bottom: 9px;
             }
             p{
                 margin: 0px;
+                margin-bottom: 60px;
             }
             
         }
         .btn-actions{
                 width: 237px;
+                align-self: flex-end;
+                margin-bottom: 0;
                 button{
                     width: 50%;
+                    height:48px ;
                     border:none;
                     background-color: #4EADFF;
                     align-self: flex-start;
                 }
+                .Call{
+                    border-bottom-right-radius: 12px;
+                }
+                .Directions{
+                    border-bottom-left-radius: 12px;
+                }
             }
         
         }
+    }
+
+    .leaflet-popup-content{
+        margin-bottom: 0;
     }
 
 }

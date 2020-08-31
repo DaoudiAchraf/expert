@@ -5,7 +5,7 @@
   "main": "app.js",
   "scripts": {
     "watch": "nodemon app.js",
-    "start": "node bin/wwwlocal",
+    "start": "nodemon app.js",
     "client": "npm start --prefix client",
     "dev": "concurrently \"npm run watch\" \"npm run client\" "
   },
