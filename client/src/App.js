@@ -28,7 +28,7 @@ const App = props => {
       <Switch location={props.history.location}>
         <Route exact path={"/"} component={HomePage} />
         <Route exact path={"/expert"} component={ExpertPage} />
-        <Route exact path={"/profile"} component={ProfilePage} />
+        <Route exact path={"/profile/:id"} component={ProfilePage} />
         <Route exact path={"/search"} component={SearchExpertsPage} />
         {/* <AuthRoute
           authenticated={props.isLoggedIn}

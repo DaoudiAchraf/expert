@@ -3,11 +3,13 @@ import './expertCart.scss';
 import img from '../../icon/Capture.PNG';
 import { Rate } from 'antd';
 import Rating from '@material-ui/lab/Rating';
+import { Link } from 'react-router-dom';
 
 
 const ExpertCard = props => {
     const [value, setValue] = useState(4.5);
-    const {user,speciality,location} = props.infos;
+    const {_id,user,speciality,location} = props.infos;
+
 
     return (
         <div className="expert">
@@ -39,9 +41,11 @@ const ExpertCard = props => {
 
             </div>
             <div className="expert-profileBtn">
-                <button className="expert-profile-button">
-                    view profile
-                </button>
+                <Link to={`profile/${_id}`} >
+                    <button className="expert-profile-button">
+                        view profile
+                    </button>
+                </Link>
             </div>
         </div>
     );

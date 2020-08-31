@@ -28,10 +28,8 @@ const SearchExpertsPage = ({getProfiles}) => {
         }, []);
         const profiles = useSelector(state => state.profileReducer.profiles);
       
-        console.log(profiles);
-        let profile= profiles;
-        console.log('prof',profile);
-        // console.log(user);
+        const profile= profiles;
+        
 
     return (
         <div className="search-experts">
@@ -48,13 +46,6 @@ const SearchExpertsPage = ({getProfiles}) => {
                            )
                     }
                         
-                        {/* <ExpertCard />
-                        <ExpertCard />
-                        <ExpertCard />
-                        <ExpertCard />
-                        <ExpertCard />
-                        <ExpertCard />
-                        <ExpertCard /> */}
                     </div>
                 </div>
                 <div className="map">

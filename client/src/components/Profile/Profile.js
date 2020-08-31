@@ -1,15 +1,21 @@
-import React,{useEffect} from 'react';
+import React from 'react';
 import './Profile.css';
 import SelectBar from './SelectBar/SelectBar';
 import img from '../../images/profile_img.jpg';
-import { connect } from 'react-redux';
-import {getProfiles} from '../../actions/profile-actions/actions';
+import {useParams} from 'react-router';
+import {useSelector} from 'react-redux';
 
-const Profile = ({getProfiles}) => {
-    useEffect(() => {
-        getProfiles();
-    }, []);
+
+const Profile = () => {
+
+    const {id} = useParams();
+
+    const profiles =  useSelector(state => state.profileReducer.profiles);
+
+    const current_profile = profiles.filter( profile=> profile._id === id)[0];
    
+    const {bio,certifications,location,speciality,user} = current_profile;
+    
     return (
         <div className="profile-infos">
 
@@ -22,11 +28,11 @@ const Profile = ({getProfiles}) => {
                 <div className="upper-infos">
                     <img src={img}></img>
                     <div>
-                        <p className="skill_type">diagnostique et mecanique</p>
-                        <p className="expert_name">Name</p>
+                        <p className="skill_type">{speciality}</p>
+                        <p className="expert_name">{user.login} </p>
                         <p>Rating</p>
                         <p className="address">Address :</p>
-                        <p className="expert_address">Fouchana Cité Prime</p>
+                        <p className="expert_address">{location.name}</p>
                     </div>
                 </div>
 
@@ -38,20 +44,19 @@ const Profile = ({getProfiles}) => {
             <div className="lower-infos">
                 <p className="expert_career"> Professional statement</p>
                 <div className="inner_career">
-                    <p>
-                        dsqdbd hgqdsh jqdgjqgd jhgjdgqs hjhdgjshgj shdgq jshgqs
-                        sdbjqh dbjdbhsq dbhqdbnqdb qbdqshdbqsdvbqsd vsdqnbv
-                    </p>
+                    <p>{bio}</p>
                 </div>
           
 
                 <p className="expert_career">Certifications</p>
                 <div className="inner_career">
-                
-                    <p> -dsqdbd hgqdsh jqdgjqgd </p>
                     <p>
-                        -jhgjdgqs hjhdgjshgj shdgq jshgqs
-                        - sdbjqh dbjdbhsq 
+                        {
+                            certifications.map(certif=>
+                               certif)
+                            
+                        }
+                        
                     </p> 
                 </div>
              
@@ -70,7 +75,8 @@ const Profile = ({getProfiles}) => {
     )
 }
 
-const mapStateToProps = state =>({
-    profile: state.profile
-});
-export default connect(mapStateToProps,{getProfiles}) (Profile);
+// const mapStateToProps = state =>({
+//     profile: state.profile
+// });
+export default (Profile);
+// connect(mapStateToProps,{getProfiles}) 
