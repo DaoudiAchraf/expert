@@ -2,31 +2,15 @@ import React, { useState } from 'react';
 import { AutoComplete } from 'antd';
 import axios from 'axios';
 
-import './Location.css';
+
 
 const { Option } = AutoComplete;
 
 
 
 const Complete = () => {
-  // const [result, setResult] = useState([]);
-
-  // const handleSearch = value => {
-  //   let res = [];
-
-  //   if (!value || value.indexOf('@') >= 0) {
-  //     res = [];
-  //   } else {
-  //     res = ['gmail.com', '163.com', 'qq.com'].map(domain => `${value}@${domain}`);
-  //   }
-
-  //   setResult(res);
-  // };
-
-
 
   const [result, setResult] = useState([]);
-
 
   const handleSearch = value => {
     let suggestions = [''];
@@ -51,21 +35,21 @@ const Complete = () => {
   };
 
   return (
-    <div className="input-location">
-      <AutoComplete
-        style={{
-          width: 200,
-        }}
-        onSearch={handleSearch}
-        placeholder="Enter City, Region, District "
-      >
-        {result.map(place => (
-          <Option key={place} value={place}>
-            {place}
-          </Option>
-        ))}
-      </AutoComplete>
-    </div>
+
+    <AutoComplete
+      style={{
+        width: 200,
+      }}
+      onSearch={handleSearch}
+      placeholder="Enter City, Region, District "
+    >
+      {result.map(place => (
+        <Option key={place} value={place}>
+          {place}
+        </Option>
+      ))}
+    </AutoComplete>
+
   );
 };
 

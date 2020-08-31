@@ -17,8 +17,8 @@ const SignupForm = props => {
     e.preventDefault();
     props.form.validateFields((err, data) => {
       if (!err) {
-        console.log(data)
-        props.signup(data);
+        props.setData(data);
+        //props.signup(data);
       }
     });
   };

@@ -2,6 +2,9 @@
 const Profile = require('../models/expert_Profile');
 
 module.exports.add_Profile = (req,res)=>{
+
+    console.log('add prof');
+    console.log(req.body);
     new Profile(req.body).save()
     .then(res.json({msg:'profile added successfully'}));
     
@@ -31,6 +34,8 @@ module.exports.get_Profile = (req,res,next)=>{
 
 
 module.exports.get_allProfiles = (req,res,next)=>{
+    console.log("marrrrrrrrrrrrrrrrrr");
+    
     Profile.find({})
     .then(profiles => res.json(profiles));
 };
