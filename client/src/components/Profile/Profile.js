@@ -1,21 +1,29 @@
-import React from 'react';
+import React,{useState} from 'react';
 import './Profile.css';
 import SelectBar from './SelectBar/SelectBar';
 import img from '../../images/profile_img.jpg';
 import {useParams} from 'react-router';
-import {useSelector} from 'react-redux';
 
 
-const Profile = () => {
 
-    const {id} = useParams();
+const Profile = props => {
 
-    const profiles =  useSelector(state => state.profileReducer.profiles);
-
-    const current_profile = profiles.filter( profile=> profile._id === id)[0];
+   const [state, setstate] = useState(null);
    
-    const {bio,certifications,location,speciality,user} = current_profile;
+    const obj={bio:'',
+    certifications:['er','rdr'],
+    location:'',
+    speciality:'',
+    user:{login:''}}
+
+    let {certifications,location,speciality,user} = obj;
+
+   
+    console.log(props.profiles);
+    const {id} = useParams();
+    const current_profile = props.profiles.filter( profile=> profile._id === id);    
     
+    console.log(current_profile);
     return (
         <div className="profile-infos">
 
@@ -33,6 +41,8 @@ const Profile = () => {
                         <p>Rating</p>
                         <p className="address">Address :</p>
                         <p className="expert_address">{location.name}</p>
+                        {current_profile.map(el=>el.bio)}
+                      
                     </div>
                 </div>
 
@@ -44,7 +54,7 @@ const Profile = () => {
             <div className="lower-infos">
                 <p className="expert_career"> Professional statement</p>
                 <div className="inner_career">
-                    <p>{bio}</p>
+                    <p>{44}</p>
                 </div>
           
 
@@ -75,8 +85,6 @@ const Profile = () => {
     )
 }
 
-// const mapStateToProps = state =>({
-//     profile: state.profile
-// });
-export default (Profile);
-// connect(mapStateToProps,{getProfiles}) 
+
+export default Profile;
+

@@ -18,17 +18,15 @@ import {getProfiles} from '../../actions/profile-actions/actions';
 
 const SearchExpertsPage = ({getProfiles}) => {
 
-        
-
-        //const [profilesData,setprofiles] = useState();
-
         useEffect(() => {
             getProfiles();
            // console.log("ddd",user);
         }, []);
         const profiles = useSelector(state => state.profileReducer.profiles);
-      
-        const profile= profiles;
+         
+        
+
+    
         
 
     return (

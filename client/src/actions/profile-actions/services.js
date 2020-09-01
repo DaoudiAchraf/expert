@@ -18,14 +18,6 @@ function getProfilesRequest() {
 }
 
 
-// function getCurrentProfileRequest() {
-//   return axiosInstance({
-//     method: "get",
-//     url: "profile/get",
-//     data: null
-//   });
-// }
-
 const ProfileServices = {
   createProfileRequest,
   getProfilesRequest
