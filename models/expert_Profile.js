@@ -12,7 +12,7 @@ const ExpertSchema = new mongoose.Schema({
         longitude: { type: Number },
         latitude: { type: Number },
     },
-    status: { type: String },
+    speciality: { type: String },
     certifications: {
         type: [String]
     },
