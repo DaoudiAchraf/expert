@@ -13,7 +13,7 @@ import ProfileServices from "./services";
 
 
 export const getProfiles = () => {
- 
+ console.log('getprofiles');
   return dispatch => {
     ProfileServices.getProfilesRequest().
       then((res) => {

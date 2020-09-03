@@ -1,4 +1,4 @@
-import React from 'react';
+import React ,{useEffect}from 'react';
 import './Profile-page.css';
 import Profile from '../../components/Profile/Profile';
 import { Input } from 'antd';
@@ -6,13 +6,27 @@ import { DatePicker } from 'antd';
 import moment from 'moment';
 import { Checkbox } from 'antd';
 import Profile_Review from '../../components/Profile-Review/Profile_Review';
+import {useSelector} from 'react-redux';
+import {connect} from 'react-redux';
+import {getProfiles} from '../../actions/profile-actions/actions';
 
 
-function onChange(e) {
-    console.log(`checked = ${e.target.checked}`);
-}
 
-const ProfilePage = () => {
+const ProfilePage = ({getProfiles}) => {
+    
+    useEffect(() => {
+        getProfiles();
+       // console.log("ddd",user);
+    }, []);
+    const profiles = useSelector(state => state.profileReducer.profiles);
+  
+
+    function onChange(e) {
+        console.log(`checked = ${e.target.checked}`);
+    }
+
+   console.log('proos',profiles);
+
 
     const dateFormatList = ['DD/MM/YYYY', 'DD/MM/YY'];
     return (
@@ -20,12 +34,13 @@ const ProfilePage = () => {
             <div className="profile">
                 <div className="overview">
                     <h3>Home/Map Search</h3>
-                    <Profile />
+                    <Profile profiles={profiles}/>
                 </div>
                 <div className="reservation">
                     <div className="reservation_header">
                         <h2>Réservez votre visite</h2>
                         <p>Monday to Friday 09:00am-06.00pm</p>
+                      
                     </div>
 
                     <div className="reservation_content">
@@ -67,4 +82,4 @@ const ProfilePage = () => {
     )
 }
 
-export default ProfilePage;
+export default connect(null,{getProfiles}) (ProfilePage);

@@ -15,7 +15,7 @@ import store from "./stores/store-dev";
 import './App.scss';
 
 const App = props => {
-  console.log("eertegy", props.user);
+  // console.log("eertegy", props.user);
   return (
     <Provider store={store}>
       <div className={"app"} style={{ backgroundColor: '#F6F9FC' }} >

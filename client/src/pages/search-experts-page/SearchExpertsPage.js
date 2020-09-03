@@ -11,7 +11,6 @@ import './SearchExpertsPage.scss';
 import { connect } from 'react-redux';
 import { getProfiles } from '../../actions/profile-actions/actions';
 
-
 const SearchExpertsPage = ({ getProfiles }) => {
     //const [profilesData,setprofiles] = useState();
     useEffect(() => {
