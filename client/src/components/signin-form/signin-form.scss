@@ -1,10 +1,19 @@
 .signin-form {
   width: 100%;
   max-width: 400px;
-  display: block;
+  display: flex;
+  flex-direction: column;
   margin: auto;
   .submit-button {
-    margin: auto;
+    margin: 0;
     display: block;
+    align-self: flex-start;
+    background-color: #2C3E50;
+    border-color: #2C3E50;
+  }
+  .submit-button:hover{
+    background-color: #B8BEC4;
+    border-color: #B8BEC4;
+
   }
 }
