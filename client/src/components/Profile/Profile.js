@@ -5,7 +5,6 @@ import img from '../../images/profile_img.jpg';
 import {useParams} from 'react-router';
 
 
-
 const Profile = props => {
 
    const [state, setstate] = useState(null);
@@ -23,7 +22,6 @@ const Profile = props => {
     const {id} = useParams();
     const current_profile = props.profiles.filter( profile=> profile._id === id);    
     
-    console.log(current_profile);
     return (
         <div className="profile-infos">
 
@@ -36,13 +34,13 @@ const Profile = props => {
                 <div className="upper-infos">
                     <img src={img}></img>
                     <div>
-                        <p className="skill_type">{speciality}</p>
-                        <p className="expert_name">{user.login} </p>
+                        <p className="skill_type">{current_profile.map(el=>el.speciality)}</p>
+                        <p className="expert_name">{current_profile.map(el=>el.user.login)} </p>
                         <p>Rating</p>
                         <p className="address">Address :</p>
-                        <p className="expert_address">{location.name}</p>
-                        {current_profile.map(el=>el.bio)}
-                      
+                        <p className="expert_address">{current_profile.map(el=>el.location.name)}</p>
+                        
+                       
                     </div>
                 </div>
 
@@ -54,18 +52,14 @@ const Profile = props => {
             <div className="lower-infos">
                 <p className="expert_career"> Professional statement</p>
                 <div className="inner_career">
-                    <p>{44}</p>
+                    <p>{current_profile.map(el=>el.bio)}</p>
                 </div>
           
 
                 <p className="expert_career">Certifications</p>
                 <div className="inner_career">
                     <p>
-                        {
-                            certifications.map(certif=>
-                               certif)
-                            
-                        }
+                    {current_profile.map(el=>el.certifications)}
                         
                     </p> 
                 </div>

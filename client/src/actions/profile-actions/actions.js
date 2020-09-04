@@ -4,7 +4,7 @@ import {
   GET_PROFILES,
   PROFILE_LOADING,
   CLEAR_CURRENT_PROFILE,
-  GET_ERRORS,
+  GET_PROFILE,
   CREATE_PROFILE,
   PROFILE_CREATION_FAILED
 } from './types';
@@ -26,6 +26,22 @@ export const getProfiles = () => {
 
 };
 
+export const getProfileById = (id) => {
+
+  console.log('getProfileById',id);
+
+   return dispatch => {
+     ProfileServices.getProfileRequest(id).
+       then((res) => {
+         console.log("profile",res.data);
+         dispatch({ type: GET_PROFILE, payload: res.data });
+       })
+       .catch(err => console.log(err));
+ 
+ 
+   };
+ 
+ }; 
 
 
 export function createProfile(values) {

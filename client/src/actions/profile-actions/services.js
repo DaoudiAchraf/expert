@@ -13,14 +13,22 @@ function createProfileRequest(body) {
 function getProfilesRequest() {
   return axiosInstance({
     method: "get",
-    url: "profile/get"
+    url: "profiles"
+  });
+}
+
+function getProfileRequest(id) {
+  return axiosInstance({
+    method: "get",
+    url: "profile/"+id
   });
 }
 
 
 const ProfileServices = {
   createProfileRequest,
-  getProfilesRequest
+  getProfilesRequest,
+  getProfileRequest
   
 };
 

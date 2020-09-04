@@ -2,7 +2,8 @@ import {
   GET_PROFILES,
   PROFILE_LOADING,
   CLEAR_CURRENT_PROFILE,
-  CREATE_PROFILE
+  CREATE_PROFILE,
+  GET_PROFILE
 } from '../actions/profile-actions/types';
 
 const initialState = {
@@ -27,6 +28,11 @@ const profileReducer = (state = initialState, action) => {
       return {
         ...state,
         profile: action.payload.profile
+      };
+    case GET_PROFILE:
+      return {
+        ...state,
+        profile: action.payload,
       };
     case CLEAR_CURRENT_PROFILE:
       return {

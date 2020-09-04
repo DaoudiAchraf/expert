@@ -4,7 +4,7 @@ import axiosInstance from "../../config/axios-instance";
 function setReservation_Request(body) {
     return axiosInstance({
       method: "post",
-      url: "reservations",
+      url: "reserve",
       data: body
     });
   }

@@ -4,9 +4,13 @@ const router = express.Router();
 
 const profileController = require('../controllers/profile');
 
+const reservationsController = require('../controllers/reservation');
+
 const ctrlUser = require('../controllers/user.controller');
 
 const jwtHelper = require('../config/jwtHelper');
+
+
 //les routers de services
 const MIME_TYPE_MAP = {
     'image/png': 'png',
@@ -56,6 +60,12 @@ router.get('/user', jwtHelper.verifyJwtToken, ctrlUser.userProfile);
 router.post('/profile/add',profileController.add_Profile);
 router.put('/profile/update/:id',profileController.update_Profile);
 router.delete('/profile/delete/:id',profileController.delete_Profile);
-router.get('/profile/get/:id',profileController.get_Profile);
-router.get('/profile/get',profileController.get_allProfiles);
+router.get('/profile/:id',profileController.get_Profile);
+router.get('/profiles',profileController.get_allProfiles);
+
+
+router.post('/reserve',jwtHelper.verifyJwtToken,reservationsController.reserve);
+router.get('reservations',reservationsController.get_myReservations);
+//router.put('/reservation',reservationsServices.)
+
 module.exports = router;
