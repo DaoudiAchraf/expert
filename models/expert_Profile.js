@@ -6,7 +6,6 @@ const ExpertSchema = new mongoose.Schema({
         ref: 'User'
     },
 
-    // location:{type:String},
     location: {
         name: { type: String },
         longitude: { type: Number },

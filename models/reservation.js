@@ -11,6 +11,10 @@ const ReservationSchema = new mongoose.Schema({
     
     type : {type:String},
 
+    name:{type:String},
+
+    phone:{type:String},
+    
     expert :  
     {
         type:mongoose.Schema.Types.ObjectId,

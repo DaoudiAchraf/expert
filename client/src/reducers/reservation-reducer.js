@@ -24,6 +24,8 @@ const initialState = {
             ...state,
             newReservation: action.payload
         };
+      default:
+        return state;
     }
 
 }

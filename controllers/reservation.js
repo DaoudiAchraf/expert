@@ -5,9 +5,18 @@
 const reservation = require('../models/reservation');
 const reservations = require('../models/reservation');
 
+
 module.exports.reserve = (req,res)=>{
-    new reservations(req.body).save()
-    .then(res.json({msg:'profile added successfully'}));
+    console.log('reServe');
+ 
+    const newReservation= 
+    {
+        ...req.body,
+        client:req._id
+    }
+ 
+    new reservations(newReservation).save()
+    .then(res.json({msg:'reservation added successfully'}));
 }
 
 module.exports.update_reservation = (req,res)=>{
@@ -16,21 +25,17 @@ module.exports.update_reservation = (req,res)=>{
 
 }
 
-module.exports.delete_reservation = (req,res)=>{
-    if (req.user.id)
-        Profile.deleteOne({_id:req.params.id})
-        .then(res.json({msg:'profile successfully deleted'}));
 
-}
 
 module.exports.get_myReservations = (req,res)=>{
-    Profile.find({client:req.params.id})
+    reservations.find({client:req._id})
     .then(reservation => res.json(profile));
 
 }
 
 module.exports.get_myAppointments = (req,res)=>{
-    Profile.find({expert:req.params.id})
+    reservations.find({expert:req._id})
     .then(reservation => res.json(profile))
 
 }
+

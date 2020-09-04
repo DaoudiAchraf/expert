@@ -27,8 +27,13 @@ module.exports.update_Profile = (req, res, next) => {
 
 module.exports.get_Profile = (req, res, next) => {
 
-    Profile.find({ _id: req.params.id })
-        .then(profile => res.json(profile));
+        console.log("getProfile");
+        Profile.findOne({_id: req.params.id}).populate('user')
+        .then(profile => {
+            console.log(profile);
+            res.json(profile);
+        });
+    
 };
 
 
@@ -37,7 +42,6 @@ module.exports.get_allProfiles = (req, res, next) => {
 
     Profile.find({}).populate('user')
         .then(profiles => {
-            console.log(profiles);
             res.json(profiles);
         });
     

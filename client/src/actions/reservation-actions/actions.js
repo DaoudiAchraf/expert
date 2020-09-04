@@ -24,13 +24,13 @@ import reservationsServices from './services';
   };
   
 
-  export const setReservation = () => {
-   
+  export const setReservation = (values) => {
+   alert('setReservation') ;
     return dispatch => {
-      reservationsServices.setReservation_Request()
+      reservationsServices.setReservation_Request(values)
         .then((res) => {   
           console.log("reservations",res.data);
-          dispatch({ type: SET_RESERVATION, payload: res.data });
+          dispatch({ type: SET_RESERVATION, payload: values });
         })
         .catch(err => console.log(err));
   
