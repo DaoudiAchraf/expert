@@ -10,6 +10,7 @@ const SigninForm = props => {
       if (!err) {
         console.log(data)
         props.signin(data);
+        props.setShowmodel(false);
       }
     });
   };
@@ -18,7 +19,16 @@ const SigninForm = props => {
     <Form className="signin-form" onSubmit={handleSubmit}>
       <Form.Item>
         {getFieldDecorator("mail", {
-          rules: [{ required: true, message: "Please input your email!" }]
+          rules: [
+            {
+              required: true,
+              message: "Please input your email!"
+            },
+            {
+              type: 'email',
+              message: 'The input is not valid E-mail!',
+            },
+          ]
         })(
           <Input
             prefix={<Icon type="mail" style={{ color: "rgba(0,0,0,.25)" }} />}

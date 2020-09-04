@@ -12,42 +12,41 @@ import SearchExpertsPage from "./pages/search-experts-page/SearchExpertsPage";
 import { logout } from "./actions/auth-actions/actions";
 import ProfilePage from "./pages/profile-page/Profile-page";
 import store from "./stores/store-dev";
+import './App.scss';
 
 const App = props => {
   // console.log("eertegy", props.user);
   return (
     <Provider store={store}>
-    <div className={"app"} style={{ backgroundColor: '#F6F9FC' }} >
-      <Navbar
-        user={props.user}
-        isLoggedIn={props.isLoggedIn}
-        logout={props.logout}
-      />
-
-
-      <Switch location={props.history.location}>
-        <Route exact path={"/"} component={HomePage} />
-        <Route exact path={"/expert"} component={ExpertPage} />
-        <Route exact path={"/profile/:id"} component={ProfilePage} />
-        <Route exact path={"/search"} component={SearchExpertsPage} />
-        {/* <AuthRoute
+      <div className={"app"} style={{ backgroundColor: '#F6F9FC' }} >
+        <Navbar
+          user={props.user}
+          isLoggedIn={props.isLoggedIn}
+          logout={props.logout}
+        />
+        <Switch location={props.history.location}>
+          <Route exact path={"/"} component={HomePage} />
+          <Route exact path={"/expert"} component={ExpertPage} />
+          <Route exact path={"/profile/:id"} component={ProfilePage} />
+          <Route exact path={"/search"} component={SearchExpertsPage} />
+          {/* <AuthRoute
           authenticated={props.isLoggedIn}
           path="/expert"
           component={ExpertPage}
         /> */}
-        <GuestRoute
-          authenticated={props.isLoggedIn}
-          path="/signup"
-          component={SignUpPage}
-        />
-        <GuestRoute
-          authenticated={props.isLoggedIn}
-          path="/signin"
-          component={SigninPage}
-        />
-      </Switch>
-      <Footer />
-    </div>
+          <GuestRoute
+            authenticated={props.isLoggedIn}
+            path="/signup"
+            component={SignUpPage}
+          />
+          <GuestRoute
+            authenticated={props.isLoggedIn}
+            path="/signin"
+            component={SigninPage}
+          />
+        </Switch>
+        <Footer />
+      </div>
     </Provider>
   );
 };

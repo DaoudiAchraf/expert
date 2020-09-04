@@ -20,7 +20,9 @@ const SignupForm = props => {
         // props.setData(data);
         //props.signup(data);
         props.signupExpert(data);
-        props.refInput.current.next();
+        props.setNextstep(props.nextstep + 1);
+        props.refsigntupexpert.current.next();
+        props.handle();
       }
     });
 
@@ -102,7 +104,6 @@ const SignupForm = props => {
       </Form.Item>
       <Form.Item>
         {getFieldDecorator("phone", {
-          initialValue: '',
           rules: [
             {
               required: true,
