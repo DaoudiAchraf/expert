@@ -46,6 +46,15 @@
                 margin :0;
             }
             .expert-work-location {
+                h4{
+                    max-height: 30px;
+                    max-width: 270px;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                }
+            }
+            .expert-work-location {
                 p{
                     margin-top: 5px;
                 }

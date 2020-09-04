@@ -8,12 +8,16 @@ import { Link } from 'react-router-dom';
 
 const ExpertCard = props => {
     const [value, setValue] = useState(4.5);
-    const {_id,user,speciality,location} = props.infos;
-
+    const { _id, user, speciality, location } = props.infos;
+    const handlClick = () => {
+        console.log()
+        const loc = [location.longitude, location.latitude];
+        props.setCenter(loc)
+    }
     return (
-        <div className="expert">
+        <div onClick={handlClick} className="expert">
             <div className="expert-infos">
-                <h3 className="gray-color ml mt">2</h3>
+                <h3 className="gray-color ml mt">{props.index}</h3>
                 <div className="expert-image">
                     <img alt="expert" src={img} className="img"></img>
                 </div>

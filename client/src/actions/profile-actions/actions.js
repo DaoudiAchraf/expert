@@ -13,11 +13,10 @@ import ProfileServices from "./services";
 
 
 export const getProfiles = () => {
- console.log('getprofiles');
   return dispatch => {
     ProfileServices.getProfilesRequest().
       then((res) => {
-        console.log("profiles",res.data);
+        console.log("profiles", res.data);
         dispatch({ type: GET_PROFILES, payload: res.data });
       })
       .catch(err => console.log(err));

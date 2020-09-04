@@ -14,31 +14,30 @@ const Expertcaro = props => {
         console.log('lena');
         setNextstep(nextstep + 1);
         refsigntupexpert.current.next();
+        props.setProfileExpert(true);
     }
 
     return (
-        <Carousel dots={false} ref={refsigntupexpert}>
-            <div className="signup-page">
-                <Typography.Title className="title">Sign up</Typography.Title>
-                <div className="content">
-                    <WrappedSignupForm refsigntupexpert={refsigntupexpert} setNextstep={setNextstep} nextstep={nextstep} handle={handlesignupexpert} signupExpert={props.signupExpert} signup={props.signup} />
-                    <Steps current={nextstep}>
-                        <Step />
-                        <Step />
-                        <Step />
-                    </Steps>
+        <div>
+            <Carousel dots={false} ref={refsigntupexpert}>
+                <div className="signup-page">
+                    <Typography.Title className="title">Sign up</Typography.Title>
+                    <div className="content">
+                        <WrappedSignupForm signupexpert={props.signupexpert} refsigntupexpert={refsigntupexpert} setNextstep={setNextstep} nextstep={nextstep} handle={handlesignupexpert} signupExpert={props.signupExpert} signup={props.signup} />
+
+                    </div>
                 </div>
-            </div>
-            <div className="second-page">
-                <Typography.Title className="title">Profile</Typography.Title>
-                <Profile_builder createProfile={props.createProfile} />
-                <Steps current={nextstep}>
-                    <Step />
-                    <Step />
-                    <Step />
-                </Steps>
-            </div>
-        </Carousel>
+                <div className="second-page">
+                    <Typography.Title className="title">Profile</Typography.Title>
+                    <Profile_builder setShowmodel={props.setShowmodel} profileExpert={props.profileExpert} setProfileExpert={props.setProfileExpert} createProfile={props.createProfile} />
+
+                </div>
+            </Carousel>
+            <Steps className="setps" current={nextstep}>
+                <Step />
+                <Step />
+            </Steps>
+        </div>
     );
 };
 

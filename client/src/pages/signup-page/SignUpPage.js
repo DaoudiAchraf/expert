@@ -14,14 +14,19 @@ import "./signup-page.scss";
 
 const SignUpPage = props => {
   const [nextstep, setNextstep] = useState(0);
+  const [profileExpert, setProfileExpert] = useState(false);
   const [signupexpert, setSignupexpert] = useState(false);
   const refsigntupexpert = useRef();
   const refInput = useRef();
   const { Step } = Steps;
   const handleCancel = () => {
-    props.setShowmodel(false);
-    setSignupexpert(false);
-    refInput.current.goTo(0);
+    console.log(profileExpert);
+    if (!profileExpert) {
+      props.setShowmodel(false);
+      setSignupexpert(false);
+      refInput.current.goTo(0);
+    }
+
   }
   const handle = (e) => {
     e.preventDefault();
@@ -54,7 +59,7 @@ const SignUpPage = props => {
     refInput.current.next();
   }
   return (
-    <Modal centered onCancel={handleCancel} visible={props.showmodel} footer={null}>
+    <Modal centered closable={true} onCancel={handleCancel} visible={props.showmodel} footer={null}>
       <Carousel dots={false} ref={refInput} afterChange={onChange} >
         <div className="signup-page">
           <Typography.Title className="title">Sign up</Typography.Title>
@@ -73,12 +78,12 @@ const SignUpPage = props => {
           </div>
         </div>
         {signupexpert ?
-          <Expertcaro signup={props.signup} signupExpert={props.signupExpert} createProfile={props.createProfile} />
+          <Expertcaro signupexpert={signupexpert} setProfileExpert={setProfileExpert} profileExpert={profileExpert} setShowmodel={props.setShowmodel} signup={props.signup} signupExpert={props.signupExpert} createProfile={props.createProfile} />
           :
           <div className="signup-page">
             <Typography.Title className="title">Sign up</Typography.Title>
             <div className="content">
-              <WrappedSignupForm refInput={refInput} handle={handle} signupExpert={props.signup} setData={setData} />
+              <WrappedSignupForm refInput={refInput} handle={handle} signupExpert={props.signup} signupexpert={signupexpert} setData={setData} />
             </div>
           </div>
         }

@@ -64,7 +64,7 @@ const ExpertMap = (props) => {
     const saveMap = map => {
         setMap(map);
     };
-    const pos = [36.807146, 10.145529,];
+    const pos = [36.807146, 10.145529];
 
     const result = () => {
         const res = document.getElementsByClassName("search-control-info-list")
@@ -73,11 +73,13 @@ const ExpertMap = (props) => {
     return (
         <Container className="posts-page">
             <Row className="row">
-                <Map onClick={e => console.log("test", e)} className="test map" center={pos} zoom={9} ref={saveMap} onClick={handleClick}>
-                    {!tosatilite ? <TileLayer
-                        url='https://tiles.wmflabs.org/hikebike/{z}/{x}/{y}.png'
-                        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-                    /> :
+                <Map onClick={e => console.log("test", e)} className="test map" center={props.center} zoom={9} ref={saveMap}>
+                    {!tosatilite ?
+                        <TileLayer
+                            url='https://tiles.wmflabs.org/hikebike/{z}/{x}/{y}.png'
+                            attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                        />
+                        :
                         <div>
                             <TileLayer
                                 url="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}"
@@ -90,32 +92,34 @@ const ExpertMap = (props) => {
                         </div>}
                     {position != null ? <Marker position={[position.lat, position.lng]} /> : ""}
                     {positionF != null && position == null ? <Marker position={[positionF.lat, positionF.lng]} /> : ""}
-                    <Marker position={pos} onMouseOver={(e) => {
-                        console.log('enter', pop.current)
-                        e.target.openPopup();
-                    }}
-                        onMouseOut={(e) => {
-                            console.log('close')
-                        }}>
-                        <Popup>
-                            <div className="popup-expert-infos">
-                                <img src={iconPerson} />
-                                <h3>Malek</h3>
-                                <p>Fouchana Cité prime</p>
-
-                            </div>
-                            <div className="btn-actions">
-                                <button className="Directions">
-                                    Directions
+                    {props.profiles.map((p, index) => (
+                        <Marker key={index} position={[p.location.longitude, p.location.latitude]} onMouseOver={(e) => {
+                            console.log('enter', pop.current)
+                            e.target.openPopup();
+                        }}
+                            onMouseOut={(e) => {
+                                console.log('close')
+                            }}>
+                            <Popup>
+                                <div className="popup-expert-infos">
+                                    <img src={iconPerson} />
+                                    <h3>{p.user.login}</h3>
+                                    <p>{p.location.name}</p>
+                                </div>
+                                <div className="btn-actions">
+                                    <button className="Directions">
+                                        Directions
                                 </button>
-                                <button className="Call">
-                                    Call
+                                    <button className="Call">
+                                        Call
                                 </button>
-                            </div>
-                        </Popup>
-                    </Marker>
+                                </div>
+                            </Popup>
+                        </Marker>
+                    ))
+                    }
 
-                    <ReactLeafletSearch closeResultsOnClick={true} zoom={14} showMarker={false} className="custom-style" position="topleft" />
+                    {/* <ReactLeafletSearch closeResultsOnClick={true} zoom={14} showMarker={false} className="custom-style" position="topleft" /> */}
                     {map != null && position != null ? <RoutingMachine
                         color="#DC143C"
                         map={map}

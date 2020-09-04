@@ -19,10 +19,11 @@ const SignupForm = props => {
       if (!err) {
         // props.setData(data);
         //props.signup(data);
-        props.signupExpert(data);
+        props.signupExpert(data)
         props.setNextstep(props.nextstep + 1);
         props.refsigntupexpert.current.next();
         props.handle();
+
       }
     });
 
@@ -162,7 +163,7 @@ const SignupForm = props => {
       </Form.Item>
       <Form.Item>
         <Button disabled={hasErrors(getFieldsError())} type="primary" htmlType="submit" className="submit-button">
-          Sign up
+          {!props.signupexpert ? "Sign up" : "Next"}
         </Button>
       </Form.Item>
     </Form>

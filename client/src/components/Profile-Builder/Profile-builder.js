@@ -89,6 +89,9 @@ const ProfileBuilderForm = props => {
             }
             console.log(obj);
             props.createProfile(obj);
+            props.setProfileExpert(false);
+            props.setShowmodel(false);
+
           })
           .catch((err) => {
             const obj = {
