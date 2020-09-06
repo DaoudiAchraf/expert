@@ -1,0 +1,31 @@
+
+
+.appointmentCard
+{
+    background-color: white;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    padding-bottom: 15px;
+   
+    margin: .8% 1%;
+ 
+}
+
+.appointment-infos
+{
+    background-color: white;
+    padding: 50px ;
+}
+.appointmentCard .controls
+{
+    display: flex;
+    justify-content: space-around;
+  
+}
+
+.visit_type
+{
+    text-transform: uppercase;
+    background-color: #F7F7F7;
+    font-weight: 450;
+    color: #47495A;
+}

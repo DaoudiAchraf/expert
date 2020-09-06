@@ -10,17 +10,17 @@ function setReservation_Request(body) {
   }
 
 
-function getReservations_Request() {
+function getAppointments_Request() {
   return axiosInstance({
     method: "get",
-    url: "reservations"
+    url: "appointments"
   });
 }
 
 
 const reservationsServices = {
   setReservation_Request,
-  getReservations_Request
+  getAppointments_Request
   
 };
 

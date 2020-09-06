@@ -2,14 +2,13 @@
 import {
     GET_USER_RESERVATIONS,
     SET_RESERVATION,
-    
+
   } from '../actions/reservation-actions/types';
   
 
 const initialState = {
     newReservation:null,
     myReservations:[]
-  
   };
   
   const reservationReducer = (state = initialState, action) => {

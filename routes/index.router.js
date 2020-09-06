@@ -65,7 +65,8 @@ router.get('/profiles',profileController.get_allProfiles);
 
 
 router.post('/reserve',jwtHelper.verifyJwtToken,reservationsController.reserve);
-router.get('reservations',reservationsController.get_myReservations);
-//router.put('/reservation',reservationsServices.)
+router.get('/reservations',reservationsController.get_myReservations);
+router.get('/appointments',jwtHelper.verifyJwtToken,reservationsController.get_myAppointments);
+
 
 module.exports = router;
