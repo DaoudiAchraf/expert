@@ -28,7 +28,7 @@ module.exports.update_Profile = (req, res, next) => {
 module.exports.get_Profile = (req, res, next) => {
 
         console.log("getProfile");
-        Profile.findOne({_id: req.params.id}).populate('user')
+        Profile.findOne({user: req.params.id}).populate('user')
         .then(profile => {
             console.log(profile);
             res.json(profile);

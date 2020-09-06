@@ -4,26 +4,30 @@ import Profile from '../../components/Profile/Profile';
 import Profile_Review from '../../components/Profile-Review/Profile_Review';
 import {useSelector} from 'react-redux';
 import {connect} from 'react-redux';
-import {getProfiles} from '../../actions/profile-actions/actions';
+import {getProfileById} from '../../actions/profile-actions/actions';
 import Reservation from '../../components/reservation/Reservation';
+import {useParams} from 'react-router';
 
 
-
-const ProfilePage = ({getProfiles}) => {
+const ProfilePage = ({getProfileById}) => {
     
+    const profileID = useParams().id;
+
      useEffect(() => {
-        getProfiles();
+        getProfileById(profileID);
     }, []);
 
-    const profiles = useSelector(state => state.profileReducer.profiles);
-   console.log('proos',profiles);
+    const profile = useSelector(state => state.profileReducer.profile);
+    
+
 
     return (
         <div className="profile-page">
             <div className="profile">
                 <div className="overview">
                     <h3>Home/Map Search</h3>
-                    <Profile profiles={profiles}/>
+                    <Profile profile={profile}/> 
+                    
                 </div>
                 <Reservation/>
             </div>
@@ -34,4 +38,4 @@ const ProfilePage = ({getProfiles}) => {
     )
 }
 
-export default connect(null,{getProfiles}) (ProfilePage);
+export default connect(null,{getProfileById}) (ProfilePage);

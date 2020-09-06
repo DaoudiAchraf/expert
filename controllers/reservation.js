@@ -1,16 +1,10 @@
 
-
-
-
-const reservation = require('../models/reservation');
 const reservations = require('../models/reservation');
-
 
 module.exports.reserve = (req,res)=>{
     console.log('reServe');
  
-    const newReservation= 
-    {
+    const newReservation= {
         ...req.body,
         client:req._id
     }
@@ -26,16 +20,24 @@ module.exports.update_reservation = (req,res)=>{
 }
 
 
-
 module.exports.get_myReservations = (req,res)=>{
-    reservations.find({client:req._id})
-    .then(reservation => res.json(profile));
+
+    console.log('myreservations');
+    // reservations.find({client:req._id})
+    // .then(reservation => res.json(profile));
 
 }
 
 module.exports.get_myAppointments = (req,res)=>{
+    
+    console.log('appointments');
+    console.log(req._id);
+
     reservations.find({expert:req._id})
-    .then(reservation => res.json(profile))
+    .then(appointments=>{
+        console.log("appointments",appointments);
+        res.json(appointments);
+    });
 
 }
 

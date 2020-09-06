@@ -11,6 +11,7 @@ import SignUpPage from "./pages/signup-page/SignUpPage";
 import SearchExpertsPage from "./pages/search-experts-page/SearchExpertsPage";
 import { logout } from "./actions/auth-actions/actions";
 import ProfilePage from "./pages/profile-page/Profile-page";
+import AppointmentsPage from './pages/expertAppointments-page/AppointmentsPage'
 import store from "./stores/store-dev";
 import './App.scss';
 
@@ -29,6 +30,8 @@ const App = props => {
           <Route exact path={"/expert"} component={ExpertPage} />
           <Route exact path={"/profile/:id"} component={ProfilePage} />
           <Route exact path={"/search"} component={SearchExpertsPage} />
+          <Route exact path={"/appointments"} component={AppointmentsPage} />
+          
           {/* <AuthRoute
           authenticated={props.isLoggedIn}
           path="/expert"

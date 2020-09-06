@@ -8,7 +8,8 @@ import {
 
 const initialState = {
   profile: null,
-  profiles: []
+  profiles: [],
+  loading:true
 };
 
 const profileReducer = (state = initialState, action) => {

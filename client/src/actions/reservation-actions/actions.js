@@ -1,6 +1,6 @@
 import {
     GET_USER_RESERVATIONS,
-    SET_RESERVATION
+    SET_RESERVATION,
 
   } from './types';
   
@@ -8,16 +8,14 @@ import {
 import reservationsServices from './services';
   
   
-  export const getReservations = () => {
-   
+  export const getAppointments = () => {
     return dispatch => {
-      reservationsServices.getReservations_Request()
+      reservationsServices.getAppointments_Request()
         .then((res) => {   
           console.log("reservations",res.data);
           dispatch({ type: GET_USER_RESERVATIONS, payload: res.data });
         })
         .catch(err => console.log(err));
-  
   
     };
   
@@ -33,7 +31,6 @@ import reservationsServices from './services';
           dispatch({ type: SET_RESERVATION, payload: values });
         })
         .catch(err => console.log(err));
-  
   
     };
   
