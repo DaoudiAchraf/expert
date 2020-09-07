@@ -19,7 +19,7 @@ const Expert_Appointments = ({getAppointments}) => {
             <div className="cards-container">
                 {
                     appointments.map( appointment =>
-                         <Appointmentcard infos={appointment}/> )
+                         <Appointmentcard key={appointment._id} infos={appointment}/> )
 
                 }
                       

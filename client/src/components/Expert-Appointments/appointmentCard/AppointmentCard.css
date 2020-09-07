@@ -13,19 +13,22 @@
 .appointment-infos
 {
     background-color: white;
-    padding: 50px ;
+    padding: 0px 50px ;
 }
 .appointmentCard .controls
 {
     display: flex;
     justify-content: space-around;
-  
+   
 }
 
-.visit_type
+.main_infos
 {
-    text-transform: uppercase;
-    background-color: #F7F7F7;
-    font-weight: 450;
-    color: #47495A;
+    margin-top: 20px;
+    padding : 10px 30px;
+}
+
+.appointment-infos span
+{
+    font-weight: bold;
 }

@@ -2,8 +2,9 @@ import React,{useState} from 'react';
 import './Profile.css';
 import SelectBar from './SelectBar/SelectBar';
 import img from '../../images/profile_img.jpg';
-
-
+import userIcon from '../../images/user.png';
+import certificationIcon from '../../images/waranty.png';
+import { v4 as uuidv4 } from 'uuid';
 
 const Profile = props => {
    
@@ -47,18 +48,27 @@ const Profile = props => {
         <div className="seconde_row">
             <hr></hr>
             <div className="lower-infos">
-                <p className="expert_career"> Professional statement</p>
-                <div className="inner_career">
-                    <p>{bio}</p>
+
+                <div className="biography">
+                    <img className="icon" src={userIcon}></img>
+                    <p className="expert_career"> Professional statement :</p>
+                    <div className="inner_career">
+                        <p>{bio}</p>
+                    </div>
                 </div>
           
-
-                <p className="expert_career">Certifications</p>
+                <div className="certifications">
+                <img className="icon" src={certificationIcon}></img>
+                <p className="expert_career">Certifications :</p>
                 <div className="inner_career">
                     <p>
-                   {certifications.map(certif=>certif)}
+                   {certifications.map(certif=>
+                     <span key={uuidv4()}>{"-"+certif} <br/></span>
+                   )}
+                   
                         
                     </p> 
+                </div>
                 </div>
              
             </div>
@@ -67,11 +77,6 @@ const Profile = props => {
 
         </div>
             
-           
-
-            {/* <div className="lower-infos">
-                
-            </div> */}
         </div>
     )
 }

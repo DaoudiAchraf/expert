@@ -1,11 +1,13 @@
 
 
+.profile-page{ background-color: #F6F9FC;}
 
 .profile-infos
 {
    background-color: white;
    max-width: 660px;
-   height: 565px;
+   /* height: 565px; */
+   height: 80%;
 }
 
 
@@ -74,8 +76,9 @@
 {
     font-size: 20px;
     line-height: 23px;
-    
     color: #47495A;
+    display: inline;
+
 }
 
 .upper-infos
@@ -96,4 +99,20 @@
     line-height: 24px;
 
     color: #47495A;
+
+    padding-left: 45px;
+    padding-top: 10px;
+}
+
+.lower-infos .icon
+{
+    width: 30px;
+    height: 40px;
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.certifications
+{
+    margin-top: 50px;
 }
