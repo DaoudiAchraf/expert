@@ -1,0 +1,45 @@
+
+
+.skill_input
+{
+    border-width: 1px;
+    border-style: inset;
+    border-color: -internal-light-dark-color(rgb(118, 118, 118), rgb(195, 195, 195));
+    border-image: initial;
+    text-transform: uppercase;
+    background-color: #F7F7F7;
+    padding: 2px 8px;
+    font-weight: 450;
+    color: #47495A;
+    text-align: center;
+    
+    margin-bottom: 1em;
+}
+
+._input
+{
+    color: #47495A;
+    font-size: 20px;
+    margin-bottom: .5em;  
+}
+
+._input::-webkit-input-placeholder { /* Firefox 18- */
+    text-align: center;  
+ }
+
+ .addr
+ {
+    font-size: 15px;
+    width: 60%;
+    color: #47495A;
+ }
+
+ .inner_career textarea
+ {
+     margin: 0px 40px;
+     height: 60px;
+     width: 70%;
+     resize: none;
+ }
+
+ .certifs { margin-top: 27px;}

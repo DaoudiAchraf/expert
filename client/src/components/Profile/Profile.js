@@ -5,6 +5,8 @@ import img from '../../images/profile_img.jpg';
 import userIcon from '../../images/user.png';
 import certificationIcon from '../../images/waranty.png';
 import { v4 as uuidv4 } from 'uuid';
+import CSSTransition from 'react-transition-group/CSSTransition';
+import ProfileEditor from './Profile-Editor/ProfileEditor';
 
 const Profile = props => {
    
@@ -19,16 +21,43 @@ const Profile = props => {
         current_profile = props.profile;
 
     let {certifications,location,speciality,user,bio} = current_profile;
+
+    const [edit , setEdit] = useState(false);
+
+    const isEdit = ()=>
+    {
+       // alert('wrok');
+        setEdit(!edit);
+    }
     
     return (
         <div className="profile-infos">
 
        
             <div className="infos-header">
-                    <SelectBar/>
+                    <SelectBar setEditMode={isEdit}/>
                 </div>
             <div className="profile_overview">
-            <div className="first_row">
+            
+            <CSSTransition in={edit} timeout={300}
+                           mountOnEnter unmountOnExit 
+                           classNames="editPanel">  
+            {
+                state=>( <ProfileEditor/>)
+                
+                
+            }
+                
+            </CSSTransition>
+
+            {
+              
+                     <CSSTransition in={!edit} timeout={800}
+                           mountOnEnter unmountOnExit 
+                           classNames="editPanel">  
+            {
+                state=>( <div>
+                    <div className="first_row">
                 <div className="upper-infos">
                     <img src={img}></img>
                     <div>
@@ -37,8 +66,8 @@ const Profile = props => {
                         <p>Rating</p>
                         <p className="address">Address :</p>
                         <p className="expert_address">{location.name}</p>
-                        
-                       
+                  
+                         
                     </div>
                 </div>
 
@@ -57,7 +86,7 @@ const Profile = props => {
                     </div>
                 </div>
           
-                <div className="certifications">
+                <div className="certifis">
                 <img className="icon" src={certificationIcon}></img>
                 <p className="expert_career">Certifications :</p>
                 <div className="inner_career">
@@ -65,8 +94,7 @@ const Profile = props => {
                    {certifications.map(certif=>
                      <span key={uuidv4()}>{"-"+certif} <br/></span>
                    )}
-                   
-                        
+            
                     </p> 
                 </div>
                 </div>
@@ -74,7 +102,16 @@ const Profile = props => {
             </div>
     
         </div>
-
+                    </div>)
+                
+                
+            }
+                
+            </CSSTransition>
+                    
+                
+            }
+            {/* kks */}
         </div>
             
         </div>

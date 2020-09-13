@@ -7,6 +7,7 @@
     background-color: #4EADFF;
     display: flex;
     padding: 3px;
+    justify-content: space-between;
     
 }
 
@@ -16,4 +17,20 @@
     font-size: 16px;
     color: white;
     font-weight: 450;
+}
+
+.bar-container .edit
+{
+    display: flex;
+    flex-direction: column;
+}
+
+.fa-user-edit{ font-size: 24px;}
+.fa-user-edit:hover
+{
+    background-color: white;
+
+    border-radius: 15px 15px 15px 10px;
+
+    color:#4EADFF;
 }
