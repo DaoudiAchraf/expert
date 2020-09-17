@@ -22,16 +22,6 @@ const Expert_Appointments = ({getAppointments}) => {
                          <Appointmentcard key={appointment._id} infos={appointment}/> )
 
                 }
-                      
-             
-                      {/* <Appointmentcard/>
-
-                      <Appointmentcard/>
-                      <Appointmentcard/>
-                      <Appointmentcard/>
-                      <Appointmentcard/>
-                      <Appointmentcard/> */}
-                     
                 
             </div>
         </div>

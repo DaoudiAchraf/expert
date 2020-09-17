@@ -1,6 +1,6 @@
 import React from 'react';
 import './AppointmentCard.css';
-import moment from 'moment/moment.js'
+import moment from 'moment/moment.js';
 import {useDispatch} from 'react-redux';
 import {setReservationStatus} from '../../../actions/reservation-actions/actions';
 
