@@ -23,7 +23,8 @@ const ReservationSchema = new mongoose.Schema({
 
     status: {
         type:String,
-        enum:["accepted", "rejected", "waiting"]
+        enum:["accepted", "rejected", "waiting"],
+        default:"waiting"
         
     }
 

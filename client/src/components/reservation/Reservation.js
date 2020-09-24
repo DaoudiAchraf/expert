@@ -86,7 +86,7 @@ const ReservationForm = (props) => {
           {getFieldDecorator('datePicker', {
       rules: [{ type: 'object', required: true, message: 'Please select a Date !' }],
     })(
-            <DatePicker />,
+            <DatePicker placeholder="select date"  />,
           )}
        </Form.Item>
 

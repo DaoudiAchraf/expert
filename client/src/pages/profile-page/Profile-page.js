@@ -20,19 +20,21 @@ const ProfilePage = ({getProfileById}) => {
     const profile = useSelector(state => state.profileReducer.profile);
     
 
-
     return (
-        <div className="profile-page">
-            <div className="profile">
-                <div className="overview">
-                    <h3>Home/Map Search</h3>
-                    <Profile profile={profile}/> 
-                    
-                </div>
-                <Reservation/>
-            </div>
+        <div className="profile-page" >
+            {/* <h3 id="h3">Home/Map Search</h3> */}
 
-            <Profile_Review />
+            <div className="profile-container">
+                <div className="profile">
+                    <div className="overview">
+                        <Profile profile={profile}/> 
+                    </div>
+                    <Profile_Review />
+                </div>
+                
+                <Reservation/>
+                
+            </div>
         </div>
 
     )

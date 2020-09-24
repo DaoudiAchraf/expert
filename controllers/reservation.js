@@ -23,8 +23,8 @@ module.exports.update_reservation = (req,res)=>{
 module.exports.get_myReservations = (req,res)=>{
 
     console.log('myreservations');
-    // reservations.find({client:req._id})
-    // .then(reservation => res.json(profile));
+    reservations.find({client:req._id})
+    .then(reservation => res.json(profile));
 
 }
 
@@ -33,13 +33,20 @@ module.exports.get_myAppointments = (req,res)=>{
     console.log('appointments');
     console.log(req._id);
 
-    reservations.find({expert:req._id})
-    .then(appointments=>{
-        console.log("appointments",appointments);
-        res.json(appointments);
-    });
-
-    
+    if(req.role === 'expert')
+    {
+          reservations.find({expert:req._id,status:{ $in: ["waiting","accepted"] }})
+        .then(appointments=>{
+            console.log("appointments",appointments);
+            res.json(appointments);
+        });
+    }
+    else    
+        reservations.find({client: req._id,status:{ $in: ["rejected","accepted"] }})
+        .populate('expert','login').then(appointments=>{
+            console.log("appointments client",appointments);
+            res.json(appointments);
+        });
 }
 
 module.exports.set_ReservationStatus = (req,res)=>{

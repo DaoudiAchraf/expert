@@ -25,6 +25,7 @@ const App = props => {
           isLoggedIn={props.isLoggedIn}
           logout={props.logout}
         />
+        
         <Switch location={props.history.location}>
           <Route exact path={"/"} component={HomePage} />
           <Route exact path={"/expert"} component={ExpertPage} />

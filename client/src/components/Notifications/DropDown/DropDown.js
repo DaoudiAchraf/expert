@@ -66,19 +66,20 @@ const DropdownC = (props) => {
       ref.current.updateVisiblity();
     };
 
+
     const menu = (
         <Menu style={{backgroundColor:'transparent',boxShadow:'none'}}>
           <Menu.Item  className='dropdown_item'>
             {
               userNotifications.map((notification)=>{
 
-                   const {_id,name,date,type,status} = notification
-
+                   const {_id,name,date,type,status,expert} = notification;
+            
                     return(
                             <div key={_id} className="single-notification">
                                 <div className="user_infos">
                                     <img src={img} />
-                                    <h5 style={{display:'inline'}}>{name}</h5>
+                                    <h5 style={{display:'inline'}}>{expert.login ? expert.login :name}</h5>
                                 </div>
                                 
                                 <p style={{marginBottom:'9',marginBottom:'5'}} ><TagTwoTone/> {type} <br/>
@@ -87,7 +88,15 @@ const DropdownC = (props) => {
                                   <ClockCircleTwoTone/> {moment(date).format('HH.mm')} 
                                 </p>
 
-                                 {status === 'waiting' ?
+                                 { expert.login && status === 'accepted' ? 
+                                     <div className="appointment_response" style={{backgroundColor:"#d7ffad"}}>
+                                       <span>accepté</span>
+                                     </div>
+                                  :expert.login && status === 'rejected' ? 
+                                      <div className="appointment_response" style={{backgroundColor:"#ffab9e"}}>
+                                      <span>refusé</span>
+                                    </div>
+                                  :status === 'waiting' ?
 
                                     <div className="controls">
                                     <button onClick={()=>set_AppointmentStatus(_id,'accepted')}
@@ -98,7 +107,7 @@ const DropdownC = (props) => {
                                     </div>
                                     
                                     
-                                    :<div style={{backgroundColor:'transparent'}} > 
+                                  :<div style={{backgroundColor:'transparent'}} > 
                                       <div className="rapport" onClick={()=>show} onClick={show}>
                          
                                       <FormOutlined style={{marginRight:'5px',fontSize:'20px'}} />

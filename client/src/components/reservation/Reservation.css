@@ -1,11 +1,7 @@
 
-
-
-
-
 .reservation
 {
-    padding-top: 101px;
+
     padding-left: 25px;
 }
 
@@ -13,12 +9,14 @@
 {
     background-color: #4EADFF;
     padding: 10px 20px;
+    width: 25vw;
 }
 
 .reservation_content
 {
     background-color: white;
     padding: 20px;
+    width: 25vw;
 }
 
 .reservation_content h5
@@ -66,9 +64,9 @@
 
 .reservation .ant-input{ height: 40px !important;}
 
-.reservation_content .time-input{ display: flex; width: 316.19px; }
+.reservation_content .time-input{ display: flex; width: 100%;}
 
-.reservation .ant-calendar-picker-input { width: 316.19px !important;}
+.reservation .ant-calendar-picker-input { width: 22.26vw !important;}
 
 .reservation .checkbox-group{ margin: 14px 7px auto;}
 
@@ -88,7 +86,7 @@
     padding-left: 100px;
 } */
 
-@media all and (max-width:937px)
+@media all and (max-width:1130px)
 {
     .reservation .ant-calendar-picker-input 
     {

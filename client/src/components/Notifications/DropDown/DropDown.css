@@ -7,8 +7,8 @@
 
     margin: 10px auto;
     
-    width: 220px;
-    height: 150px;
+    width: 16.1vw;
+    height: 24vh;
 }
 
 .single-notification .controls
@@ -25,6 +25,7 @@
 {
    padding: 0px 5px !important;
    font-size: 15px;
+   width: 71px;
 }
 
 .single-notification p
@@ -93,7 +94,6 @@
 
     margin-bottom: 3px;
     padding: 1.5px 0px;
-
    
   }
 
@@ -101,4 +101,22 @@
   .rapport:hover
   {
     background-color: rgb(253, 193, 103);
+  }
+
+  .appointment_response
+  {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+
+    background-color: #ffab9e;
+
+    border-radius: 15px;
+    text-transform: capitalize;
+    font-weight: 500;
+    color: grey;
+    margin-bottom: 3px;
+    padding: 1.5px 0px;
+
   }

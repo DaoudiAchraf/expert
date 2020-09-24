@@ -39,7 +39,7 @@ module.exports.get_Profile = (req, res, next) => {
 
 module.exports.get_allProfiles = (req, res, next) => {
     console.log("marrrrrrrrrrrrrrrrrr");
-
+  
     Profile.find({}).populate('user')
         .then(profiles => {
             res.json(profiles);
