@@ -1,0 +1,22 @@
+
+
+.clientProfile__container
+{
+    padding-left: 16vw;
+}
+
+.clientProfile__container >p
+{
+    font-size: 14px;
+    font-weight: 500;
+    color: #6B7C93;
+    margin-bottom: 6.24vh;
+}
+
+.Card__container
+{
+    padding-left: 2vw;
+    max-width: 660px;
+    height: 100%;
+   
+}
