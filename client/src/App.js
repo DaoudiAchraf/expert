@@ -20,6 +20,7 @@ import './App.scss';
 import 'antd/dist/antd.css';
 
 
+
 const App = props => {
   return (
     <Provider store={store}>
@@ -29,7 +30,6 @@ const App = props => {
           isLoggedIn={props.isLoggedIn}
           logout={props.logout}
         />
-
         <Switch location={props.history.location}>
           <Route exact path={"/"} component={HomePage} />
           <Route exact path={"/expert"} component={ExpertPage} />
@@ -39,7 +39,7 @@ const App = props => {
           <Route exact path={"/missions"} component={ExpertMissions} />
           <Route exact path={"/done-missions"} component={MissionsDonePage} />
           <Route exact path={"/client"} component={ClientProfilePage} />
-          {/* <AuthRoute
+          {/* <AuthRout
           authenticated={props.isLoggedIn}
           path="/expert"
           component={ExpertPage}

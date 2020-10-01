@@ -17,10 +17,8 @@ const Profile = props => {
         speciality: '',
         user: { login: '' }
     }
-
     if (props.profile)
         current_profile = props.profile;
-
 
     let { certifications, location, speciality, user, bio } = current_profile;
 
@@ -36,20 +34,14 @@ const Profile = props => {
                 <SelectBar setEditMode={isEdit} />
             </div>
             <div className="profile_overview">
-
                 <CSSTransition in={edit} timeout={300}
                     mountOnEnter unmountOnExit
                     classNames="editPanel">
                     {
                         state => (<ProfileEditor />)
-
-
                     }
-
                 </CSSTransition>
-
                 {
-
                     <CSSTransition in={!edit} timeout={800}
                         mountOnEnter unmountOnExit
                         classNames="editPanel">
@@ -65,51 +57,86 @@ const Profile = props => {
                                                 <p>Rating</p>
                                                 <p className="address">Address :</p>
                                                 <p className="expert_address">{location.name}</p>
-                                            </div>
 
-                                            <div className="seconde_row">
-                                                <hr></hr>
-                                                <div className="lower-infos">
-
-                                                    <div className="biography">
-                                                        <img className="icon" src={userIcon}></img>
-                                                        <p className="expert_career"> Professional statement :</p>
-                                                        <div className="inner_career">
-                                                            <p>{bio}</p>
-                                                        </div>
-                                                    </div>
-
-                                                    <div className="certifis">
-                                                        <img className="icon" src={certificationIcon}></img>
-                                                        <p className="expert_career">Certifications :</p>
-                                                        <div className="inner_career">
-                                                            <p>
-                                                                {certifications.map(certif =>
-                                                                    <span key={uuidv4()}>{"-" + certif} <br /></span>
-                                                                )}
-
-                                                            </p>
-                                                        </div>
-                                                    </div>
-
-                                                </div>
 
                                             </div>
                                         </div>
+
+                                        <CSSTransition in={edit} timeout={300}
+                                            mountOnEnter unmountOnExit
+                                            classNames="editPanel">
+                                            {
+                                                state => (<ProfileEditor />)
+
+
+                                            }
+
+                                        </CSSTransition>
+
+                                        {
+
+                                            <CSSTransition in={!edit} timeout={800}
+                                                mountOnEnter unmountOnExit
+                                                classNames="editPanel">
+                                                {
+                                                    state => (
+                                                        <div>
+                                                            <div className="first_row">
+                                                                <div className="upper-infos">
+                                                                    <img src={img}></img>
+                                                                    <div>
+                                                                        <p className="skill_type">{speciality}</p>
+                                                                        <p className="expert_name">{user.login} </p>
+                                                                        <p>Rating</p>
+                                                                        <p className="address">Address :</p>
+                                                                        <p className="expert_address">{location.name}</p>
+                                                                    </div>
+                                                                    <div className="seconde_row">
+                                                                        <hr></hr>
+                                                                        <div className="lower-infos">
+                                                                            <div className="biography">
+                                                                                <img className="icon" src={userIcon}></img>
+                                                                                <p className="expert_career"> Professional statement :</p>
+                                                                                <div className="inner_career">
+                                                                                    <p>{bio}</p>
+                                                                                </div>
+                                                                            </div>
+
+                                                                            <div className="certifis">
+                                                                                <img className="icon" src={certificationIcon}></img>
+                                                                                <p className="expert_career">Certifications :</p>
+                                                                                <div className="inner_career">
+                                                                                    <p>
+                                                                                        {certifications.map(certif =>
+                                                                                            <span key={uuidv4()}>{"-" + certif} <br /></span>
+                                                                                        )}
+
+                                                                                    </p>
+                                                                                </div>
+                                                                            </div>
+
+                                                                        </div>
+
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    )
+                                                }
+
+                                            </CSSTransition>
+                                        }
                                     </div>
                                 </div>
                             )
-
-
                         }
-
                     </CSSTransition>
+
                 }
             </div>
         </div>
     )
 }
-
 
 export default Profile;
 
