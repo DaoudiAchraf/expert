@@ -19,10 +19,9 @@ const ProfilePage = ({getProfileById}) => {
 
     const profile = useSelector(state => state.profileReducer.profile);
     
-
     return (
+
         <div className="profile-page" >
-            {/* <h3 id="h3">Home/Map Search</h3> */}
 
             <div className="profile-container">
                 <div className="profile">
