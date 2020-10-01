@@ -2,16 +2,15 @@
 
 .Review-container
 {
-padding : 20px    
+padding : 20px ;
 }
 
 .profile_review
 {
     max-width: 640px;
-    margin-left: 219px;
-    margin-top: 31px ;
-    margin-bottom: 50px;
+    margin-top: 20px ;
     padding: 20px;
+    
     background-color: white;
 }
 

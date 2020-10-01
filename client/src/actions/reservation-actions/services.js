@@ -17,11 +17,18 @@ function getAppointments_Request() {
   });
 }
 
+function setReservationStatus_Request(id,body) {
+  return axiosInstance({
+    method: "put",
+    url: "/reservation/"+id,
+    data: body
+  });
+}
 
 const reservationsServices = {
   setReservation_Request,
-  getAppointments_Request
-  
+  getAppointments_Request,
+  setReservationStatus_Request
 };
 
 export default reservationsServices;

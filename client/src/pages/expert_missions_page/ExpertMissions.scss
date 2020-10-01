@@ -1,0 +1,105 @@
+.missionsPage{
+    width: 100%;
+    background-color: #F6F9FC;
+    .navigation{
+        margin-left: 40px;
+    }
+    .missions{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .missions-card{
+            width: 700px;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            .title{
+                width: 100%;
+                height: 30px;
+                background-color: #4EADFF;
+                display: flex;
+                align-items: center;
+                h6{
+                    color: white;
+                    margin :0;
+                    margin-left: 15px;
+                    text-transform: uppercase;
+                }
+            }
+            .mission-details{
+                width: 100%;
+                height :120px;
+                background-color: white;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                box-shadow: 0 6px 4px -4px #D9DCDF;
+                margin-bottom: 1px;
+                .mission-infos{
+                    align-self: center;
+                    width: 90%;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    .image_name{
+                        display: flex;
+                        img{
+                            height: 50px;
+                            width: 50px;
+                            border-radius: 50%;
+                            margin: 0;
+                            margin-top: 4px;
+                            margin-right: 10px;
+                        }
+                        .title_date{
+                            display: flex;
+                            flex-direction: column;
+                            p{margin:0}
+                            h3{margin: 0;margin-bottom: 3px;}
+                        }
+                    }
+                    .buttons{
+                        .btn{
+                            width: 140px;
+                            height: 40px;
+                            background-color: transparent;
+                            border-radius: 40px;
+                            text-transform: uppercase;
+                        }
+                        .valid-btn{
+                            color:#67B800;
+                            border : 2px #67B800 solid
+                        }
+                        .valid-btn:hover{
+                            background-color:#67B800;
+                            color: white;
+                            border-color: white;
+                        }
+                        .decline-btn{
+                            color: #FF8D85;
+                            border: 2px #FF8D85 solid;
+                            margin-left: 15px;
+                        }
+                        .decline-btn:hover{
+                            background-color:#FF8D85;
+                            color: white;
+                            border-color: white;
+                        }
+                        .btn.focus,.btn:focus{
+                            outline: none;
+                            box-shadow: none;
+                        }
+                    }
+                }
+                .diagno{ 
+                    margin-left: 40px;
+                    box-shadow: none;
+                    font-weight: bold;
+                    p{
+                        margin:0;
+                    }
+                }
+            }
+        }
+    }
+}

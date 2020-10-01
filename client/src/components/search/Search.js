@@ -11,7 +11,7 @@ const Search = props => {
         props.setSearch(e.target.value);
         const res = objs.filter(p => {
             console.log(p.user.login.includes(e.target.value))
-            if (p.user.login.includes(e.target.value)) return p;
+            return p.user.login.includes(e.target.value);
         })
         console.log(res);
         props.setProfilesdata(res)

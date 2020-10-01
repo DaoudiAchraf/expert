@@ -1,11 +1,13 @@
 
 
+.profile-page{ background-color: #F6F9FC;}
 
 .profile-infos
 {
    background-color: white;
    max-width: 660px;
-   height: 565px;
+   /* height: 565px; */
+   height: 80%;
 }
 
 
@@ -34,7 +36,6 @@
 
 .expert_name 
 {
-    font-size: 25px;
     color: #47495A;
     font-size: 20px;
     line-height: 23px;
@@ -74,8 +75,9 @@
 {
     font-size: 20px;
     line-height: 23px;
-    
     color: #47495A;
+    display: inline;
+
 }
 
 .upper-infos
@@ -96,4 +98,47 @@
     line-height: 24px;
 
     color: #47495A;
+
+    padding-left: 45px;
+    padding-top: 10px;
+}
+
+.lower-infos .icon
+{
+    width: 30px;
+    height: 40px;
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.certifications{ margin-top: 50px;}
+
+
+.editPanel-enter
+{
+    opacity: 0;
+    transform: scale(0.9);
+}
+
+
+.editPanel-enter-active 
+{
+    opacity: 1;
+    transform: translateX(0);
+    transition: opacity 300ms, transform 300ms;
+
+}
+
+
+.editPanel-exit
+{
+    opacity: 1;
+
+}
+
+.editPanel-exit-active
+{
+    opacity: 0;
+    transform: scale(0.9);
+    transition: opacity 300ms, transform 300ms;
 }

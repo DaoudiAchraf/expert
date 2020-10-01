@@ -1,6 +1,8 @@
 import {
     GET_USER_RESERVATIONS,
     SET_RESERVATION,
+    ACCEPT_RESERVATION,
+    REJECT_RESERVATION
 
   } from './types';
   
@@ -32,7 +34,23 @@ import reservationsServices from './services';
         })
         .catch(err => console.log(err));
   
-    };
-  
+    };  
   };
+
+
+  
+  export const setReservationStatus = (id,value) => {
+    console.log('setReservationStatus');
+     return dispatch => {
+       reservationsServices.setReservationStatus_Request(id,value)
+       .then((res) => {   
+          //  if(value === 'accepted')
+           dispatch({ type: ACCEPT_RESERVATION});
+          //  else
+          //  dispatch({ type: REJECT_RESERVATION});
+         })
+         .catch(err => console.log(err));
+   
+     };  
+   };
   

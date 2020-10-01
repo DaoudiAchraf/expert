@@ -9,7 +9,7 @@ import {
 const initialState = {
   profile: null,
   profiles: [],
-  loading:true
+  loading: true
 };
 
 const profileReducer = (state = initialState, action) => {
@@ -17,6 +17,7 @@ const profileReducer = (state = initialState, action) => {
     case PROFILE_LOADING:
       return {
         ...state,
+        profiles: action.payload,
         loading: true
       };
     case GET_PROFILES:

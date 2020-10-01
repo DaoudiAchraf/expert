@@ -1,0 +1,131 @@
+
+
+
+.profileCard__Layout
+{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 25px;
+}
+
+.profile__infos
+{   
+    display: flex;
+    align-items: flex-end;
+    flex-flow: wrap;
+    padding-top: 8.96vh;
+    padding-left:  1.47vw;
+    padding-right:  1.47vw;
+    background-color: white;
+   
+}
+
+.profile__infos-details{ padding-left: 12px;}
+
+.profile__infos-details >p
+{
+    font-size: 15px;
+    line-height: 18px;
+
+    color: #47495A;
+}
+
+.blocs-layout{ display: flex;}
+
+#bloc-tags
+{
+    font-weight: bold;
+    font-size: 13px;
+    line-height: 27px;
+    text-transform: uppercase;
+    color: #47495A;
+    margin-right: 50px;
+}
+
+#bloc-answers
+{
+    
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 27px;
+    text-transform: uppercase;
+    color: #47495A;
+
+}
+
+
+.profile__tag
+{
+    background-color: #4EADFF;
+    height: 31px;
+    padding: 7px;
+    border-radius: 5px 5px 0px 0px;   
+}
+
+.profile__tag >span
+{
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: #FFFFFF;
+}
+
+#name-tag
+{
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 23px;
+    color: #47495A;
+    margin-bottom: 11px;
+    margin-top: 0px
+}
+
+.profile__infos >  img
+{
+    max-height: 200px;
+    width: 42%;
+    object-fit: contain;
+
+}
+.profileCard__item-btn 
+{
+    
+    background-color: transparent;
+    border: #4EADFF 2px solid;
+    border-radius: 23px;
+
+    width: 200px;
+    height: 43px;
+    padding: 5px 20px;
+    margin-top: 16px;
+
+    /* button-text */
+    font-size: 14px;
+    color: #4EADFF;
+    font-weight: 600;
+} 
+
+
+.card__line
+{
+    padding-top: 15px;
+    width: 100%;
+}
+
+hr
+{
+    display: block; height: 1px;
+    border: 0; border-top: 1px solid #ccc;
+    margin: 1em 0; padding: 0;
+    width: 100%;
+}
+
+.profileCard__item-btn:focus {
+    outline: none;
+}
+.profileCard__item-btn:hover
+{
+    color: white;
+    background-color: #4EADFF;
+}

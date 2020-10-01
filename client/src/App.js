@@ -11,12 +11,16 @@ import SignUpPage from "./pages/signup-page/SignUpPage";
 import SearchExpertsPage from "./pages/search-experts-page/SearchExpertsPage";
 import { logout } from "./actions/auth-actions/actions";
 import ProfilePage from "./pages/profile-page/Profile-page";
-import AppointmentsPage from './pages/expertAppointments-page/AppointmentsPage'
+import AppointmentsPage from './pages/expertAppointments-page/AppointmentsPage';
+import ExpertMissions from './pages/expert_missions_page/ExpertMissions';
+import MissionsDonePage from './pages/missions_done_page/MissionsDonePage';
+import ClientProfilePage from './pages/clientProfile-page/ClientProfile-page';
 import store from "./stores/store-dev";
 import './App.scss';
+import 'antd/dist/antd.css';
+
 
 const App = props => {
-  // console.log("eertegy", props.user);
   return (
     <Provider store={store}>
       <div className={"app"} style={{ backgroundColor: '#F6F9FC' }} >
@@ -25,13 +29,16 @@ const App = props => {
           isLoggedIn={props.isLoggedIn}
           logout={props.logout}
         />
+
         <Switch location={props.history.location}>
           <Route exact path={"/"} component={HomePage} />
           <Route exact path={"/expert"} component={ExpertPage} />
           <Route exact path={"/profile/:id"} component={ProfilePage} />
           <Route exact path={"/search"} component={SearchExpertsPage} />
           <Route exact path={"/appointments"} component={AppointmentsPage} />
-          
+          <Route exact path={"/missions"} component={ExpertMissions} />
+          <Route exact path={"/done-missions"} component={MissionsDonePage} />
+          <Route exact path={"/client"} component={ClientProfilePage} />
           {/* <AuthRoute
           authenticated={props.isLoggedIn}
           path="/expert"

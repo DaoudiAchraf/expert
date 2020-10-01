@@ -1,0 +1,122 @@
+.single-notification
+{
+    background-color: white;
+
+    border-radius: 15px;
+    padding: 4px 10px;
+
+    margin: 10px auto;
+    
+    width: 16.1vw;
+    height: 24vh;
+}
+
+.single-notification .controls
+{
+    width: 200px;
+    
+    height: 25px;
+    margin-bottom: 3px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.controls .btn
+{
+   padding: 0px 5px !important;
+   font-size: 15px;
+   width: 71px;
+}
+
+.single-notification p
+{
+    font-weight: bold;
+    font-size: 15px;
+    margin-top: 10px;
+    text-align: center;
+}
+
+.user_infos{ padding-top: 5px; }
+.user_infos img
+{
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    border-radius: 100px;
+    margin-right: 15px;
+}
+
+.dropdown_item::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+.dropdown_item::-webkit-scrollbar { width: 8px; }
+  
+.dropdown_item::-webkit-scrollbar-thumb
+ {  border-radius: 15px;
+    background: #888;
+ }  
+
+.dropdown_item::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+  }
+
+.dropdown_item:hover
+  {
+    overflow-y: scroll;
+    background-color: red;
+  }
+
+
+  .ant-dropdown-menu-item
+  {
+   height: 350px;
+   overflow: hidden;
+  }
+
+  
+  .ant-dropdown-menu-item:hover
+  {
+    overflow: auto;
+    background-color: transparent !important;
+  }
+
+  .rapport
+  {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: rgb(243, 197, 128);
+    border-radius: 15px;
+    text-transform: capitalize;
+     font-weight: 500;
+
+    margin-bottom: 3px;
+    padding: 1.5px 0px;
+   
+  }
+
+
+  .rapport:hover
+  {
+    background-color: rgb(253, 193, 103);
+  }
+
+  .appointment_response
+  {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+
+    background-color: #ffab9e;
+
+    border-radius: 15px;
+    text-transform: capitalize;
+    font-weight: 500;
+    color: grey;
+    margin-bottom: 3px;
+    padding: 1.5px 0px;
+
+  }

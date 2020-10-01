@@ -19,6 +19,13 @@ const ReservationSchema = new mongoose.Schema({
     {
         type:mongoose.Schema.Types.ObjectId,
         ref : 'User'
+    },
+
+    status: {
+        type:String,
+        enum:["accepted", "rejected", "waiting"],
+        default:"waiting"
+        
     }
 
 
