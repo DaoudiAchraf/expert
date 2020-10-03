@@ -1,65 +1,68 @@
-import React from 'react';
-import { makeStyles, withTheme } from '@material-ui/core/styles';
-import TextField from '@material-ui/core/TextField';
-import { Input } from 'antd';
+import React, { useState } from 'react';
+import { makeStyles } from '@material-ui/core/styles';
+import { DatePicker } from 'antd';
+import { withRouter } from "react-router-dom";
+import { connect } from 'react-redux';
 import Location from './Location/Location';
+import moment from 'moment';
+import { getProfiles } from '../../../../actions/profile-actions/actions';
 
 import './DatePicker.css';
 
-  const useStyles = makeStyles({
-    
-    
+const useStyles = makeStyles({
 
-    underline: {
-      "&&&:before": {
-        borderBottom: "none"
-      },
-      "&&:after": {
-        borderBottom: "none"
-      }
+  underline: {
+    "&&&:before": {
+      borderBottom: "none"
+    },
+    "&&:after": {
+      borderBottom: "none"
     }
-  });
+  }
+});
 
-export default function LocationDatePicker() {
+const LocationDatePicker = props => {
+  const [location, setLocation] = useState('');
+  const [startDate, setStartDate] = useState('');
 
+
+  const filterprofiles = e => {
+    e.preventDefault();
+    props.getProfiles(location, startDate);
+    console.log("location = ", location);
+    props.history.push("/search");
+  }
 
 
   const classes = useStyles();
-  
+  const handlstartdatechange = (value, dateString) => {
+    console.log(value);
+    console.log(moment(value).format("dddd"));
+    console.log(moment(value).format("HH:mm"));
+    setStartDate(moment(value).format("dddd") + ',' + moment(value).format("HH:mm"));
+  }
   console.log(new Date().toISOString());
   return (
-    <form  noValidate className="flexContainer3">
+    <form noValidate className="flexContainer3">
 
       <div className='input-location'>
-        <Location />
+        <Location setLocation={setLocation} />
       </div>
-
-  
       <div className="background">
-      <TextField InputProps={{ classes }}
-        id="datetime-local"
-        
-        type="datetime-local"
-        defaultValue="2017-05-24T10:30"
+        <DatePicker
+          size={'large'}
+          showTime
 
-
-      />
-      </div>
-
-      <div className="background">
-      <TextField InputProps={{ classes }}
-        id="datetime-local"
-        
-        type="datetime-local"
-        defaultValue="2017-05-24T10:30"
-
-      />
+          placeholder="Select Time"
+          onChange={handlstartdatechange} />
       </div>
 
 
-      
-      <button className="btn btn-primary bttn ">Demander assistance</button>
-     
+
+      <button onClick={filterprofiles} className="btn btn-primary bttn ">Demander assistance</button>
+
     </form>
   );
 }
+
+export default withRouter(connect(null, { getProfiles })(LocationDatePicker));

@@ -4,7 +4,7 @@ import axios from 'axios';
 
 const { Option } = AutoComplete;
 
-const Complete = () => {
+const Complete = props => {
 
   const [result, setResult] = useState([]);
 
@@ -12,8 +12,6 @@ const Complete = () => {
     let suggestions = [''];
 
     if (value) {
-
-
       axios.get('https://api.mapbox.com/geocoding/v5/mapbox.places/' + value + '.json?proximity=-74.70850,40.78375&access_token=pk.eyJ1IjoicGxhY2Vob2xkZXIiLCJhIjoiY2tlMmhuYjdkMDllbTMwb2I3bWV0NXZyNSJ9.CNUFoIoUh55puHllHgD_Gg')
         .then(res => {
           console.log(res);
@@ -21,14 +19,19 @@ const Complete = () => {
           suggestions = res.data.features.map(element => element.place_name);
           console.log("-->", suggestions);
           console.log('rrrr', result);
+          props.setLocation(suggestions);
           setResult(suggestions);
-
+          console.log(value)
         })
 
     }
 
 
   };
+  const handl = e => {
+    console.log(e);
+    props.setLocation(e);
+  }
 
   return (
 
@@ -37,6 +40,7 @@ const Complete = () => {
         width: 200,
       }}
       onSearch={handleSearch}
+      onChange={handl}
       placeholder="Enter City, Region, District "
     >
       {result.map(place => (

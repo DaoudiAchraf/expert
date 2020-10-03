@@ -5,20 +5,22 @@ import Navigation from '../../components/navigation/Navigation';
 import SortBy from '../../components/sortBy/sortBy';
 import ExpertCard from '../../components/expertCard/expertCard';
 import ExpertMap from '../../components/Map-section/Map';
-import { Select, Input } from 'antd';
 import './SearchExpertsPage.scss';
 
-import { connect } from 'react-redux';
+import {connect} from 'react-redux';
 import { getProfiles } from '../../actions/profile-actions/actions';
 
-const SearchExpertsPage = ({ getProfiles }) => {
-    const dispatch = useDispatch();
+const SearchExpertsPage = ({getProfiles}) => {
     const [center, setCenter] = useState([36.807146, 10.145529]);
     const [profilesdata, setProfilesdata] = useState([]);
     const [search, setSearch] = useState("");
     const profiles = useSelector(state => state.profileReducer.profiles);
+    const dispatch = useDispatch();
     useEffect(() => {
-        getProfiles()
+        console.log("profiles",profiles)
+        //console.log(props.profiless);
+        // if (profiles.length == 0) getProfiles();
+        getProfiles();
     }, []);
     useEffect(() => {
         setProfilesdata(profiles);
@@ -46,6 +48,5 @@ const SearchExpertsPage = ({ getProfiles }) => {
         </div>
     );
 };
-
 
 export default connect(null, { getProfiles })(SearchExpertsPage);

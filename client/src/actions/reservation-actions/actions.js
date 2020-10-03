@@ -2,7 +2,8 @@ import {
     GET_USER_RESERVATIONS,
     SET_RESERVATION,
     ACCEPT_RESERVATION,
-    REJECT_RESERVATION
+    GET_MISSIONS,
+    GET_CLIENT_HISTORY
 
   } from './types';
   
@@ -18,9 +19,7 @@ import reservationsServices from './services';
           dispatch({ type: GET_USER_RESERVATIONS, payload: res.data });
         })
         .catch(err => console.log(err));
-  
     };
-  
   };
   
 
@@ -53,4 +52,23 @@ import reservationsServices from './services';
    
      };  
    };
+
+   export const getMissions = () => {
+    return dispatch => {
+      reservationsServices.getMissions_Request()
+        .then((res) => {   
+          dispatch({ type: GET_MISSIONS, payload: res.data });
+        })
+        .catch(err => console.log(err));
+    };
+  };
   
+  export const getClientHistory = () => {
+    return dispatch => {
+      reservationsServices.getClientHistory_Request()
+        .then((res) => {   
+          dispatch({ type: GET_CLIENT_HISTORY , payload: res.data });
+        })
+        .catch(err => console.log(err));
+    };
+  };

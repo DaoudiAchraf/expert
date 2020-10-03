@@ -12,9 +12,9 @@ import {
 import ProfileServices from "./services";
 
 
-export const getProfiles = () => {
+export const getProfiles = (location = "", startDate = "") => {
   return dispatch => {
-    ProfileServices.getProfilesRequest().
+    ProfileServices.getProfilesRequest(location, startDate).
       then((res) => {
         console.log("profiles", res.data);
         dispatch({ type: GET_PROFILES, payload: res.data });
@@ -28,20 +28,20 @@ export const getProfiles = () => {
 
 export const getProfileById = (id) => {
 
-  console.log('getProfileById',id);
+  console.log('getProfileById', id);
 
-   return dispatch => {
-     ProfileServices.getProfileRequest(id).
-       then((res) => {
-         console.log("profile",res.data);
-         dispatch({ type: GET_PROFILE, payload: res.data });
-       })
-       .catch(err => console.log(err));
- 
- 
-   };
- 
- }; 
+  return dispatch => {
+    ProfileServices.getProfileRequest(id).
+      then((res) => {
+        console.log("profile", res.data);
+        dispatch({ type: GET_PROFILE, payload: res.data });
+      })
+      .catch(err => console.log(err));
+
+
+  };
+
+};
 
 
 export function createProfile(values) {

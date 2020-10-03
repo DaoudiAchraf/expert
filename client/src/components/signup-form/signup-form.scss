@@ -3,6 +3,10 @@
   max-width: 400px;
   display: block;
   margin: auto;
+  .inline{
+    display: flex;
+    align-items: center;
+  }
   .submit-button {
     width: 100%;
     display: block;

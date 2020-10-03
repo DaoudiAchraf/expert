@@ -65,11 +65,22 @@
 
 .upper-infos img
 {
-    width: 219px;
+    /* width: 219px;
     height: 184px;
+    margin-right: 16px; */
+
+    max-height: 192px;
+    width: 43%;
+    object-fit: contain;
     margin-right: 16px;
+    
 }
 
+#update_profile
+{
+    display: flex;
+    justify-content: center;
+}
 
 .expert_career
 {

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Form, Icon, Input, Button } from "antd";
 import NumericInput from '../Inputnum/InputNum';
+// import {Input} from 'antd2';
 
 import "./signup-form.scss";
 

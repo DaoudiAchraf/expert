@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { Typography, Modal, Steps, Carousel } from "antd";
 import { connect } from "react-redux";
 import WrappedSignupForm from "../../components/signup-form/SignupForm";
@@ -6,18 +6,32 @@ import WrappedSigninForm from "../../components/signin-form/SigninForm";
 import { signup, signupExpert } from "../../actions/auth-actions/actions";
 import { signin } from "../../actions/auth-actions/actions";
 import { createProfile } from "../../actions/profile-actions/actions";
-import Profile_builder from "../../components/Profile-Builder/Profile-builder";
 import Expertcaro from "../../components/expertSignUpCaro/Expertcaro";
 import img from '../../images/user3.png';
 import img2 from '../../images/user2.png';
+import axios from 'axios';
+
 import "./signup-page.scss";
 
 const SignUpPage = props => {
   const [nextstep, setNextstep] = useState(0);
   const [profileExpert, setProfileExpert] = useState(false);
   const [signupexpert, setSignupexpert] = useState(false);
+  const [cars, setCarts] = useState([]);
   const refsigntupexpert = useRef();
   const refInput = useRef();
+
+  useEffect(() => {
+    axios.get('https://private-anon-0a729253ca-carsapi1.apiary-mock.com/manufacturers?New%20item=').then((data) => {
+      data.data.map((e, index) => {
+        const obj = cars;
+        obj.push(e.name);
+        setCarts(obj);
+      })
+    });
+  }, []);
+
+
   const { Step } = Steps;
   const handleCancel = () => {
     console.log(profileExpert);
@@ -78,7 +92,7 @@ const SignUpPage = props => {
           </div>
         </div>
         {signupexpert ?
-          <Expertcaro signupexpert={signupexpert} setProfileExpert={setProfileExpert} profileExpert={profileExpert} setShowmodel={props.setShowmodel} signup={props.signup} signupExpert={props.signupExpert} createProfile={props.createProfile} />
+          <Expertcaro cars={cars} signupexpert={signupexpert} setProfileExpert={setProfileExpert} profileExpert={profileExpert} setShowmodel={props.setShowmodel} signup={props.signup} signupExpert={props.signupExpert} createProfile={props.createProfile} />
           :
           <div className="signup-page">
             <Typography.Title className="title">Sign up</Typography.Title>

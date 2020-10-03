@@ -26,3 +26,5 @@ export const DISCONNECT_THE_USER = "DISCONNECT_THE_USER ";
 export const CONNECT_THE_USER = "CONNECT_THE_USER ";
 
 export const GET_USER = "GET_USER";
+
+export const GET_USER_BY_ID = "GET_USER_BY_ID";

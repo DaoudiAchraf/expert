@@ -57,16 +57,18 @@ router.post('/authenticate', ctrlUser.authenticate);
 router.get('/user', jwtHelper.verifyJwtToken, ctrlUser.userProfile);
 
 
-router.post('/profile/add',profileController.add_Profile);
-router.put('/profile/update/:id',profileController.update_Profile);
-router.delete('/profile/delete/:id',profileController.delete_Profile);
-router.get('/profile/:id',profileController.get_Profile);
-router.get('/profiles',profileController.get_allProfiles);
+router.post('/profile/add', profileController.add_Profile);
+router.put('/profile/update/:id', profileController.update_Profile);
+router.delete('/profile/delete/:id', profileController.delete_Profile);
+router.get('/profile/:id', profileController.get_Profile);
+router.get('/profiles', profileController.get_allProfiles);
 
 
-router.post('/reserve',jwtHelper.verifyJwtToken,reservationsController.reserve);
-router.get('/reservations',reservationsController.get_myReservations);
-router.get('/appointments',jwtHelper.verifyJwtToken,reservationsController.get_myAppointments);
-router.put('/reservation/:id',jwtHelper.verifyJwtToken,reservationsController.set_ReservationStatus);
 
+router.post('/reserve', jwtHelper.verifyJwtToken, reservationsController.reserve);
+router.get('/reservations', reservationsController.get_myReservations);
+router.get('/appointments', jwtHelper.verifyJwtToken, reservationsController.get_myAppointments);
+router.put('/reservation/:id', jwtHelper.verifyJwtToken, reservationsController.set_ReservationStatus);
+router.get('/reservation/myMissions', jwtHelper.verifyJwtToken, reservationsController.getMissions);
+router.get('/reservation/history', jwtHelper.verifyJwtToken, reservationsController.getClienthistory);
 module.exports = router;

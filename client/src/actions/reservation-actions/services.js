@@ -25,10 +25,27 @@ function setReservationStatus_Request(id,body) {
   });
 }
 
+function getMissions_Request() {
+  return axiosInstance({
+    method: "get",
+    url: "reservation/myMissions"
+  });
+}
+
+
+function getClientHistory_Request() {
+  return axiosInstance({
+    method: "get",
+    url: "reservation/history"
+  });
+}
+
 const reservationsServices = {
   setReservation_Request,
   getAppointments_Request,
-  setReservationStatus_Request
+  setReservationStatus_Request,
+  getMissions_Request,
+  getClientHistory_Request
 };
 
 export default reservationsServices;

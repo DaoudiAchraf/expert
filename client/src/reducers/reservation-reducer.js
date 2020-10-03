@@ -2,13 +2,16 @@
 import {
     GET_USER_RESERVATIONS,
     SET_RESERVATION,
+    GET_MISSIONS,
+    GET_CLIENT_HISTORY
 
   } from '../actions/reservation-actions/types';
   
 
 const initialState = {
     newReservation:null,
-    myReservations:[]
+    myReservations:[],
+    acceptedMissions:[]
   };
   
   const reservationReducer = (state = initialState, action) => {
@@ -23,6 +26,17 @@ const initialState = {
             ...state,
             newReservation: action.payload
         };
+      case GET_MISSIONS:
+          return {
+            ...state,
+            acceptedMissions: action.payload
+          };
+
+      case GET_CLIENT_HISTORY:
+          return {
+            ...state,
+            acceptedMissions: action.payload
+          };
       default:
         return state;
     }
