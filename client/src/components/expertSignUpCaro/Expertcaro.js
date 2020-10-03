@@ -171,7 +171,7 @@ const Expertcaro = props => {
 
     return (
         <div>
-            <Carousel dots={true} ref={refsigntupexpert}>
+            <Carousel dots={false} ref={refsigntupexpert}>
                 <div className="signup-page">
                     <Typography.Title className="title">Sign up</Typography.Title>
                     <div className="content">

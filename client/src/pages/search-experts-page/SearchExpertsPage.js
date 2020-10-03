@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import Search from '../../components/search/Search';
 import Navigation from '../../components/navigation/Navigation';
 import SortBy from '../../components/sortBy/sortBy';
@@ -16,10 +16,9 @@ const SearchExpertsPage = props => {
     const [search, setSearch] = useState("");
     const profiles = useSelector(state => state.profileReducer.profiles);
     useEffect(() => {
-        console.log(profiles)
+        console.log(profiles);
         console.log(props.profiless);
-        // if (profiles.length == 0) getProfiles();
-        // getProfiles()
+        if (profiles.length == 0) props.getProfiles();
     }, []);
     useEffect(() => {
         setProfilesdata(profiles);
@@ -30,10 +29,10 @@ const SearchExpertsPage = props => {
             <div className="main">
                 <div className="experts-list">
                     <Navigation />
-                    <SortBy show={true} />
+                    <SortBy resultsCount={profilesdata.length} show={true} />
                     <div className="experts" id="style-2">
                         {
-                            profilesdata.map((profile, index) =>
+                            props.profiles.map((profile, index) =>
                                 <ExpertCard index={index} setCenter={setCenter} key={profile._id} infos={profile} />
                             )
                         }
@@ -47,5 +46,9 @@ const SearchExpertsPage = props => {
         </div>
     );
 };
-
-export default connect(null, { getProfiles })(SearchExpertsPage);
+const mapStateToProps = reduxStore => {
+    return {
+        profiles: reduxStore.profileReducer.profiles
+    };
+};
+export default connect(mapStateToProps, { getProfiles })(SearchExpertsPage);

@@ -153,8 +153,8 @@ const ProfileBuilderForm = props => {
               onSearch={handleSearch}
               placeholder="Enter City, Region, District "
             >
-              {result.map(place => (
-                <Option key={place.place_name} value={place.place_name}>
+              {result.map((place, index) => (
+                <Option key={index} value={place.place_name}>
                   {place.place_name}
                 </Option>
               ))}

@@ -1,0 +1,30 @@
+.carInfo{
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    .infoClientForm{
+        width: 100%;
+        .item_with_label{
+            display: flex;
+            justify-content: space-between !important;
+            .ant-input-group-compact{
+                width: 40px !important;
+            }
+            .item{
+                display: flex;
+                flex-direction: column;
+                align-self: flex-end;
+                width: 0 !important;
+            }
+        }
+        .item_with_label:before, .item_with_label:after  {
+            content: none;
+          }
+    }
+    .submit-button{
+        display: none;
+    }
+    
+}
+

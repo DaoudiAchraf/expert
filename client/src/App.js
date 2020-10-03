@@ -15,6 +15,7 @@ import AppointmentsPage from './pages/expertAppointments-page/AppointmentsPage';
 import ExpertMissions from './pages/expert_missions_page/ExpertMissions';
 import MissionsDonePage from './pages/missions_done_page/MissionsDonePage';
 import ClientProfilePage from './pages/clientProfile-page/ClientProfile-page';
+import RapportPage from './pages/rapport-page/RapportPage';
 import store from "./stores/store-dev";
 import './App.scss';
 import 'antd/dist/antd.css';
@@ -39,6 +40,7 @@ const App = props => {
           <Route exact path={"/missions"} component={ExpertMissions} />
           <Route exact path={"/done-missions"} component={MissionsDonePage} />
           <Route exact path={"/client"} component={ClientProfilePage} />
+          <Route exact path={"/rapport"} component={RapportPage} />
           {/* <AuthRout
           authenticated={props.isLoggedIn}
           path="/expert"

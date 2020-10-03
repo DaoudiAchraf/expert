@@ -93,6 +93,11 @@
             border-radius: 40px;
             width: 141px;
         }
+        .expert-profile-button:hover{
+            background-color: black;
+            color: white;
+            border-color: white;
+        }
         .expert-profile-button:focus{
             outline: none;
         }

@@ -25,7 +25,7 @@ const sortBy = props => {
     return (
         <div className="sort">
             <div className="title">
-                <span className="nb-expert">202</span>
+                <span className="nb-expert">{props.resultsCount}</span>
                 <h1>Expert</h1>
             </div>
             <div className="sortby">

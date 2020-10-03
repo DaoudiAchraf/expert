@@ -1,0 +1,13 @@
+.infoClient{
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    .infoClientForm{
+        width: 80%;
+    }
+    .submit-button{
+        display: none;
+    }
+}
+

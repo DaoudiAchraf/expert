@@ -30,7 +30,7 @@ class NumericInput extends React.Component {
 
 
     render() {
-        const { value } = this.props;
+        const { value, placeholder, noicon } = this.props;
         const title = value ? (
             <span className="numeric-input-title">{value !== '-' ? formatNumber(value) : '-'}</span>
         ) : (
@@ -38,10 +38,10 @@ class NumericInput extends React.Component {
             );
         return (
             <Input
-                prefix={<Icon type="phone" style={{ color: "rgba(0,0,0,.25)" }} />}
+                prefix={!noicon ? <Icon type="phone" style={{ color: "rgba(0,0,0,.25)" }} /> : null}
                 {...this.props}
                 onChange={this.onChange}
-                placeholder="Phone"
+                placeholder={placeholder ? placeholder : 'Phone'}
                 maxLength={25}
             />
         );
