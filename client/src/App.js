@@ -22,6 +22,7 @@ import 'antd/dist/antd.css';
 
 
 const App = props => {
+  
   return (
     <Provider store={store}>
       <div className={"app"} style={{ backgroundColor: '#F6F9FC' }} >

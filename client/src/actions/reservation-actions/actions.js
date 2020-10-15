@@ -12,6 +12,7 @@ import reservationsServices from './services';
   
   
   export const getAppointments = () => {
+    
     return dispatch => {
       reservationsServices.getAppointments_Request()
         .then((res) => {   
