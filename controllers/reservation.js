@@ -35,7 +35,7 @@ module.exports.get_myAppointments = (req,res)=>{
 
     if(req.role === 'expert')
     {
-          reservations.find({expert:req._id,status:{ $in: ["waiting","accepted"] }})
+          reservations.find({expert:req._id,status:{ $in: ["waiting"] }})
         .then(appointments=>{
             console.log("appointments",appointments);
             res.json(appointments);
@@ -59,5 +59,21 @@ module.exports.set_ReservationStatus = (req,res)=>{
         ).then(res=>res.json('successfully validated'))
         .catch(err=>console.log(err));
 }
+
+
+module.exports.getMissions = (req,res)=>{
+    
+    reservations.find({expert:req._id,status:{ $in: ["report","accepted"] }})
+    .then(result=>res.json(result))
+    .catch(err=>console.log(err));
+}
+
+
+module.exports.getClienthistory = (req,res)=>{
+    reservations.find({client:req._id,status:"report"})
+    .then(result=>res.json(result))
+    .catch(err=>console.log(err));
+}
+
 
 

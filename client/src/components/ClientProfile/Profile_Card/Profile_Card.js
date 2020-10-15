@@ -1,14 +1,19 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import "./Profile_Card.css";
 import IMG from "../../../images/profile_img.jpg";
+import {useDispatch,useSelector} from 'react-redux';
 
 
 const Profile_Card = props => {
 
     //const {name,address,sexe,phoneNumber,vehicule} = props.profile ;
 
-    const name="Malek Jarbouii",address="Fouchana Cité prime",sexe="sexe",phoneNumber="phone",vehicule="voiture";
+    const name="Daoudi Achref",address="Fouchana Cité prime",sexe="sexe",phoneNumber="phone",vehicule="voiture";
 
+    const dispatch = useDispatch();
+    useEffect(()=>{ 
+            
+    },[])
     return (
         <div className="profileCard__Layout">
             <div className="profile__tag"><span>mon profil</span></div>
@@ -34,8 +39,13 @@ const Profile_Card = props => {
                         
                         </div>
                     </div>
+                 
+                    {
+                        props.canEdit?
+                            <button className="profileCard__item-btn">MODIFIER MON PROFIL</button>
+                        :null
+                    }
                     
-                    <button className="profileCard__item-btn">MODIFIER MON PROFIL</button>
                 </div>
                 
                 <div className="card__line">

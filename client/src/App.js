@@ -39,8 +39,9 @@ const App = props => {
           <Route exact path={"/appointments"} component={AppointmentsPage} />
           <Route exact path={"/missions"} component={ExpertMissions} />
           <Route exact path={"/done-missions"} component={MissionsDonePage} />
-          <Route exact path={"/client"} component={ClientProfilePage} />
           <Route exact path={"/rapport"} component={RapportPage} />
+          <Route exact path={"/client/:id"} component={ClientProfilePage} />
+
           {/* <AuthRout
           authenticated={props.isLoggedIn}
           path="/expert"

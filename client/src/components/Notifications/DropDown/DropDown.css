@@ -8,7 +8,7 @@
     margin: 10px auto;
     
     width: 16.1vw;
-    height: 24vh;
+    height: 22vh;
 }
 
 .single-notification .controls
@@ -108,12 +108,13 @@
     justify-content: center;
 
 
-    background-color: #ffab9e;
+    background-color: #FF8D85;
 
     border-radius: 15px;
     text-transform: capitalize;
     font-weight: 500;
-    color: grey;
+    font-size: 16px;
+    color: white;
     margin-bottom: 3px;
     padding: 1.5px 0px;
 

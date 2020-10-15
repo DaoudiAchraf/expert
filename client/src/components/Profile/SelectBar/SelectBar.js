@@ -12,10 +12,6 @@ const SelectBar = props => {
 
             <h5>Expert Satisfaction Reviews</h5>
 
-
-            <i class="fas fa-user-edit fa-2x" onClick={props.setEditMode}></i>
-
-
         </div>
     )
 }

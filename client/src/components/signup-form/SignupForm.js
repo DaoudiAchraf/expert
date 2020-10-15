@@ -142,9 +142,7 @@ const SignupForm = props => {
       <Form.Item hasFeedback>
         {getFieldDecorator("password_confirmation", {
           rules: [
-
             {
-
               required: true,
               message: "Please input your Password confirmation!"
             },

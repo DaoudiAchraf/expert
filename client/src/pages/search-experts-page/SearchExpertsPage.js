@@ -36,7 +36,6 @@ const SearchExpertsPage = props => {
                                 <ExpertCard index={index} setCenter={setCenter} key={profile._id} infos={profile} />
                             )
                         }
-
                     </div>
                 </div>
                 <div className="map">

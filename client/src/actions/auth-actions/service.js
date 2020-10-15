@@ -44,12 +44,21 @@ function getAuthUserRequest() {
   });
 }
 
+function getUserByIdRequest(id) {
+  return axiosInstance({
+    method: "get",
+    url: "/user/"+id
+  });
+}
+
+
 const AuthServices = {
   signinRequest,
   signupRequest,
   logoutRequest,
   getAuthUserRequest,
-  signupExpertRequest
+  signupExpertRequest,
+  getUserByIdRequest
 };
 
 export default AuthServices;

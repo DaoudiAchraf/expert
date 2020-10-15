@@ -69,4 +69,6 @@ router.post('/reserve', jwtHelper.verifyJwtToken, reservationsController.reserve
 router.get('/reservations', reservationsController.get_myReservations);
 router.get('/appointments', jwtHelper.verifyJwtToken, reservationsController.get_myAppointments);
 router.put('/reservation/:id', jwtHelper.verifyJwtToken, reservationsController.set_ReservationStatus);
+router.get('/reservation/myMissions', jwtHelper.verifyJwtToken, reservationsController.getMissions);
+router.get('/reservation/history', jwtHelper.verifyJwtToken, reservationsController.getClienthistory);
 module.exports = router;

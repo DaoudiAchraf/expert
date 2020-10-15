@@ -10,8 +10,10 @@
 
 .profile-location .ant-select-auto-complete.ant-select .ant-input
 {
-    width: 353px;
+    width: 100%;
 }
+
+
 
 @media all and (max-width:500px)
 {

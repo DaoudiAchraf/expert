@@ -19,7 +19,8 @@ import {
   CONNECT_THE_USER,
   LOGOUT_SUCCESS,
   LOGOUT_FAILURE,
-  GET_USER
+  GET_USER,
+  GET_USER_BY_ID
 } from "./types";
 
 import AuthServices from "./service";

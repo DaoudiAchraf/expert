@@ -11,7 +11,7 @@
 .profile__infos
 {   
     display: flex;
-    align-items: flex-end;
+    align-items: flex-start;
     flex-flow: wrap;
     padding-top: 8.96vh;
     padding-left:  1.47vw;
@@ -83,8 +83,8 @@
 
 .profile__infos >  img
 {
-    max-height: 200px;
-    width: 42%;
+    max-height: 199px;
+    width: 43%;
     object-fit: contain;
 
 }
