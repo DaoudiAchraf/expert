@@ -16,9 +16,15 @@ const DropdownC = (props) => {
 
     const dispatch = useDispatch();
 
+    let auth = useSelector(state => state.authReducer);
+
+    console.log('auth',auth.user.role === 'client');
+
     useEffect(() => {
-      dispatch(getAppointments());
-    }, []);
+          dispatch(getAppointments());
+      }, []);
+  
+    
       
     let Notifications = useSelector(state => state.reservationReducer.myReservations);
    

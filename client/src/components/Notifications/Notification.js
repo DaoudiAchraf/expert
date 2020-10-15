@@ -1,13 +1,18 @@
 import React from 'react';
-import Badge from './Badge/Badge';
 import './Notification.css';
 import DropDown from './DropDown/DropDown';
-
+import { useSelector } from 'react-redux';
 
 const Notification = (props) => {
 
+    const someone = useSelector(state => state.authReducer);
+
+    localStorage.clear();
+
     return (
-        <DropDown />
+          (someone.isLoggedIn && someone.user.role === 'client')&&
+                <DropDown />
+         
     )
 }
 
