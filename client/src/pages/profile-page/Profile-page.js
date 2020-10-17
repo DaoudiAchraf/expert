@@ -18,6 +18,7 @@ const ProfilePage = ({ getProfileById }) => {
         getProfileById(profileID);
     }, []);
     const profile = useSelector(state => state.profileReducer.profile);
+    
     return (
 
         <div className="profile-page">

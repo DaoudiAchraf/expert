@@ -58,10 +58,10 @@ router.get('/user', jwtHelper.verifyJwtToken, ctrlUser.userProfile);
 
 
 router.post('/profile/add', profileController.add_Profile);
-router.put('/profile/update/:id', profileController.update_Profile);
 router.delete('/profile/delete/:id', profileController.delete_Profile);
 router.get('/profile/:id', profileController.get_Profile);
 router.get('/profiles', profileController.get_allProfiles);
+router.put('/profile/update',jwtHelper.verifyJwtToken, profileController.update_Profile);
 
 
 

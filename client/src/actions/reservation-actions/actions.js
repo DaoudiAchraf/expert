@@ -3,7 +3,8 @@ import {
     SET_RESERVATION,
     ACCEPT_RESERVATION,
     GET_MISSIONS,
-    GET_CLIENT_HISTORY
+    GET_CLIENT_HISTORY,
+
 
   } from './types';
   

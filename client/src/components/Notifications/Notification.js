@@ -7,8 +7,6 @@ const Notification = (props) => {
 
     const someone = useSelector(state => state.authReducer);
 
-    localStorage.clear();
-
     return (
           (someone.isLoggedIn && someone.user.role === 'client')&&
                 <DropDown />

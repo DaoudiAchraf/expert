@@ -15,7 +15,7 @@ const ProfileEditor = props => {
    
       const handleOk = () => {
         
-           
+            alert('hello');
             props.setState({
               ModalText: 'The modal will be closed after two seconds',
               confirmLoading: true,
@@ -44,6 +44,7 @@ const ProfileEditor = props => {
                   onOk={handleOk}
                   confirmLoading={confirmLoading}
                   onCancel={handleCancel}
+                  footer={null}
                 >
 
                   <Form_Editor />

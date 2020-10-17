@@ -40,6 +40,7 @@ function getClientHistory_Request() {
   });
 }
 
+
 const reservationsServices = {
   setReservation_Request,
   getAppointments_Request,
