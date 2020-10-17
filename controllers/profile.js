@@ -41,7 +41,7 @@ module.exports.get_allProfiles = async (req, res, next) => {
     // const date = req.query.startDate.split(',');
     // const day = date[0].toLowerCase();
     // const time = date[1];
-    console.log(date)
+    // console.log(date)
     const experts = await Profile.find().populate('user');
     console.log(experts);
     res.status(200).json(experts);
