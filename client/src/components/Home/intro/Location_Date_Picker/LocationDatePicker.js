@@ -29,8 +29,9 @@ const LocationDatePicker = props => {
   const filterprofiles = e => {
     e.preventDefault();
     props.getProfiles(location, startDate);
-    console.log("location = ", location);
     props.history.push("/search");
+    console.log("location = ", location);
+
   }
 
 

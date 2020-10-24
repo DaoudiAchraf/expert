@@ -38,30 +38,29 @@ module.exports.get_allProfiles = async (req, res, next) => {
     const date = req.query.startDate.split(',');
     const day = date[0].toLowerCase();
     const time = date[1];
-    console.log(date)
+    // console.log(date)
+    // console.log(experts);
     const experts = await Profile.find().populate('user');
-    console.log(experts);
-    res.status(200).json(experts);
-    //-------------------------------------------------------
-    // const profiles = await experts.filter(e => {
-    //     return e.user.role == 'expert';
-    // })
-    // const obj = [];
-    // // e.location.name.includes(req.query.localisation)
-    // profiles.map(e => {
-    //     if (req.query.startDate != '' && e.location.name.includes(req.query.localisation)) {
-    //         if (e.dispo[day].length > 1) {
-    //             console.log(time, day, e.dispo[day][0] < e.dispo[day][1])
-    //             if (time > e.dispo[day][0] && time < e.dispo[day][1]) {
-    //                 obj.push(e);
-    //             }
-    //         }
-    //     }
-    //     else {
-    //         e.location.name.includes(req.query.localisation) && (obj.push(e));
-    //     }
+    // res.status(200).json(experts);
+    const profiles = await experts.filter(e => {
+        return e.user.role == 'expert';
+    })
+    const obj = [];
+    console.log("eazezae", req.query.localisation);
+    profiles.map(e => {
+        if (req.query.startDate != '' && e.location.name.includes(req.query.localisation)) {
+            if (e.dispo[day].length > 1) {
+                console.log(time, day, e.dispo[day][0] < e.dispo[day][1])
+                if (time > e.dispo[day][0] && time < e.dispo[day][1]) {
+                    obj.push(e);
+                }
+            }
+        }
+        else {
+            e.location.name.includes(req.query.localisation) && (obj.push(e));
+        }
 
-    // })
-    // console.log('azeazea', obj)
-    // return res.status(200).json(obj);
+    })
+    // console.log('azeazea', obj);
+    return res.status(200).json(obj);
 };

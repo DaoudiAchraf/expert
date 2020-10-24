@@ -12,7 +12,9 @@ const infoClientForm = props => {
         e.preventDefault();
         props.form.validateFields((err, data) => {
             if (!err) {
-                console.log(data);
+                const obj = { ...props.rapportData, 'infoClient': data }
+                console.log(obj)
+                props.setRapportData(obj);
                 props.nextPage();
             }
         });
@@ -23,7 +25,7 @@ const infoClientForm = props => {
         <div className='infoClient'>
             <Form id='info-client' className="infoClientForm" onSubmit={handleSubmit}>
                 <Form.Item label="Propriétaire de véhicule">
-                    {getFieldDecorator("carower", {
+                    {getFieldDecorator("proprietaireVehicule", {
                         rules: [{ required: true, message: "Propriétaire de véhicule est obligatoire!" }]
                     })(
                         <Input
@@ -31,31 +33,6 @@ const infoClientForm = props => {
                         />
                     )}
                 </Form.Item>
-                {/* <Input.Group compact>
-                    <Form.Item hasFeedback>
-                        {getFieldDecorator('foreign_content', {
-                            rules: [{ required: true, message: '请输入外文评论!' }]
-                        })(
-                            <Input
-                                style={{ width: '50%', height: '5rem' }}
-                                type="textarea"
-                                placeholder="在此输入外文评论"
-                            />
-                        )}
-                    </Form.Item>
-                    <Form.Item hasFeedback>
-                        {getFieldDecorator('chinese_content', {
-                            rules: [{ required: true, message: '请输入中文评论!' }]
-                        })(
-                            <Input
-                                style={{ width: '50%', height: '5rem' }}
-                                type="textarea"
-                                placeholder="在此输入评论中文评论"
-                            />
-                        )}
-                    </Form.Item>
-                </Input.Group> */}
-
                 <Form.Item label="Immatriculation">
                     {getFieldDecorator("immatriculation", {
                         rules: [
@@ -97,7 +74,6 @@ const infoClientForm = props => {
                             allowClear
                             style={{ width: '100%' }}
                             placeholder="Marque : ex (CITROEN , FIAT ...)"
-                        //onChange={handleChanges}
                         >
                             {
                                 props.cars.map((c, index) =>
@@ -148,7 +124,6 @@ const infoClientForm = props => {
                             allowClear
                             style={{ width: '100%' }}
                             placeholder="Marque : ex (CITROEN , FIAT ...)"
-                        //onChange={handleChanges}
                         >
                             <Option value='essence'>Essence</Option>
                             <Option value='diesel'>Diesel</Option>

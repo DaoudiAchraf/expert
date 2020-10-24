@@ -3,6 +3,13 @@ import { Breadcrumb } from 'antd';
 import img from '../../icon/img.png';
 import InfoClient from '../../components/info-client/InfoClient';
 import RapportCarInfo from '../../components/rapport-car-info/RapportCarInfo';
+import FeuxPollution from '../../components/feuxPollution/FeuxPollution';
+import ChassisEtSusspension from '../../components/chassisEtSuspension/chassisEtSuspension';
+import Carrosserie from '../../components/Carrosserie/Carrosserie';
+import InterieursVoiture from '../../components/InterieursVoiture/InterieursVoiture';
+import RoueDirection from '../../components/RoueDirection/RoueDirection';
+import Mecanique from '../../components/Mecanique/Mecanique';
+import Electricite from '../../components/Electricite/Electricite';
 import './RapportPage.scss';
 import { Tabs } from 'antd';
 import axios from 'axios';
@@ -11,12 +18,12 @@ const { TabPane } = Tabs;
 
 
 const RapportPage = () => {
-    const [tab, setTab] = useState('2');
+    const [tab, setTab] = useState('1');
     const [cars, setCarts] = useState([]);
     const [currentForm, setCurrentForm] = useState('info-client');
     const infoClientSubmitBtn = useRef();
     const [rapportData, setRapportData] = useState({});
-    const formListName = ['info-client', 'car-info'];
+    const formListName = ['info-client', 'car-info', 'feux-pollution', 'chassis-susspension', 'carrosserie', 'interieurs-voitureForm', 'roue-direction', 'mecanique', 'electricite'];
     useEffect(() => {
         axios.get('https://private-anon-0a729253ca-carsapi1.apiary-mock.com/manufacturers?New%20item=').then((data) => {
             data.data.map((e, index) => {
@@ -76,36 +83,36 @@ const RapportPage = () => {
                     <div className="rapport-details">
                         <Tabs activeKey={tab} onChange={callback}>
                             <TabPane tab="Info Client" key="1">
-                                <InfoClient nextPage={nextPage} infoClientSubmitBtn={infoClientSubmitBtn} setRapportData={setRapportData} rapportData={rapportData} cars={cars} />
+                                <InfoClient nextPage={nextPage} setRapportData={setRapportData} rapportData={rapportData} cars={cars} />
                             </TabPane>
                             <TabPane tab="Identifiants de véhicule" key="2">
-                                <RapportCarInfo infoClientSubmitBtn={infoClientSubmitBtn} setRapportData={setRapportData} rapportData={rapportData} cars={cars} />
+                                <RapportCarInfo nextPage={nextPage} setRapportData={setRapportData} rapportData={rapportData} />
                             </TabPane>
-                            <TabPane tab="Tab 3" key="3">
-                                Content of Tab Pane 3
+                            <TabPane tab="Feux Et Pollution" key="3">
+                                <FeuxPollution nextPage={nextPage} setRapportData={setRapportData} rapportData={rapportData} />
                             </TabPane>
-                            <TabPane tab="Tab 3" key="4">
-                                Content of Tab Pane 3
+                            <TabPane tab="Chassis Et Suspension" key="4">
+                                <ChassisEtSusspension nextPage={nextPage} setRapportData={setRapportData} rapportData={rapportData} />
                             </TabPane>
-                            <TabPane tab="Tab 3" key="5">
-                                Content of Tab Pane 3
+                            <TabPane tab="Carrosserie" key="5">
+                                <Carrosserie nextPage={nextPage} setRapportData={setRapportData} rapportData={rapportData} />
                             </TabPane>
-                            <TabPane tab="Tab 3" key="6">
-                                Content of Tab Pane 3
+                            <TabPane tab="Intérieurs voiture" key="6">
+                                <InterieursVoiture nextPage={nextPage} setRapportData={setRapportData} rapportData={rapportData} />
                             </TabPane>
-                            <TabPane tab="Tab 3" key="7">
-                                Content of Tab Pane 3
+                            <TabPane tab="Roue et Direction" key="7">
+                                <RoueDirection nextPage={nextPage} setRapportData={setRapportData} rapportData={rapportData} />
                             </TabPane>
-                            <TabPane tab="Tab 3" key="8">
-                                Content of Tab Pane 3
+                            <TabPane tab="Mécanique" key="8">
+                                <Mecanique nextPage={nextPage} setRapportData={setRapportData} rapportData={rapportData} />
                             </TabPane>
-                            <TabPane tab="Tab 3" key="9">
-                                Content of Tab Pane 3
+                            <TabPane tab="Electricité et équipements spéciaux" key="9">
+                                <Electricite nextPage={nextPage} setRapportData={setRapportData} rapportData={rapportData} />
                             </TabPane>
                         </Tabs>
                         <div className="rapport_buttons">
                             <button onClick={prevPage}>prev</button>
-                            <button form={formListName[parseInt(tab) - 1]} type='submit'>next</button>
+                            <button form={formListName[parseInt(tab) - 1]} type='submit'>{tab != 9 ? 'Next' : 'Valid'}</button>
                         </div>
                     </div>
                 </div>

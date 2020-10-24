@@ -10,15 +10,17 @@ import './SearchExpertsPage.scss';
 import { connect } from 'react-redux';
 import { getProfiles } from '../../actions/profile-actions/actions';
 
-const SearchExpertsPage = props => {
+const SearchExpertsPage = ({ profiles, getProfiles }) => {
     const [center, setCenter] = useState([36.807146, 10.145529]);
     const [profilesdata, setProfilesdata] = useState([]);
     const [search, setSearch] = useState("");
-    const profiles = useSelector(state => state.profileReducer.profiles);
+    // const profiles = useSelector(state => state.profileReducer.profiles);
     useEffect(() => {
         console.log(profiles);
-        console.log(props.profiless);
-        if (profiles.length == 0) props.getProfiles();
+        if (profiles.length == 0) {
+            console.log('ala mibon')
+            getProfiles();
+        }
     }, []);
     useEffect(() => {
         setProfilesdata(profiles);
@@ -32,7 +34,7 @@ const SearchExpertsPage = props => {
                     <SortBy resultsCount={profilesdata.length} show={true} />
                     <div className="experts" id="style-2">
                         {
-                            props.profiles.map((profile, index) =>
+                            profilesdata.map((profile, index) =>
                                 <ExpertCard index={index} setCenter={setCenter} key={profile._id} infos={profile} />
                             )
                         }

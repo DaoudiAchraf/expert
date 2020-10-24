@@ -29,7 +29,6 @@ const ProfileServices = {
   createProfileRequest,
   getProfilesRequest,
   getProfileRequest
-
 };
 
 export default ProfileServices;
