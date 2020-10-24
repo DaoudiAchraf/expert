@@ -1,26 +1,8 @@
 
-
-.background
-{
-    /* background-color: white; */
-    
-    padding: 4px;
-    padding-left: 4px;
-    /* color: gray; */
-
-    border-radius: 15px;
-    border-radius: 3%;
-    
-    margin-bottom: 10px;
-   
-    
-}
-
 .flexContainer3
 {
     display: flex;
     justify-content: space-between;
-    /* border: 1px solid red; */
 
     flex-wrap: wrap;
     width: 95%;
@@ -32,6 +14,7 @@
     color: #7C7C7C !important;
     font-family: Muli;
     font-style: normal;
+   
 }
 
 .bttn{ height: 41px; }
@@ -40,17 +23,30 @@
 {
     background-color: white;
     
-    padding: 4px;
+    padding: 10px 0px;
     padding-left: 4px;
     color: gray;
 
     border-radius: 15px;
     border-radius: 3%;
-    
     margin-bottom: 10px;
+
+    height: 50px;
+    width: 380px;
    
 }
 
-.input-location .ant-input{
-    border : 0px !important
+
+.dateTime-selector .ant-calendar-picker-input
+{
+    height: 50px;
+    width: 280px;
 }
+
+.dateTime-selector .ant-input-lg
+{
+    font-size: 16px !important;
+    font-family: 'Mulish';
+}
+
+.input-location .ant-input{ border : 0px !important }

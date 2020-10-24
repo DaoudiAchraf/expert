@@ -8,6 +8,26 @@
 
 .expertDiv
 {
-    padding: 100px 80px;
+    padding-top: 40px;
+    padding-left: 35px;
+    padding-right: 35px;
+    padding-bottom: 160px;
+    
     background-color: white;
+}
+
+.expertDiv h3
+{
+   font-family: "Roboto";
+   font-weight: bold;
+   font-size: 36px;
+    
+}
+
+.experDiv__header
+{
+    display: flex;
+    align-items: center;
+    margin-left: 10.56vw;
+    margin-bottom: 70px;
 }

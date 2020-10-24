@@ -3,9 +3,9 @@ import './Location.css';
 import Mapi from './Infos/Map';
 import Infos from './Infos/Infos';
 
-const Location = () => {
+const Location = (props) => {
     return (
-        <div className="flex-container">
+      <div ref={props.Ref} className="flex-container">
           
           <div className="flex-item">
               <Infos/>
@@ -17,6 +17,8 @@ const Location = () => {
            </div>
             
         </div>
+
+       
     )
 }
 

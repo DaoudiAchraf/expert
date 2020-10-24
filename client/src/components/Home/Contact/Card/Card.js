@@ -9,14 +9,17 @@ import './Card.css';
 export default function ImgMediaCard() {
 
   return (
-
-    <Card className="card">
+    <div className="card-container">
+    <Card  className="card">
       <div className="my-card">
-        <div>
-          <CardContent>
-            <p>
-              Un de nos expert vous appelera dans moin de 24 h pour vous aider à localiser votre besoin.
-            </p>
+        <div >
+          <CardContent >
+            <div id="my-card__contact">
+                  <p >
+                    Un de nos expert vous appelera dans moin de 24 h pour vous aider à localiser votre besoin.
+                  </p>
+            </div>
+            
           </CardContent>
         </div>
 
@@ -30,6 +33,7 @@ export default function ImgMediaCard() {
         </div>
       </div>
     </Card>
+    </div>
 
   );
 }

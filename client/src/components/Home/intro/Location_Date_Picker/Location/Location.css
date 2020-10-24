@@ -1,25 +1,21 @@
-/* .input-location 
-{
-    background-color: white;
-    
-    padding: 4px;
-    padding-left: 4px;
-    color: gray;
 
-    border-radius: 15px;
-    border-radius: 3%;
-    
-    margin-bottom: 10px;
-   
+
+.autoComplete .ant-select-auto-complete.ant-select .ant-select-selection--single 
+{
+    height: 50px !important;
 }
 
-.input-location .ant-input{
-    border : 0px !important
-} */
-/* 
-.MuiInputBase-input
+.autoComplete .ant-select-auto-complete.ant-select .ant-input
 {
-    color: #7C7C7C !important;
-    font-family: Muli;
-    font-style: normal;
-} */
+    height: 50px !important;
+
+}
+
+.autoComplete .ant-select-selection__placeholder
+{
+      font-size: 16px;
+      font-family: "Mulish";
+}
+
+
+
