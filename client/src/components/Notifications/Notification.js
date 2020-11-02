@@ -7,8 +7,10 @@ const Notification = (props) => {
 
     const someone = useSelector(state => state.authReducer);
 
+    // && someone.user.role === 'client'
+
     return (
-          (someone.isLoggedIn && someone.user.role === 'client')&&
+          (someone.isLoggedIn)&&
                 <DropDown />
          
     )

@@ -26,9 +26,13 @@ const ReservationSchema = new mongoose.Schema({
         enum:["accepted", "rejected", "waiting", "report"],
         default:"waiting"
         
+    },
+
+    createdAt: {
+        type: Date,
+        default: new Date(),
     }
+ }).index({ createdAt:0}, { expireAfterSeconds: 60 });
 
-
-}); 
 
 module.exports =  mongoose.model('reservation', ReservationSchema);

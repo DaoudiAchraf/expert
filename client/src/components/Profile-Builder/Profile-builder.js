@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from "react-redux";
-import { Form, Input, Button, Select, AutoComplete } from 'antd';
+import { Form, Input, Button, Select, AutoComplete,Upload,Icon } from 'antd';
 import './Profile-builder.css';
 import { connect } from "react-redux";
 import { createProfile } from '../../actions/profile-actions/actions';
@@ -32,6 +32,14 @@ const ProfileBuilderForm = props => {
     //console.log(e.target.value);
   };
 
+  const normFile = e => {
+    console.log('Upload event:', e);
+    if (Array.isArray(e)) {
+      return e;
+    }
+    return e && e.fileList;
+  };
+
 
   const [result, setResult] = useState([]);
 
@@ -60,6 +68,15 @@ const ProfileBuilderForm = props => {
         const { bio, speciality, certifications, location } = values;
         // console.log(bio,speciality,certifications,location);
         console.log('Received values of form: ', values);
+
+        console.log('Dragger:',typeof(values.dragger[0].originFileObj));
+
+        const fd = new FormData();
+        
+        fd.append('image',values.dragger[0].originFileObj);
+
+        axios.post("http://localhost:5000/api/upload",fd).then(res=>console.log('res: ',res));
+        
         axios.get('https://api.mapbox.com/geocoding/v5/mapbox.places/' + location + '.json?proximity=-74.70850,40.78375&access_token=pk.eyJ1IjoicGxhY2Vob2xkZXIiLCJhIjoiY2tlMmhuYjdkMDllbTMwb2I3bWV0NXZyNSJ9.CNUFoIoUh55puHllHgD_Gg')
           .then(async res => {
             // console.log("==>",res.data.features[0]);
@@ -106,38 +123,6 @@ const ProfileBuilderForm = props => {
     <Form onSubmit={handleSubmit} className="login-form">
 
       <Form.Item>
-        {getFieldDecorator('speciality', {
-          rules: [{ required: true, message: 'Please input your Speciality!' }],
-        })(
-          <Select
-            mode="multiple"
-            allowClear
-            style={{ width: '100%' }}
-            placeholder="Your speciality"
-            onChange={handleChanges}
-          >
-            <Option key={200}>All</Option>
-            {
-              props.cars.map((c, index) =>
-                <Option value={c} key={index}>{c}</Option>
-              )
-            }
-          </Select>
-        )}
-      </Form.Item>
-
-      <Form.Item>
-        {getFieldDecorator('certifications', {
-          rules: [{ required: true, message: 'Please input your Certifications!' }],
-        })(
-          <Select placeholder='Your certifications' mode="tags" style={{ width: '100%' }} onChange={handleChange} tokenSeparators={[',']}>
-            {children}
-          </Select>,
-        )}
-
-      </Form.Item>
-
-      <Form.Item>
 
         <div className="profile-location">
 
@@ -166,6 +151,55 @@ const ProfileBuilderForm = props => {
         })(
           <TextArea placeholder="Biography . . . " allowClear onChange={onChange} />,
         )}
+
+      </Form.Item>
+
+      <Form.Item>
+        {getFieldDecorator('speciality', {
+          rules: [{ required: true, message: 'Please input your Speciality!' }],
+        })(
+          <Select
+            mode="multiple"
+            allowClear
+            style={{ width: '100%' }}
+            placeholder="Your speciality"
+            onChange={handleChanges}
+          >
+            <Option key={200}>All</Option>
+            {
+              props.cars.map((c, index) =>
+                <Option value={c} key={index}>{c}</Option>
+              )
+            }
+          </Select>
+        )}
+      </Form.Item>
+
+      <Form.Item>
+        {getFieldDecorator('certifications', {
+          rules: [{ required: true, message: 'Please enter your Certifications!' }],
+        })(
+          <Select placeholder='Your certifications' mode="tags" style={{ width: '100%' }} onChange={handleChange} tokenSeparators={[',']}>
+            {children}
+          </Select>,
+        )}
+      
+
+      <Form.Item style={{marginTop:'0px'}}>
+      {getFieldDecorator('dragger', {
+            valuePropName: 'fileList',
+            getValueFromEvent: normFile,
+            rules: [{ required: true, message: 'Upload your certification(s) to continue ..' }]
+          })(
+            <Upload.Dragger name="files">
+              <p className="ant-upload-drag-icon">
+                <Icon type="inbox" />
+              </p>
+              <p className="ant-upload-hint">Click or drag file to this area to upload</p>
+              {/* <p className="ant-upload-text">Support for a single or bulk upload.</p> */}
+            </Upload.Dragger>,
+          )}
+        </Form.Item>
 
       </Form.Item>
 

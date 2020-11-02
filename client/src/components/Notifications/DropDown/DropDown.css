@@ -2,13 +2,13 @@
 {
     background-color: white;
 
-    border-radius: 15px;
+    border-radius: 15px 15px 7px 7px;
     padding: 4px 10px;
 
     margin: 10px auto;
     
     width: 16.1vw;
-    height: 22vh;
+    height: 131px;
 }
 
 .single-notification .controls
@@ -37,6 +37,15 @@
 }
 
 .user_infos{ padding-top: 5px; }
+
+.client__reservation
+{
+  background-color: white;
+  padding: 5px 20px 6px 20px;
+  border-radius: 8px;
+}
+
+
 .user_infos img
 {
     display: inline-block;

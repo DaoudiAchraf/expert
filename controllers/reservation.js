@@ -3,7 +3,7 @@ const reservations = require('../models/reservation');
 
 module.exports.reserve = (req,res)=>{
     console.log('reServe');
- 
+    
     const newReservation= {
         ...req.body,
         client:req._id
@@ -52,12 +52,32 @@ module.exports.get_myAppointments = (req,res)=>{
 module.exports.set_ReservationStatus = (req,res)=>{
     console.log('expert',req._id,req.body,'id:',req.params.id);
     
-    reservations.updateOne(
-        {expert:req._id,_id:req.params.id},
-        {status:req.body.status}
+    const status = req.body.status;
 
-        ).then(res=>res.json('successfully validated'))
-        .catch(err=>console.log(err));
+    if (status === 'accepted' )
+    {
+        reservations.updateOne(
+                {expert:req._id,_id:req.params.id},
+                {
+                    status: status,
+                    createdAt: new Date()
+                }
+
+                ).then(res=>res.json('successfully validated'))
+                .catch(err=>console.log(err));
+    }
+    else
+    {
+        reservations.updateOne(
+            {expert: req._id,_id: req.params.id},
+            {status: status}
+
+            ).then(res=>res.json('successfully validated'))
+            .catch(err=>console.log(err));
+    }
+  
+    
+
 }
 
 

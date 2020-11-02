@@ -1,4 +1,4 @@
-import React,{useEffect} from 'react';
+import React,{useRef} from 'react';
 import { useParams } from 'react-router';
 import { Input } from 'antd';
 import { Form,Checkbox,DatePicker,InputNumber } from 'antd';
@@ -7,12 +7,13 @@ import './Reservation.css';
 
 import {useDispatch} from 'react-redux';
 import {setReservation} from '../../actions/reservation-actions/actions';
+import Popup from './pop-ups/Popup';
 
 
 const ReservationForm = (props) => {
 
+    const ref = useRef(null);
     //const dateFormatList = ['DD/MM/YYYY', 'DD/MM/YY'];
-
     const dispatch = useDispatch();
 
     const expert = useParams().id;
@@ -28,10 +29,7 @@ const ReservationForm = (props) => {
             date.setHours(hours);
             date.setMinutes(minutes);
        
-
             console.log(checkType[0]);
-
-          
             const obj=
             {
                 name,
@@ -43,8 +41,11 @@ const ReservationForm = (props) => {
             
             console.log("obj",obj);
             console.log(fieldsValue);
+
             
             dispatch(setReservation(obj));
+
+            ref.current.openNotification('bottomLeft');
            // console.log('values from form',fieldsValue['date-picker'].format('YYYY-MM-DD'));
           }});
     }
@@ -138,6 +139,12 @@ const ReservationForm = (props) => {
         
             <button type="submit" className="btn btn-outline-primary">REQUEST APPOINTMENT</button>
         </Form>
+
+        <div className="popup_cc">
+          <Popup ref={ref}/>
+        </div>
+
+        
 
         </div>
 

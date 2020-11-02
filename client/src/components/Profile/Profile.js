@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState} from 'react';
 import './Profile.css';
 import SelectBar from './SelectBar/SelectBar';
 import img from '../../images/profile_img.jpg';
@@ -10,6 +10,7 @@ import { useSelector } from 'react-redux';
 
 const Profile = props => {
 
+   
     let current_profile = {
         bio: '',
         certifications: [],

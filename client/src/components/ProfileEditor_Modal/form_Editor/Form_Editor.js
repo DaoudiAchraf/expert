@@ -94,7 +94,7 @@ const ProfileBuilderForm = props=> {
             }
             console.log("==>",obj);
             
-            dispatch(updateProfile(obj));
+            dispatch(updateProfile(obj)).then(res=>{console.log(res);alert('t3adet')})
     
           })
           .catch((err) => {

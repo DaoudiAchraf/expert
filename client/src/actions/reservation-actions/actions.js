@@ -26,7 +26,6 @@ import reservationsServices from './services';
   
 
   export const setReservation = (values) => {
-   alert('setReservation') ;
     return dispatch => {
       reservationsServices.setReservation_Request(values)
         .then((res) => {   

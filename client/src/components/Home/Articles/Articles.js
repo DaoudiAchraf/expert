@@ -4,6 +4,12 @@ import './Articles.css';
 import Single_Article from './Single-Article/Single_Article';
 
 const Articles = () => {
+
+    const articles = [];
+
+    for (let index = 0; index < 8; index++)
+        articles.push(<Single_Article/>);
+
     return (
         <div className="article__container"> 
             <div className="article__intro">
@@ -22,14 +28,7 @@ const Articles = () => {
             </div>
 
             <div className="articles">
-                <Single_Article/>
-                <Single_Article/>
-                <Single_Article/>
-                <Single_Article/>
-                <Single_Article/>
-                <Single_Article/>
-                <Single_Article/>
-                <Single_Article/>
+                { articles }
             </div>
 
             <Link id="see_more"> See More </Link>

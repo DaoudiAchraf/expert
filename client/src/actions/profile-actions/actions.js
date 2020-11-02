@@ -78,6 +78,7 @@ export function updateProfile(values) {
     try {
       const response = await ProfileServices.UpdateProfileRequest(values);
       dispatch({ type: UPDATE_PROFILE, payload: response.data });
+      return values;
     } catch (e) {
       dispatch({ type: PROFILE_CREATION_FAILED });
     }

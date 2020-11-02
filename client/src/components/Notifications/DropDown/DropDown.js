@@ -10,7 +10,6 @@ import {ScheduleTwoTone,ClockCircleTwoTone,
         TagTwoTone,FormOutlined} from '@ant-design/icons'
 
 const DropdownC = (props) => {
-
  
     const [userNotifications,setNotifications] = useState([]);
 
@@ -23,9 +22,7 @@ const DropdownC = (props) => {
     useEffect(() => {
           dispatch(getAppointments());
       }, []);
-  
     
-      
     let Notifications = useSelector(state => state.reservationReducer.myReservations);
    
     useEffect(()=>{
@@ -40,6 +37,10 @@ const DropdownC = (props) => {
     }
 
 
+    const current_user = useSelector( state => state.authReducer);
+
+    console.log(current_user.user.role);
+
     const menu = (
         <Menu style={{backgroundColor:'transparent',boxShadow:'none'}}>
           <Menu.Item  className='dropdown_item'>
@@ -48,7 +49,10 @@ const DropdownC = (props) => {
 
                    const {_id,name,date,type,status,expert} = notification;
             
-                    return(
+                    return( current_user.user ?
+
+                       (current_user.user.role === "client" ?
+
                             <div key={_id} className="single-notification">
                                 <div className="user_infos">
                                     <img src={img} />
@@ -61,7 +65,8 @@ const DropdownC = (props) => {
                                   <ClockCircleTwoTone/> {moment(date).format('HH.mm')} 
                                 </p>
 
-                                 { expert.login && status === 'accepted' ? 
+                                { 
+                                  expert.login && status === 'accepted' ? 
                                      <div className="appointment_response" style={{backgroundColor:"#93CC49"}}>
                                        <span>accepté</span>
                                      </div>
@@ -73,6 +78,21 @@ const DropdownC = (props) => {
                              
                                 }
                            </div>
+                            :null)
+                          // :<div className="client__reservation">
+                          //          <div className="user_infos ">
+                          //              <img src={img} />
+                          //              <h5 style={{display:'inline'}}>{expert.login ? expert.login :name}</h5>
+                          //          </div>
+                                
+                          //          <p style={{marginTop:9,marginBottom:0,textAlign:'center'}} >
+                          //            <TagTwoTone/> {type} <br/>
+
+                          //            <ScheduleTwoTone/> {moment(date).format('YYYY-MM-DD')} {" "} 
+                          //            <ClockCircleTwoTone/> {moment(date).format('HH.mm')} 
+                          //          </p>
+                          // </div>)
+                      :null
                     )})
             }
       
