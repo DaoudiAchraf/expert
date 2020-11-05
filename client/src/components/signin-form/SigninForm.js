@@ -13,21 +13,31 @@ const SigninForm = props => {
     props.form.validateFields(async (err, data) => {
       if (!err) {
         console.log(data);
-        props.signin(data)
-          .then(res => {
-            props.setShowmodel(false);
-            props.form.resetFields();
-            message.success('Successfully login in');
-            console.log(props.user);
-            if (props.user) {
-              props.user.role == 'expert' && history.push('/profiles');
-            }
-          })
-          .catch(err => {
-            message.error(err.message);
-            props.form.resetFields();
-            console.log(err);
-          });
+        props.signin(data, (data) => {
+          props.setShowmodel(false);
+          props.form.resetFields();
+          message.success('Successfully login in');
+          if (data.user) {
+            data.user.role == 'expert' && history.push('/profiles');
+          }
+        }, (err) => {
+          message.error(err.message);
+          // props.form.resetFields();
+        })
+        // .then(res => {
+        // props.setShowmodel(false);
+        // props.form.resetFields();
+        // message.success('Successfully login in');
+        // console.log(props.user);
+        // if (props.user) {
+        //   props.user.role == 'expert' && history.push('/profiles');
+        // }
+        // // })
+        // // .catch(err => {
+        // message.error(err.message);
+        // props.form.resetFields();
+        // console.log(err);
+        // // });
       }
     });
   };

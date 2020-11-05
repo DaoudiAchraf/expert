@@ -4,7 +4,6 @@ import SignUpPage from "../../../pages/signup-page/SignUpPage";
 import Notifications from '../../Notifications/Notification';
 import { connect } from 'react-redux';
 import { Link, useLocation, useHistory } from 'react-router-dom';
-const { RangePicker } = TimePicker;
 
 const NavBar = (props) => {
   const [showmodel, setShowmodel] = useState(false);
@@ -12,8 +11,6 @@ const NavBar = (props) => {
   const handlclick = () => {
     props.isLoggedIn ? history.push('/search') : setShowmodel(true);
   }
-
-  const history = useHistory();
 
   const currentURL = useLocation().pathname;
 

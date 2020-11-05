@@ -68,10 +68,9 @@ const RapportPage = props => {
         val <= 9 && val++;
         setTab(val + '');
         if (val == 10) {
-            let copieData = rapportData
             let obj = {
                 'mission': missionID,
-                'data': copieData
+                'data': rapportData
             }
             await props.createRapport(obj);
             history.push('/done-missions');

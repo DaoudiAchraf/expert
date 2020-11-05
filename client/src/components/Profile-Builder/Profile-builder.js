@@ -225,5 +225,3 @@ const profile_builder = Form.create({ name: 'normal_login' })(ProfileBuilderForm
 
 
 export default connect(null, { createProfile })(profile_builder);
-
-s
