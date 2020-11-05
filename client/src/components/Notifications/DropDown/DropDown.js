@@ -8,6 +8,7 @@ import { useDispatch,useSelector } from 'react-redux';
 import moment from 'moment/moment.js';
 import {ScheduleTwoTone,ClockCircleTwoTone,
         TagTwoTone,FormOutlined} from '@ant-design/icons'
+import { Link } from 'react-router-dom';
 
 const DropdownC = (props) => {
  
@@ -17,7 +18,7 @@ const DropdownC = (props) => {
 
     let auth = useSelector(state => state.authReducer);
 
-    console.log('auth',auth.user.role === 'client');
+    console.log('auth',auth.user.role === 'expert');
 
     useEffect(() => {
           dispatch(getAppointments());
@@ -49,7 +50,7 @@ const DropdownC = (props) => {
 
                    const {_id,name,date,type,status,expert} = notification;
             
-                    return( current_user.user ?
+                    return( current_user.isLoggedIn ?
 
                        (current_user.user.role === "client" ?
 
@@ -59,10 +60,12 @@ const DropdownC = (props) => {
                                     <h5 style={{display:'inline'}}>{expert.login ? expert.login :name}</h5>
                                 </div>
                                 
-                                <p style={{marginBottom:'9',marginBottom:'5'}} ><TagTwoTone/> {type} <br/>
-
-                                  <ScheduleTwoTone/> {moment(date).format('YYYY-MM-DD')} {" "} 
-                                  <ClockCircleTwoTone/> {moment(date).format('HH.mm')} 
+                                <p className="single-notification__details"
+                                 style={{marginBottom:'9',marginBottom:'5'}} >
+                                   
+                                   <TagTwoTone/> {type} <br/>
+                                   <ScheduleTwoTone/> {moment(date).format('YYYY-MM-DD')} {" "} 
+                                   <ClockCircleTwoTone/> {moment(date).format('HH.mm')} 
                                 </p>
 
                                 { 
@@ -78,20 +81,24 @@ const DropdownC = (props) => {
                              
                                 }
                            </div>
-                            :null)
-                          // :<div className="client__reservation">
-                          //          <div className="user_infos ">
-                          //              <img src={img} />
-                          //              <h5 style={{display:'inline'}}>{expert.login ? expert.login :name}</h5>
-                          //          </div>
-                                
-                          //          <p style={{marginTop:9,marginBottom:0,textAlign:'center'}} >
-                          //            <TagTwoTone/> {type} <br/>
+                         
+                          :<Link to="/missions">
+                              <div className="client__reservation">
+                                      <div className="user_infos ">
+                                          <img src={img} />
+                                          <h5 style={{display:'inline'}}>{expert.login ? expert.login :name}</h5>
+                                      </div>
+                                    
+                                      <p className="single-notification__details"
+                                        style={{marginTop:11,marginBottom:0,textAlign:'center'}} >
 
-                          //            <ScheduleTwoTone/> {moment(date).format('YYYY-MM-DD')} {" "} 
-                          //            <ClockCircleTwoTone/> {moment(date).format('HH.mm')} 
-                          //          </p>
-                          // </div>)
+                                        <TagTwoTone/> {type} <br/>
+
+                                        <ScheduleTwoTone/> {moment(date).format('YYYY-MM-DD')} {" "} 
+                                        <ClockCircleTwoTone/> {moment(date).format('HH.mm')} 
+                                      </p>
+                              </div>
+                          </Link>)
                       :null
                     )})
             }

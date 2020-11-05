@@ -18,3 +18,4 @@
 [1001/231349.803:ERROR:exception_snapshot_win.cc(98)] thread ID 5860 not found in process
 [1001/231349.899:ERROR:process_reader_win.cc(123)] NtOpenThread: {Accès refusé} Un processus a demandé l’accès a un objet, mais il ne bénéficie pas des autorisations nécessaires. (0xc0000022)
 [1001/231349.899:ERROR:exception_snapshot_win.cc(98)] thread ID 10948 not found in process
+[1104/225037.532:ERROR:directory_reader_win.cc(43)] FindFirstFile: Le chemin d’accès spécifié est introuvable. (0x3)

@@ -21,9 +21,16 @@ padding : 20px ;
 {
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
 
-.review_header h3 { color: #47495A; }
+.review_header h2 
+{
+    font-size: 20px;
+    line-height: 23px;
+    font-weight: 400;
+    color: #47495A;
+}
 
 .review_rw p
 {

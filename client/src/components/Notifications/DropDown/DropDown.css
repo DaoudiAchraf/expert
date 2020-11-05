@@ -2,13 +2,13 @@
 {
     background-color: white;
 
-    border-radius: 15px 15px 7px 7px;
+    border-radius: 15px 15px 15px 15px;
     padding: 4px 10px;
 
     margin: 10px auto;
     
     width: 16.1vw;
-    height: 131px;
+    height: 147px;
 }
 
 .single-notification .controls
@@ -28,7 +28,7 @@
    width: 71px;
 }
 
-.single-notification p
+.single-notification__details
 {
     font-weight: bold;
     font-size: 15px;

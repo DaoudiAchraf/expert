@@ -23,8 +23,10 @@ const ExpertSchema = new mongoose.Schema({
         friday: { type: [String] || Boolean },
         saturday: { type: [String] || Boolean },
         sunday: { type: [String] || Boolean }
-
-    }
+    },
+    certifsFiles:[{
+        type: String
+    }]
 });
 
 module.exports = mongoose.model('Expert_Profile', ExpertSchema);

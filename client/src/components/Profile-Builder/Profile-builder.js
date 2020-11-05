@@ -47,8 +47,6 @@ const ProfileBuilderForm = props => {
     let suggestions = [''];
 
     if (value) {
-
-
       axios.get('https://api.mapbox.com/geocoding/v5/mapbox.places/' + value + '.json?proximity=-74.70850,40.78375&access_token=pk.eyJ1IjoicGxhY2Vob2xkZXIiLCJhIjoiY2tlMmhuYjdkMDllbTMwb2I3bWV0NXZyNSJ9.CNUFoIoUh55puHllHgD_Gg')
         .then(res => {
           console.log(res);
@@ -65,15 +63,19 @@ const ProfileBuilderForm = props => {
     e.preventDefault();
     props.form.validateFields(async (err, values) => {
       if (!err) {
-        const { bio, speciality, certifications, location } = values;
+        const { bio, speciality, certifications, location , dragger} = values;
         // console.log(bio,speciality,certifications,location);
         console.log('Received values of form: ', values);
 
-        console.log('Dragger:',typeof(values.dragger[0].originFileObj));
+        console.log('Dragger:',values.dragger);
 
         const fd = new FormData();
         
-        fd.append('image',values.dragger[0].originFileObj);
+        console.log('dragGer',dragger);
+
+        dragger.forEach(file => {
+            fd.append('image',file.originFileObj);
+        });
 
         axios.post("http://localhost:5000/api/upload",fd).then(res=>console.log('res: ',res));
         
@@ -103,7 +105,7 @@ const ProfileBuilderForm = props => {
             //props.setShowmodel(false);
           })
           .catch((err) => {
-            console.log("error");
+            console.log("error --> ",err);
           });
 
       }

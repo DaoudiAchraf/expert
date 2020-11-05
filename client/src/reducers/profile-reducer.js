@@ -43,10 +43,15 @@ const profileReducer = (state = initialState, action) => {
         profile: null
       };
     case UPDATE_PROFILE:
-      return {
+      { console.log("ddddddddd",{...state.profile,...action.payload});
+         return {
         ...state,
-        // profile: action.payload
+        profile: {
+          ...state.profile,
+          ...action.payload}
       };
+      }
+     
     default:
       return state;
   }

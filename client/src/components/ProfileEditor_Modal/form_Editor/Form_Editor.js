@@ -58,6 +58,7 @@ const ProfileBuilderForm = props=> {
   };
 
   const profile = useSelector(state => state.profileReducer.profile);
+
   useEffect(()=>{
     props.form.setFieldsValue({
         bio:profile.bio,
@@ -94,7 +95,8 @@ const ProfileBuilderForm = props=> {
             }
             console.log("==>",obj);
             
-            dispatch(updateProfile(obj)).then(res=>{console.log(res);alert('t3adet')})
+            dispatch(updateProfile(obj));
+            alert('t3adet');
     
           })
           .catch((err) => {
