@@ -7,7 +7,8 @@ import { history } from "../index";
 const token = localStorage.getItem("token");
 
 const axiosInstance = axios.create({
-  baseURL: 'http://localhost:5000/api/',
+  // baseURL: 'https://api.karhabtek.tn/api/',
+  baseURL: 'http://127.0.0.1:5000/api/',
   headers: {
     Accept: "application/json",
     "Content-Type": "application/json",

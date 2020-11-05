@@ -5,6 +5,7 @@ const router = express.Router();
 const profileController = require('../controllers/profile');
 
 const reservationsController = require('../controllers/reservation');
+const rapportController = require('../controllers/rapport');
 
 const ctrlUser = require('../controllers/user.controller');
 
@@ -58,10 +59,10 @@ router.get('/user', jwtHelper.verifyJwtToken, ctrlUser.userProfile);
 
 
 router.post('/profile/add', profileController.add_Profile);
-router.put('/profile/update/:id', profileController.update_Profile);
 router.delete('/profile/delete/:id', profileController.delete_Profile);
 router.get('/profile/:id', profileController.get_Profile);
 router.get('/profiles', profileController.get_allProfiles);
+router.put('/profile/update', jwtHelper.verifyJwtToken, profileController.update_Profile);
 
 
 
@@ -69,6 +70,8 @@ router.post('/reserve', jwtHelper.verifyJwtToken, reservationsController.reserve
 router.get('/reservations', reservationsController.get_myReservations);
 router.get('/appointments', jwtHelper.verifyJwtToken, reservationsController.get_myAppointments);
 router.put('/reservation/:id', jwtHelper.verifyJwtToken, reservationsController.set_ReservationStatus);
+router.get('/getMission/:id', jwtHelper.verifyJwtToken, reservationsController.getMission);
 router.get('/reservation/myMissions', jwtHelper.verifyJwtToken, reservationsController.getMissions);
 router.get('/reservation/history', jwtHelper.verifyJwtToken, reservationsController.getClienthistory);
+router.post('/addRaport', rapportController.add_rapport);
 module.exports = router;

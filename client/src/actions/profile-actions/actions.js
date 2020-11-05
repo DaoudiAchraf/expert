@@ -6,7 +6,8 @@ import {
   CLEAR_CURRENT_PROFILE,
   GET_PROFILE,
   CREATE_PROFILE,
-  PROFILE_CREATION_FAILED
+  PROFILE_CREATION_FAILED,
+  UPDATE_PROFILE
 } from './types';
 
 import ProfileServices from "./services";
@@ -62,9 +63,23 @@ export const setProfileLoading = () => {
   };
 };
 
+
 // Clear profile
 export const clearCurrentProfile = () => {
   return {
     type: CLEAR_CURRENT_PROFILE
   };
 };
+
+
+//update profile
+export function updateProfile(values) {
+  return async dispatch => {
+    try {
+      const response = await ProfileServices.UpdateProfileRequest(values);
+      dispatch({ type: UPDATE_PROFILE, payload: response.data });
+    } catch (e) {
+      dispatch({ type: PROFILE_CREATION_FAILED });
+    }
+  };
+}

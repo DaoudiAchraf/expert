@@ -5,3 +5,4 @@ mongoose.connect(process.env.MONGODB_URI, (err) => {
     else { console.log('Error in MongoDB connection : ' + JSON.stringify(err, undefined, 2)); }
 });
 require('./user.model');
+require('./rapport.model');

@@ -24,7 +24,6 @@ import {
 } from "./types";
 
 import AuthServices from "./service";
-
 export function getAuthUser() {
   return async dispatch => {
     await dispatch({
@@ -48,15 +47,17 @@ export function getAuthUser() {
   };
 }
 
-export function signin(values) {
+export const signin = (values) => {
   return async dispatch => {
     dispatch({ type: SIGNIN_REQUEST });
     try {
       const response = await AuthServices.signinRequest(values);
-      dispatch({ type: SIGNIN_SUCCESS, payload: response.data });
+      await dispatch({ type: SIGNIN_SUCCESS, payload: response.data });
       localStorage.setItem("token", response.data.access_token);
     } catch (e) {
       dispatch({ type: SIGNIN_FAILURE });
+      console.log(e.response.data.message, e);
+      throw new Error(e.response.data.message);
     }
   };
 }

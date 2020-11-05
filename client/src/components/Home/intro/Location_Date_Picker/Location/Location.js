@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { AutoComplete } from 'antd';
 import axios from 'axios';
+import './Location.css';
 
 const { Option } = AutoComplete;
 
@@ -34,14 +35,14 @@ const Complete = props => {
   }
 
   return (
-
-    <AutoComplete
+    <div className="autoComplete">
+    <AutoComplete 
       style={{
-        width: 200,
+        width: 380,
       }}
       onSearch={handleSearch}
       onChange={handl}
-      placeholder="Enter City, Region, District "
+      placeholder="Enter City, Airport, Station, Region, District… "
     >
       {result.map(place => (
         <Option key={place} value={place}>
@@ -49,6 +50,7 @@ const Complete = props => {
         </Option>
       ))}
     </AutoComplete>
+    </div>
 
   );
 };

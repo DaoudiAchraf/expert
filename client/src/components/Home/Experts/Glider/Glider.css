@@ -2,10 +2,10 @@
 {
     color: #4EADFF !important;
     opacity: 1;
-    font-size: 30px;
+    font-size: 25px;
 }
 
-.slick-slider{ width: 75%; }
+.slick-slider{ width: 100%; }
 
 .imgContainer{ text-align: center;/* border: red solid 1px; */}
 
@@ -13,12 +13,13 @@
 
 .img
 {
-     width: 230px; 
-     height: auto;
+     width: 300px; 
+     height: 250px;
      display: block;
-     margin-left: auto;
-     margin-right: auto;
      border-radius: 4px; 
      margin-bottom: 20px;
+     margin-left: 20px;
 }
 
+
+.slick-slide>div {padding: 0 5px;}

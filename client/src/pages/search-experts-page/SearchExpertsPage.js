@@ -6,7 +6,6 @@ import SortBy from '../../components/sortBy/sortBy';
 import ExpertCard from '../../components/expertCard/expertCard';
 import ExpertMap from '../../components/Map-section/Map';
 import './SearchExpertsPage.scss';
-
 import { connect } from 'react-redux';
 import { getProfiles } from '../../actions/profile-actions/actions';
 
@@ -18,7 +17,6 @@ const SearchExpertsPage = ({ profiles, getProfiles }) => {
     useEffect(() => {
         console.log(profiles);
         if (profiles.length == 0) {
-            console.log('ala mibon')
             getProfiles();
         }
     }, []);

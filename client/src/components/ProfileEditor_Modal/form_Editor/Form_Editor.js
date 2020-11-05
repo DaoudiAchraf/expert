@@ -2,10 +2,13 @@ import React, { useState, useEffect} from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import { Form, Input, Button, Select, AutoComplete } from 'antd';
 import axios from 'axios';
+import {updateProfile} from '../../../actions/profile-actions/actions';
 
 const { Option } = AutoComplete;
 
 const ProfileBuilderForm = props=> {
+
+   const dispatch = useDispatch();
     
     const [cars,setCars] = useState([]);
 
@@ -89,7 +92,9 @@ const ProfileBuilderForm = props=> {
                 latitude: latititude
               }
             }
-            console.log(obj);
+            console.log("==>",obj);
+            
+            dispatch(updateProfile(obj));
     
           })
           .catch((err) => {
@@ -106,6 +111,11 @@ const ProfileBuilderForm = props=> {
 
   function handleChanges(value) {
     console.log(`selected ${value}`);
+  }
+
+  const ok =()=>
+  {
+    console.log(props.form.getFieldsValue());
   }
 
 
@@ -176,7 +186,12 @@ const ProfileBuilderForm = props=> {
 
       </Form.Item>
 
-
+      <div style={{display:'flex' , justifyContent:'center'}}>
+        <button  className='profileCard__item-btn' type='submit'>VALIDER</button>
+      </div>
+            
+      
+            
     </Form>
   );
 

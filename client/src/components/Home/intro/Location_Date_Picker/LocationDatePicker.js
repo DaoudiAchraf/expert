@@ -46,15 +46,15 @@ const LocationDatePicker = props => {
   return (
     <form noValidate className="flexContainer3">
 
-      <div className='input-location'>
+      {/* <div className='input-location'></div> */}
         <Location setLocation={setLocation} />
-      </div>
-      <div className="background">
+      
+      <div className="dateTime-selector">
         <DatePicker
           size={'large'}
           showTime
 
-          placeholder="Select Time"
+          placeholder="Sat 04/07 : 11:00"
           onChange={handlstartdatechange} />
       </div>
 

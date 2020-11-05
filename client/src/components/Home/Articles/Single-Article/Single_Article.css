@@ -1,0 +1,35 @@
+
+
+.single-article
+{
+    display: flex;
+    flex-direction: column;
+
+    padding: 0px 15px 0px 15px;
+    margin-bottom: 64px;
+}
+
+
+.single-article >img
+{
+    /* max-height: 210px;
+    width: 27%;
+    object-fit: fill; */
+    width: 370px;
+    height: 208px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+#article_date
+{
+    color: #878DA4;
+    font-size: 14px;
+}
+
+#article_title
+{
+    font-weight: 500;
+    font-size: 20px;
+    color: #0F1C49;
+}

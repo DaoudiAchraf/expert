@@ -1,16 +1,33 @@
-import React from "react";
-import { Form, Icon, Input, Button } from "antd";
+import React, { useEffect, useState } from "react";
+import { Form, Icon, Input, Button, message } from "antd";
+import { useHistory } from 'react-router-dom';
 import "./signin-form.scss";
 
 const SigninForm = props => {
   const { getFieldDecorator } = props.form;
-  const handleSubmit = e => {
+  const history = useHistory();
+  const [usercon, setUsercon] = useState();
+
+  const handleSubmit = async e => {
     e.preventDefault();
-    props.form.validateFields((err, data) => {
+    props.form.validateFields(async (err, data) => {
       if (!err) {
-        console.log(data)
-        props.signin(data);
-        props.setShowmodel(false);
+        console.log(data);
+        props.signin(data)
+          .then(res => {
+            props.setShowmodel(false);
+            props.form.resetFields();
+            message.success('Successfully login in');
+            console.log(props.user);
+            if (props.user) {
+              props.user.role == 'expert' && history.push('/profiles');
+            }
+          })
+          .catch(err => {
+            message.error(err.message);
+            props.form.resetFields();
+            console.log(err);
+          });
       }
     });
   };

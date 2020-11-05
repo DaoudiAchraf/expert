@@ -18,8 +18,11 @@ module.exports.delete_Profile = (req, res) => {
 
 module.exports.update_Profile = (req, res, next) => {
 
-    Profile.update({ _id: req.params.id }, { status: 'none' })
-        .then(res.json({ msg: 'profile successfully updated' }));
+    console.log(req.body);
+
+    Profile.updateOne({ user: req._id }, { $set: req.body })
+        .then(res.json(req.body))
+        .err(err => console.log(err));
 
 };
 
@@ -40,6 +43,10 @@ module.exports.get_allProfiles = async (req, res, next) => {
     const time = date[1];
     // console.log(date)
     // console.log(experts);
+    // const date = req.query.startDate.split(',');
+    // const day = date[0].toLowerCase();
+    // const time = date[1];
+    // console.log(date)
     const experts = await Profile.find().populate('user');
     // res.status(200).json(experts);
     const profiles = await experts.filter(e => {

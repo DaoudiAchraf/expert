@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import { connect, Provider } from "react-redux";
 import { Route, Redirect, Switch, withRouter } from "react-router-dom";
 import HomePage from "./pages/home-page/Home";
@@ -16,6 +16,8 @@ import ExpertMissions from './pages/expert_missions_page/ExpertMissions';
 import MissionsDonePage from './pages/missions_done_page/MissionsDonePage';
 import ClientProfilePage from './pages/clientProfile-page/ClientProfile-page';
 import RapportPage from './pages/rapport-page/RapportPage';
+import RapportPdf from './pages/rapport-page/RapportPdf';
+import ArticlePage from './pages/article-page/ArticlePage';
 import store from "./stores/store-dev";
 import './App.scss';
 import 'antd/dist/antd.css';
@@ -23,31 +25,44 @@ import 'antd/dist/antd.css';
 
 
 const App = props => {
-  
+
+  const refs = {
+    contactRef: useRef(null),
+    reviewRef: useRef(null),
+    teamRef: useRef(null),
+    serviceRef: useRef(null),
+    aProposRef: useRef(null)
+  }
+
+  //console.log('refs',refs);
+
   return (
     <Provider store={store}>
       <div className={"app"} style={{ backgroundColor: '#F6F9FC' }} >
         <Navbar
+          refs={refs}
           user={props.user}
           isLoggedIn={props.isLoggedIn}
           logout={props.logout}
         />
         <Switch location={props.history.location}>
-          <Route exact path={"/"} component={HomePage} />
+          <Route exact path={"/"} component={() => <HomePage refs={refs} />} />
           <Route exact path={"/expert"} component={ExpertPage} />
           <Route exact path={"/profile/:id"} component={ProfilePage} />
           <Route exact path={"/search"} component={SearchExpertsPage} />
-          <Route exact path={"/appointments"} component={AppointmentsPage} />
+          {/* <Route exact path={"/appointments"} component={AppointmentsPage} /> */}
           <Route exact path={"/missions"} component={ExpertMissions} />
           <Route exact path={"/done-missions"} component={MissionsDonePage} />
-          <Route exact path={"/rapport"} component={RapportPage} />
+          <Route exact path={"/rapport/:id"} component={RapportPage} />
           <Route exact path={"/client/:id"} component={ClientProfilePage} />
-
+          <Route exact path={"/article"} component={ArticlePage} />
+          <Route exact path={"/rapportPdf"} component={RapportPdf} />
           {/* <AuthRout
           authenticated={props.isLoggedIn}
           path="/expert"
           component={ExpertPage}
         /> */}
+
           <GuestRoute
             authenticated={props.isLoggedIn}
             path="/signup"

@@ -1,12 +1,13 @@
 import React, { useEffect } from "react";
 import ReactDOM from "react-dom";
-import { Router } from "react-router-dom";
+import { Router, Route } from "react-router-dom";
 import { Provider, connect } from "react-redux";
 import { createBrowserHistory } from "history";
 import axiosInstance from "./config/axios-instance";
 import store from "./stores/store-dev";
 
 import App from "./App";
+import RapportPdf from './pages/rapport-page/RapportPdf';
 
 import "antd/dist/antd.min.css";
 import "./stylesheets/main.scss";
@@ -37,7 +38,6 @@ store.subscribe(() => {
 const WrappedApp = props => {
   useEffect(() => {
     if (token) {
-      console.log("zerzdfdfdf")
       // We need to check if the token are valid or not by getting the auth user
       props.store.dispatch(getAuthUser());
     }

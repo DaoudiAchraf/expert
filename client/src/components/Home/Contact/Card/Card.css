@@ -5,19 +5,28 @@
     display: flex; flex-direction: column; flex-wrap: wrap;
 }
 
+.card-container
+{
+    padding: 5px 0px;
+    width: 700px;
+    height: 292px ;
+}   
+
+#my-card__contact p
+{
+    font-size: 23px;
+    line-height: 37px;
+    font-weight: 400;
+}
+
 @media all and (max-width:700px)
 {
-
-.card
-{
-    padding: 5px 10px;
-}
   
 }
 
 .card-actions
 {
-    display :flex;
+    display : flex;
     justify-content: row;
     flex-wrap: wrap;
 }
@@ -30,9 +39,15 @@
     padding: 10px;
     margin-right: 20px;
 
+    height: 50px;
+    width: 330px;
+    border-radius: 8px;
+
 }
 
-.input::placeholder
-{
-   text-align: center;
+.input::placeholder{ text-align: center; }
+
+.card-container .MuiCard-root {
+    overflow: hidden;
+    height: 267px;
 }

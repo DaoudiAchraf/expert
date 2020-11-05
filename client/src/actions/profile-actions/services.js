@@ -24,11 +24,21 @@ function getProfileRequest(id) {
   });
 }
 
+function UpdateProfileRequest(profile) {
+  return axiosInstance({
+    method: "put",
+    url: "profile/update",
+    data: profile
+  });
+}
+
+
 
 const ProfileServices = {
   createProfileRequest,
   getProfilesRequest,
-  getProfileRequest
+  getProfileRequest,
+  UpdateProfileRequest
 };
 
 export default ProfileServices;

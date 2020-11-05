@@ -17,6 +17,6 @@ const logger = createLogger({
     error: () => "#FF534D"
   }
 });
-const store = createStore(rootReducer,composeWithDevTools( applyMiddleware(reduxThunk, logger) ));
+const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(reduxThunk, logger)));
 
 export default store;

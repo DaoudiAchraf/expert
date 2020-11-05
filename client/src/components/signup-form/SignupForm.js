@@ -24,7 +24,6 @@ const SignupForm = props => {
         props.setNextstep(props.nextstep + 1);
         props.refsigntupexpert.current.next();
         props.handle();
-
       }
     });
 
