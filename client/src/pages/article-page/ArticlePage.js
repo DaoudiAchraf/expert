@@ -1,7 +1,7 @@
 import React from 'react';
 import './ArticlePage.css';
 import img from '../../images/articleimg.jpg';
-import facebookICON from '../../images/facebook.jpg';
+import facebookICON from '../../images/facebook.png';
 
 const ArticlePage = () => {
     return (
@@ -9,7 +9,7 @@ const ArticlePage = () => {
             <img src={img} />
             
             <div className="article__content">
-            <h1>Lorem ipsum</h1>
+            <h1 style={{color:"#000000"}}>Lorem ipsum</h1>
                 <span> Publié le 22/10/2020</span>
                 <p>
                     Lorem Ipsum is simply dummy text of the printing and typesetting industry.
@@ -19,7 +19,10 @@ const ArticlePage = () => {
                     remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset
                     sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
                 </p>
-                <button className="btn__facebook-share"><img src={facebookICON}/>Partager sur facebook</button>
+                <button className="btn__facebook-share">
+                    <img  src={facebookICON}/>
+                    Partager sur facebook
+                </button>
             </div>
 
           

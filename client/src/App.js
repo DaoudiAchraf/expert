@@ -51,17 +51,34 @@ const App = props => {
           <Route exact path={"/profile/:id"} component={ProfilePage} />
           <Route exact path={"/search"} component={SearchExpertsPage} />
           {/* <Route exact path={"/appointments"} component={AppointmentsPage} /> */}
-          <Route exact path={"/missions"} component={ExpertMissions} />
-          <Route exact path={"/done-missions"} component={MissionsDonePage} />
+          {/* <Route exact path={"/missions"} component={ExpertMissions} /> */}
+          {/* <Route exact path={"/done-missions"} component={MissionsDonePage} /> */}
           <Route exact path={"/rapport/:id"} component={RapportPage} />
-          <Route exact path={"/client/:id"} component={ClientProfilePage} />
-          <Route exact path={"/article"} component={ArticlePage} />
+          {/* <Route exact path={"/client/:id"} component={ClientProfilePage} />
+          <Route exact path={"/article"} component={ArticlePage} /> */}
           <Route exact path={"/rapportPdf"} component={RapportPdf} />
           {/* <AuthRout
           authenticated={props.isLoggedIn}
           path="/expert"
           component={ExpertPage}
         /> */}
+
+
+
+          <AuthRoute path="/missions"
+            authenticated={props.isLoggedIn}
+            user={props.user}
+            component={ExpertMissions} />
+
+          <AuthRoute path="/done-missions"
+            authenticated={props.isLoggedIn}
+            user={props.user}
+            component={MissionsDonePage} />
+
+          {/* <Route exact path={"/done-missions"} component={MissionsDonePage} /> */}
+          <Route exact path={"/client/:id"} component={ClientProfilePage} />
+          <Route exact path={"/article"} component={ArticlePage} />
+          {/* <Redirect to="/"/> */}
 
           <GuestRoute
             authenticated={props.isLoggedIn}
@@ -79,19 +96,22 @@ const App = props => {
     </Provider>
   );
 };
-function AuthRoute({ component: Component, authenticated, ...rest }) {
+function AuthRoute({ component: Component, authenticated, user, ...rest }) {
   return (
     <Route
       {...rest}
       exact
       render={props =>
-        authenticated ? (
-          <Component {...props} />
-        ) : (
-            <Redirect
-              to={{ pathname: "/signin", state: { from: props.location } }}
-            />
-          )
+
+        !authenticated ? (
+          <Redirect
+            to={{ pathname: "/signin", state: { from: props.location } }}
+          />
+        )
+          : user.role === "expert" ?
+            (<Component {...props} />)
+            :
+            <Redirect to="/" />
       }
     />
   );

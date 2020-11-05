@@ -2,8 +2,9 @@ import React, { useState } from 'react';
 import './NavBar.css';
 import SignUpPage from "../../../pages/signup-page/SignUpPage";
 import Notifications from '../../Notifications/Notification';
-import { Link, useHistory } from 'react-router-dom';
 import { connect } from 'react-redux';
+import { Link, useLocation, useHistory } from 'react-router-dom';
+const { RangePicker } = TimePicker;
 
 const NavBar = (props) => {
   const [showmodel, setShowmodel] = useState(false);
@@ -11,7 +12,25 @@ const NavBar = (props) => {
   const handlclick = () => {
     props.isLoggedIn ? history.push('/search') : setShowmodel(true);
   }
-  const scrollToRef = (ref) => window.scrollTo(0, ref.current.offsetTop);
+
+  const history = useHistory();
+
+  const currentURL = useLocation().pathname;
+
+  const scrollToRef = (ref) => {
+    if (currentURL != '/') {
+      history.push('/');
+      setTimeout(() => {
+        window.scrollTo(0, ref.current.offsetTop);
+      }, 1000);
+    }
+
+    else
+      window.scrollTo(0, ref.current.offsetTop);
+  }
+
+
+
 
   return (
 
@@ -42,7 +61,12 @@ const NavBar = (props) => {
               </li>
           </Link>
           <button onClick={handlclick} className="btn btn-primary">Demander assistance</button>
-          <Notifications />
+
+          {
+            !(currentURL === '/missions') &&
+            <Notifications />
+          }
+
         </ul>
 
 

@@ -14,7 +14,7 @@ const Profile_Review = () => {
     return (
         <div className="profile_review">
                 <div className="review_header">
-                    <h3>Reviews (32)</h3>
+                    <h2>Reviews (32)</h2>
                     
                     <div className="review_rw">
                         <a><p>See all</p></a>
@@ -23,7 +23,7 @@ const Profile_Review = () => {
 
                 </div>
 
-                <div className="fields">
+                {/* <div className="fields">
 
                     <div className="rated-field">
                          <h5>Explains</h5>
@@ -46,7 +46,7 @@ const Profile_Review = () => {
                          <Rating name="size-small" defaultValue={2} size="small" />
                     </div>
        
-                </div>
+                </div> */}
 
                 <div className="review">
                     <div className="user-infos">

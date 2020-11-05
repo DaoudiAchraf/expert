@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState} from 'react';
 import './Profile.css';
 import SelectBar from './SelectBar/SelectBar';
 import img from '../../images/profile_img.jpg';
@@ -10,6 +10,7 @@ import { useSelector } from 'react-redux';
 
 const Profile = props => {
 
+   
     let current_profile = {
         bio: '',
         certifications: [],
@@ -66,9 +67,9 @@ const Profile = props => {
 
             </div> 
 
-             <div className="seconde_row">
-                    <hr/>
-                    <div className="lower-infos">
+  
+                    
+                    <div className="lower-infos"><hr/>
                         <div className="biography">
                             <img className="icon" src={userIcon}></img>
                             <p className="expert_career"> Professional statement :</p>
@@ -77,7 +78,7 @@ const Profile = props => {
                             </div>
                         </div>
 
-                        <div className="certifis">
+                        <div className="certifs">
                             <img className="icon" src={certificationIcon}></img>
                             <p className="expert_career">Certifications :</p>
                             <div className="inner_career">
@@ -91,8 +92,7 @@ const Profile = props => {
 
                     </div>
 
-                </div>
-                                                               
+                                                        
                                                             
             </div>
         </div>

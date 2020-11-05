@@ -16,29 +16,30 @@ const jwtHelper = require('../config/jwtHelper');
 const MIME_TYPE_MAP = {
     'image/png': 'png',
     'image/jpeg': 'jpg',
-    'image/jpg': 'jpg'
+    'image/jpg': 'jpg',
+    'image/pdf': 'pdf'
 };
 
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
-        const isValid = MIME_TYPE_MAP[file.mimetype];
-        let error = new Error('Invalid mime type');
-        if (isValid) {
-            error = null;
-        }
-        cb(error, "./images");
+        // const isValid = MIME_TYPE_MAP[file.mimetype];
+        // let error = new Error('Invalid mime type');
+        // if (isValid) {
+        //     error = null;
+        // }
+        cb(null, "./images");
     },
     filename: (req, file, cb) => {
-        console.log(file.originalname)
-        console.log(file.mimetype)
-        const name = file.originalname.toLowerCase().split(' ').join('-');
-        console.log(name)
-        const ext = MIME_TYPE_MAP[file.mimetype];
-        cb(null, name + '-' + Date.now() + '.' + ext);
+        // console.log(file.originalname)
+        // console.log(file.mimetype)
+        // const name = file.originalname.toLowerCase().split(' ').join('-');
+        // console.log(name)
+        // const ext = MIME_TYPE_MAP[file.mimetype];
+        // cb(null, name + '-' + Date.now() + '.' + ext);
+        cb(null, new Date().getTime().toString() + '_' + file.originalname);
     }
 
 });
-
 
 
 
@@ -58,7 +59,9 @@ router.post('/authenticate', ctrlUser.authenticate);
 router.get('/user', jwtHelper.verifyJwtToken, ctrlUser.userProfile);
 
 
-router.post('/profile/add', profileController.add_Profile);
+router.post('/profile/add', multer({ storage: storage }).array("image", 3),
+    profileController.add_Profile);
+
 router.delete('/profile/delete/:id', profileController.delete_Profile);
 router.get('/profile/:id', profileController.get_Profile);
 router.get('/profiles', profileController.get_allProfiles);
@@ -74,4 +77,8 @@ router.get('/getMission/:id', jwtHelper.verifyJwtToken, reservationsController.g
 router.get('/reservation/myMissions', jwtHelper.verifyJwtToken, reservationsController.getMissions);
 router.get('/reservation/history', jwtHelper.verifyJwtToken, reservationsController.getClienthistory);
 router.post('/addRaport', rapportController.add_rapport);
+// router.post('/upload', multer({ storage: storage }).array("image",3), (req,res)=>{
+//     console.log("-->",req.files[0].filename);
+//     res.status(200).json('it WORK !!!');
+//     });
 module.exports = router;

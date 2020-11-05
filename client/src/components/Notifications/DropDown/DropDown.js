@@ -8,9 +8,9 @@ import { useDispatch,useSelector } from 'react-redux';
 import moment from 'moment/moment.js';
 import {ScheduleTwoTone,ClockCircleTwoTone,
         TagTwoTone,FormOutlined} from '@ant-design/icons'
+import { Link } from 'react-router-dom';
 
 const DropdownC = (props) => {
-
  
     const [userNotifications,setNotifications] = useState([]);
 
@@ -18,14 +18,12 @@ const DropdownC = (props) => {
 
     let auth = useSelector(state => state.authReducer);
 
-    console.log('auth',auth.user.role === 'client');
+    console.log('auth',auth.user.role === 'expert');
 
     useEffect(() => {
           dispatch(getAppointments());
       }, []);
-  
     
-      
     let Notifications = useSelector(state => state.reservationReducer.myReservations);
    
     useEffect(()=>{
@@ -40,6 +38,10 @@ const DropdownC = (props) => {
     }
 
 
+    const current_user = useSelector( state => state.authReducer);
+
+    console.log(current_user.user.role);
+
     const menu = (
         <Menu style={{backgroundColor:'transparent',boxShadow:'none'}}>
           <Menu.Item  className='dropdown_item'>
@@ -48,20 +50,26 @@ const DropdownC = (props) => {
 
                    const {_id,name,date,type,status,expert} = notification;
             
-                    return(
+                    return( current_user.isLoggedIn ?
+
+                       (current_user.user.role === "client" ?
+
                             <div key={_id} className="single-notification">
                                 <div className="user_infos">
                                     <img src={img} />
                                     <h5 style={{display:'inline'}}>{expert.login ? expert.login :name}</h5>
                                 </div>
                                 
-                                <p style={{marginBottom:'9',marginBottom:'5'}} ><TagTwoTone/> {type} <br/>
-
-                                  <ScheduleTwoTone/> {moment(date).format('YYYY-MM-DD')} {" "} 
-                                  <ClockCircleTwoTone/> {moment(date).format('HH.mm')} 
+                                <p className="single-notification__details"
+                                 style={{marginBottom:'9',marginBottom:'5'}} >
+                                   
+                                   <TagTwoTone/> {type} <br/>
+                                   <ScheduleTwoTone/> {moment(date).format('YYYY-MM-DD')} {" "} 
+                                   <ClockCircleTwoTone/> {moment(date).format('HH.mm')} 
                                 </p>
 
-                                 { expert.login && status === 'accepted' ? 
+                                { 
+                                  expert.login && status === 'accepted' ? 
                                      <div className="appointment_response" style={{backgroundColor:"#93CC49"}}>
                                        <span>accepté</span>
                                      </div>
@@ -73,6 +81,25 @@ const DropdownC = (props) => {
                              
                                 }
                            </div>
+                         
+                          :<Link to="/missions">
+                              <div className="client__reservation">
+                                      <div className="user_infos ">
+                                          <img src={img} />
+                                          <h5 style={{display:'inline'}}>{expert.login ? expert.login :name}</h5>
+                                      </div>
+                                    
+                                      <p className="single-notification__details"
+                                        style={{marginTop:11,marginBottom:0,textAlign:'center'}} >
+
+                                        <TagTwoTone/> {type} <br/>
+
+                                        <ScheduleTwoTone/> {moment(date).format('YYYY-MM-DD')} {" "} 
+                                        <ClockCircleTwoTone/> {moment(date).format('HH.mm')} 
+                                      </p>
+                              </div>
+                          </Link>)
+                      :null
                     )})
             }
       

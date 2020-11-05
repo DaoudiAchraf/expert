@@ -1,9 +1,5 @@
 
-.reservation
-{
-
-    padding-left: 25px;
-}
+.reservation{ padding-left: 25px; }
 
 .reservation_header
 {
@@ -76,15 +72,16 @@
 {
     font-size: 15px;
     line-height: 20px;
-   
     color: #47495A;
-
 }
 
-/* .ant-input-number-input
+
+.ant-notification-notice 
 {
-    padding-left: 100px;
-} */
+    /* background-color: #89C8FF !important; */
+    background-color: #CCE7AA !important;
+    
+}
 
 @media all and (max-width:1130px)
 {

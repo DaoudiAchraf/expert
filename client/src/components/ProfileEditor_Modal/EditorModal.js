@@ -4,15 +4,12 @@ import Form_Editor from '../ProfileEditor_Modal/form_Editor/Form_Editor';
 
 const ProfileEditor = props => {
 
-  
       // const showModal = () => {
       //       props.setState({
       //         visible: true,
       //       });
       //     };
       
-    
-   
       const handleOk = () => {
         
             alert('hello');

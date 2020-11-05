@@ -52,6 +52,16 @@ export const setReservation = (values) => {
         dispatch({ type: SET_RESERVATION, payload: values });
       })
       .catch(err => console.log(err));
+  }
+}
+export const setReservation = (values) => {
+  return dispatch => {
+    reservationsServices.setReservation_Request(values)
+      .then((res) => {
+        console.log("reservations", res.data);
+        dispatch({ type: SET_RESERVATION, payload: values });
+      })
+      .catch(err => console.log(err));
 
   };
 };

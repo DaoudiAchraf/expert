@@ -7,7 +7,7 @@
    background-color: white;
    max-width: 660px;
    /* height: 565px; */
-   height: 80%;
+ 
 }
 
 
@@ -99,9 +99,27 @@
 .lower-infos
 {
     max-width: 600px;
-
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    /* min-height: 400px; */
+   
 }
 
+.biography
+{
+    height: 100px;
+    margin: 5px;
+    flex-grow: 1;
+}
+
+
+.certifs
+{
+    height: 100px;
+    margin: 5px;
+    flex-grow: 1;
+}
 
 .inner_career p
 {
