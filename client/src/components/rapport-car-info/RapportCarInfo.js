@@ -34,9 +34,9 @@ const RapportCarInfoForm = props => {
                                         rules: [{ required: true, message: "Numéro de châssis est obligatoire!" }]
                                     })(
                                         <Radio.Group>
-                                            <Radio value={1}>Non conforme</Radio>
-                                            <Radio value={2}>Corrosion</Radio>
-                                            <Radio value={3}>Conforme</Radio>
+                                            <Radio value={"non conforme"}>Non conforme</Radio>
+                                            <Radio value={"corrosion"}>Corrosion</Radio>
+                                            <Radio value={"Conforme"}>Conforme</Radio>
                                         </Radio.Group>
                                     )}
                                 </Form.Item>
@@ -55,8 +55,8 @@ const RapportCarInfoForm = props => {
                                         rules: [{ required: true, message: "Plaque du constructeur est obligatoire!" }]
                                     })(
                                         <Radio.Group>
-                                            <Radio value={1}>Non conforme</Radio>
-                                            <Radio value={2}>Conforme</Radio>
+                                            <Radio value={"non conforme"}>Non conforme</Radio>
+                                            <Radio value={"conforme"}>Conforme</Radio>
                                         </Radio.Group>
                                     )}
                                 </Form.Item>
@@ -75,8 +75,8 @@ const RapportCarInfoForm = props => {
                                         rules: [{ required: true, message: "Certificat d'immatriculation est obligatoire!" }]
                                     })(
                                         <Radio.Group>
-                                            <Radio value={1}>Non conforme</Radio>
-                                            <Radio value={2}>Conforme</Radio>
+                                            <Radio value={"non conforme"}>Non conforme</Radio>
+                                            <Radio value={"conforme"}>Conforme</Radio>
                                         </Radio.Group>
                                     )}
                                 </Form.Item>
@@ -95,8 +95,8 @@ const RapportCarInfoForm = props => {
                                         rules: [{ required: true, message: "Plaque d'immatriculation est obligatoire!" }]
                                     })(
                                         <Radio.Group>
-                                            <Radio value={1}>Non conforme</Radio>
-                                            <Radio value={2}>Conforme</Radio>
+                                            <Radio value={"non conforme"}>Non conforme</Radio>
+                                            <Radio value={"conforme"}>Conforme</Radio>
                                         </Radio.Group>
                                     )}
                                 </Form.Item>

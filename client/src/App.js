@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
 import { connect, Provider } from "react-redux";
-import { Route, Redirect, Switch, withRouter } from "react-router-dom";
+import { Route, Redirect, Switch, withRouter, useLocation } from "react-router-dom";
 import HomePage from "./pages/home-page/Home";
 import Navbar from "./components/layout/NavBar/NavBar";
 import Footer from './components/layout/Footer/Footer';
@@ -33,18 +33,19 @@ const App = props => {
     serviceRef: useRef(null),
     aProposRef: useRef(null)
   }
+  const location = useLocation();
 
   //console.log('refs',refs);
 
   return (
     <Provider store={store}>
       <div className={"app"} style={{ backgroundColor: '#F6F9FC' }} >
-        <Navbar
+        {location.pathname != '/rapportPdf' && <Navbar
           refs={refs}
           user={props.user}
           isLoggedIn={props.isLoggedIn}
           logout={props.logout}
-        />
+        />}
         <Switch location={props.history.location}>
           <Route exact path={"/"} component={() => <HomePage refs={refs} />} />
           <Route exact path={"/expert"} component={ExpertPage} />
@@ -91,7 +92,7 @@ const App = props => {
             component={SigninPage}
           />
         </Switch>
-        <Footer />
+        {location.pathname != '/rapportPdf' && <Footer />}
       </div>
     </Provider>
   );

@@ -8,7 +8,7 @@ const Articles = () => {
     const articles = [];
 
     for (let index = 0; index < 8; index++)
-        articles.push(<Single_Article />);
+        articles.push(<Single_Article key={index} />);
 
     return (
         <div className="article__container">

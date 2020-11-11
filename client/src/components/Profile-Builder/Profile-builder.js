@@ -54,7 +54,6 @@ const ProfileBuilderForm = props => {
           setResult(suggestions);
 
         })
-
     }
 
   };

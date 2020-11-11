@@ -37,7 +37,6 @@ const MissionsDonePage = () => {
                 </Breadcrumb>
             </div>
             <div className="missions">
-
                 <div className="missions-card">
                     <div className="title">
                         <h6>Mes missions encours</h6>

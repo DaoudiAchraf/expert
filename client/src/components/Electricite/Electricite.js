@@ -15,7 +15,6 @@ const ElectriciteForm = props => {
                 console.log(data);
                 props.nextPage();
             }
-
         });
     };
     return (

@@ -18,7 +18,7 @@ const SigninForm = props => {
           props.form.resetFields();
           message.success('Successfully login in');
           if (data.user) {
-            data.user.role == 'expert' && history.push('/profiles');
+            data.user.role == 'expert' && history.push('/profile/' + data.user._id);
           }
         }, (err) => {
           message.error(err.message);
